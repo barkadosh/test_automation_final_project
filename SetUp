@@ -1,0 +1,5 @@
+Setup for new automation env:
+
+1. pytest - pip install pytest
+2. selenium - pip install selenium
+3. Driver manager - pip install webdriver-manager
