@@ -8,7 +8,7 @@ from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 driver = None
-web_driver = 'Chrome'
+web_driver = 'Edge'
 
 
 @pytest.fixture(scope="class")
