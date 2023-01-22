@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
@@ -7,7 +8,10 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
+from utilities.manage_pages import ManagePages
+
 driver = None
+action = None
 web_driver = 'Chrom'
 
 
@@ -19,6 +23,8 @@ def init_web_driver(request):
     driver.implicitly_wait(5)
     driver.get("http://localhost:3000/")
     request.cls.driver = driver
+    globals()['action'] = ActionChains(driver)
+    ManagePages.init_web_pages()
     yield
     driver.quit()
 
