@@ -15,7 +15,7 @@ from utilities.manage_pages import ManagePages
 
 driver = None
 action = None
-web_driver = 'Chrome'
+
 
 
 @pytest.fixture(scope="class")
@@ -23,7 +23,7 @@ def init_web_driver(request):
     globals()['driver'] = get_web_driver()
     driver = globals()['driver']
     driver.maximize_window()
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(int(get_data('WaitTime')))
     driver.get(get_data('Url'))
     request.cls.driver = driver
     globals()['action'] = ActionChains(driver)
@@ -34,6 +34,7 @@ def init_web_driver(request):
 
 
 def get_web_driver():
+    web_driver = get_data('Browser')
     if web_driver.lower() == 'chrome':
         driver = get_chrome()
     elif web_driver.lower() == 'firefox':

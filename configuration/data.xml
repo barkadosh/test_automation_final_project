@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Environment>
     <!--General -->
-    <WaitTime>2</WaitTime>
+    <WaitTime>3</WaitTime>
 
     <!--Web -->
     <Browser>Chrome</Browser>
-    <Url>http://localhost:3000/</Url>
+    <Url>http://localhost:3000</Url>
     <Username>admin</Username>
     <Password>admin</Password>
 </Environment>
