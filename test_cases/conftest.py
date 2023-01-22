@@ -12,7 +12,7 @@ from utilities.manage_pages import ManagePages
 
 driver = None
 action = None
-web_driver = 'Chrom'
+web_driver = 'Chrome'
 
 
 @pytest.fixture(scope="class")
