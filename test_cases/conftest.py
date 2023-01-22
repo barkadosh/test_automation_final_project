@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -26,6 +28,7 @@ def init_web_driver(request):
     globals()['action'] = ActionChains(driver)
     ManagePages.init_web_pages()
     yield
+    time.sleep(2)
     driver.quit()
 
 
