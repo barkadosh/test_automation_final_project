@@ -1,5 +1,6 @@
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
+from extensions.verifications import Verifications
 
 
 class WebFlows:
@@ -12,5 +13,7 @@ class WebFlows:
 
     @staticmethod
     def verify_grafana_title(expected: str):
+        # Expected issue
         actual = page.web_main.get_main_title().text
+        Verifications.verify_equals(actual, expected)
 
