@@ -6,7 +6,7 @@ import test_cases.conftest as conf
 class UiActions:
     @staticmethod
     def click(elem: WebElement):
-        #explistly wait...
+        # explicitly wait...
         elem.click()
 
     @staticmethod
@@ -28,4 +28,3 @@ class UiActions:
     @staticmethod
     def clear(elem: WebElement):
         elem.clear()
-

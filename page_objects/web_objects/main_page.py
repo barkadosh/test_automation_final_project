@@ -7,6 +7,6 @@ class MainPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def get_title(self):
+    def get_main_title(self):
         return self.driver.find_element(*MainPage.title)
 
