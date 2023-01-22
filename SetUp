@@ -3,3 +3,9 @@ Setup for new automation env:
 1. pytest - pip install pytest
 2. selenium - pip install selenium
 3. Driver manager - pip install webdriver-manager
+4. DriverManager - https://github.com/SergeyPirogov/webdriver_manager
+5. To fix project so we can view all functions with "driver." -
+File -> Settings -> Project: test_automation_final... -> Project Structure ->click on venv\Lib\site-packages ->
+click on "Mark as:" Sources (blue folder) -> Click x on Excluded folders -> apply
+- now the pycharm recognize the site packages (selenium folders) and can fine modulus under 'driver.'
+(https://atidcollege.co.il/members/privates/fsta-py/content-final-project-1-selenium/fp06-auto-completion.html)
