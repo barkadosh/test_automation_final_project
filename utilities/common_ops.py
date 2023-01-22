@@ -2,6 +2,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement
 import test_cases.conftest as conf
+import xml.etree.ElementTree as ET
+
+
+def get_data(node_name):
+    root = ET.parse('C:/Automation/Final_Proj_Aut_Py/configuration/data.xml').getroot()
+    return root.find('//.' + node_name).text
 
 
 def wait(for_element, elem):

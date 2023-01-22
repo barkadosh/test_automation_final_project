@@ -4,6 +4,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
+from utilities.common_ops import get_data
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
@@ -23,7 +24,7 @@ def init_web_driver(request):
     driver = globals()['driver']
     driver.maximize_window()
     driver.implicitly_wait(5)
-    driver.get("http://localhost:3000/")
+    driver.get(get_data('Url'))
     request.cls.driver = driver
     globals()['action'] = ActionChains(driver)
     ManagePages.init_web_pages()
