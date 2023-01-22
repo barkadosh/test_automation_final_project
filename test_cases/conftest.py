@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver import ActionChains
@@ -12,7 +14,7 @@ from utilities.manage_pages import ManagePages
 
 driver = None
 action = None
-web_driver = 'Chrom'
+web_driver = 'Chrome'
 
 
 @pytest.fixture(scope="class")
@@ -26,6 +28,7 @@ def init_web_driver(request):
     globals()['action'] = ActionChains(driver)
     ManagePages.init_web_pages()
     yield
+    time.sleep(2)
     driver.quit()
 
 
