@@ -5,11 +5,13 @@ import test_cases.conftest as conf
 import xml.etree.ElementTree as ET
 
 
+# Connectivity to XML file
 def get_data(node_name):
     root = ET.parse('C:/Automation/Final_Proj_Aut_Py/configuration/data.xml').getroot()
     return root.find('.//' + node_name).text
 
 
+# Wait conditions
 def wait(for_element, elem):
     if for_element == 'element_exist':
         WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(EC.presence_of_element_located((elem[0], elem[1])))
@@ -18,7 +20,7 @@ def wait(for_element, elem):
         WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(EC.visibility_of_element_located((elem[0], elem[1])))
 
 
-# Enum for selecting displayed element or exist element, my wait methode use this enum
+# Enum for selecting displayed element, exist element, etc.. my wait methode use this enum
 class For:
     ELEMENT_EXIST = 'element_exist'
     ELEMENT_DISPLAYED = 'element_displayed'

@@ -14,3 +14,10 @@ class TestWeb:
         WebFlows.verify_menu_buttons_flow_smart_assertions()   # smart-assertions
         #WebFlows.verify_menu_buttons_flow()                   # my implementation
 
+    def verify_new_users(self):
+        WebFlows.open_users_page()
+        WebFlows.create_user('test1', 'test1@test', 'test1user', '123456')
+
+
+
+

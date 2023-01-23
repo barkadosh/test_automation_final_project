@@ -31,6 +31,11 @@ class Verifications:
                 print(f'Soft Displayed Failed, Elements which have failed: {str(failed_elem)}')
             raise AssertionError('Soft Displayed Failed')
 
+    @staticmethod
+    def verify_number_of_elements(elems, size):
+        assert len(elems) == size, f'Number of elements in list: {str(len(elems))} does not match Expected: {str(size)}'
+
+
 
 
 
