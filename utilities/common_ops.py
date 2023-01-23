@@ -6,10 +6,14 @@ import xml.etree.ElementTree as ET
 
 
 # Connectivity to XML file
+# From laptop:
+# def get_data(node_name):
+#     root = ET.parse('C:/Automation/Final_Proj_Aut_Py/configuration/data.xml').getroot()
+#     return root.find('.//' + node_name).text
+# From desktop:
 def get_data(node_name):
-    root = ET.parse('C:/Automation/Final_Proj_Aut_Py/configuration/data.xml').getroot()
+    root = ET.parse('C:/Automation/test_automation_final_project/configuration/data.xml').getroot()
     return root.find('.//' + node_name).text
-
 
 # Wait conditions
 def wait(for_element, elem):
