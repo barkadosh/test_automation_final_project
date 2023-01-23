@@ -15,7 +15,7 @@ class UiActions:
 
     @staticmethod
     def mouse_hover(elem1: WebElement, elem2: WebElement):
-        conf.action.move_to_element(elem1).move_to_element(elem2).perform()
+        conf.action.move_to_element(elem1).move_to_element(elem2).click().perform()
 
     @staticmethod
     def right_click(elem: WebElement):

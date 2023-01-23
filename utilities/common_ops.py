@@ -17,10 +17,17 @@ def wait(for_element, elem):
         WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(EC.presence_of_element_located((elem[0], elem[1])))
 
     elif for_element == 'element_displayed':
-        WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(EC.visibility_of_element_located((elem[0], elem[1])))
+        WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(
+            EC.visibility_of_element_located((elem[0], elem[1])))
 
 
 # Enum for selecting displayed element, exist element, etc.. my wait methode use this enum
 class For:
     ELEMENT_EXIST = 'element_exist'
     ELEMENT_DISPLAYED = 'element_displayed'
+
+
+# Enum for selecting from users list in users page by username or by index, " open_user_settings" web flow use this Enum
+class By:
+    USER = 'user'
+    INDEX = 'index'

@@ -29,7 +29,7 @@ def init_web_driver(request):
     globals()['action'] = ActionChains(driver)
     ManagePages.init_web_pages()
     yield
-    time.sleep(2)
+    time.sleep(5)
     driver.quit()
 
 

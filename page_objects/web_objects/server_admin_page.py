@@ -2,8 +2,10 @@ from selenium.webdriver.common.by import By
 
 search = (By.CSS_SELECTOR, ".css-1mlczho-input-input")
 new_user = (By.CSS_SELECTOR, "a[href='admin/users/create']")
-users_list = (By.CSS_SELECTOR, "table>tbody>tr")
+# I changed this element to click on <a> link and not on <tr> ->
+users_list = (By.CSS_SELECTOR, "table>tbody>tr>td:first-child>a")
 user_by_user_name = (By.CSS_SELECTOR, "a[title='some-user']")
+user_info = (By.CSS_SELECTOR, ".page-heading")
 delete = (By.CSS_SELECTOR, "div>button.css-mk7eo3-button")
 confirm_delete = (By.CSS_SELECTOR, "button[aria-label='Confirm Modal Danger Button']")
 
@@ -26,6 +28,9 @@ class ServerAdminPage:
 
     def get_user_by_username(self, user):
         return self.driver.find_element(user_by_user_name[0], user_by_user_name[1].replace('some-user', str(user)))
+
+    def get_user_info(self):
+        return self.driver.find_element(user_info[0], user_info[1])
 
     def get_delete(self):
         return self.driver.find_element(delete[0], delete[1])
