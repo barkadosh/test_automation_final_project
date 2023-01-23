@@ -11,4 +11,6 @@ class TestWeb:
         WebFlows.verify_grafana_title("Welcome to Grafana")
 
     def test_verify_upper_menu(self):
-        WebFlows.verify_menu_buttons_flow()
+        WebFlows.verify_menu_buttons_flow_smart_assertions()   # smart-assertions
+        #WebFlows.verify_menu_buttons_flow()                   # my implementation
+

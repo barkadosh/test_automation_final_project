@@ -1,3 +1,5 @@
+from smart_assertions import soft_assert, verify_expectations
+
 from selenium.webdriver.remote.webelement import WebElement
 
 
@@ -10,6 +12,14 @@ class Verifications:
     def is_displayed(elem: WebElement):
         assert elem.is_displayed(), f'Verify Is Displayed Failed, Element: {elem.text} is not displayed'
 
+    # Verify Menu Buttons Flow Soft Using smart-assertions
+    @staticmethod
+    def soft_assert(elems):
+        for i in range(len(elems)):
+            soft_assert(elems[i].is_displayed())
+        verify_expectations()
+
+    # Verify Menu Buttons Flow Using My Implementation
     @staticmethod
     def soft_displayed(elems):
         failed_elems = []
@@ -20,4 +30,7 @@ class Verifications:
             for failed_elem in failed_elems:
                 print(f'Soft Displayed Failed, Elements which have failed: {str(failed_elem)}')
             raise AssertionError('Soft Displayed Failed')
+
+
+
 

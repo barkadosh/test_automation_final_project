@@ -9,3 +9,4 @@ File -> Settings -> Project: test_automation_final... -> Project Structure ->cli
 click on "Mark as:" Sources (blue folder) -> Click x on Excluded folders -> apply
 - now the pycharm recognize the site packages (selenium folders) and can fine modulus under 'driver.'
 (https://atidcollege.co.il/members/privates/fsta-py/content-final-project-1-selenium/fp06-auto-completion.html)
+6. Smart assertions plugin - pip install smart-assertions
