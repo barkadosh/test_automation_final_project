@@ -19,3 +19,13 @@ class WebFlows:
         actual = page.web_main.get_main_title().text
         Verifications.verify_equals(actual, expected)
 
+    @staticmethod
+    def verify_menu_buttons_flow():
+        elems = [page.web_upper_menu.get_general(),
+                 page.web_upper_menu.get_home(),
+                 page.web_upper_menu.get_panel(),
+                 page.web_upper_menu.get_dashboard_settings(),
+                 page.web_upper_menu.get_cycle_view()]
+
+        Verifications.soft_displayed(elems)
+

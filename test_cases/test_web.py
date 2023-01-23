@@ -9,3 +9,6 @@ class TestWeb:
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.verify_grafana_title("Welcome to Grafana")
+
+    def test_verify_upper_menu(self):
+        WebFlows.verify_menu_buttons_flow()
