@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-general = (By.LINK_TEXT, "General")
-home = (By.LINK_TEXT, "Home")
+general_breadcrumbs = (By.LINK_TEXT, "General")
+home_breadcrumbs = (By.LINK_TEXT, "Home")
 panel = (By.CSS_SELECTOR, "[aria-label='Add panel']")
 dashboard_settings = (By.CSS_SELECTOR, "[aria-label='Dashboard settings']")
 cycle_view = (By.CSS_SELECTOR, "[aria-label='Cycle view mode']")
@@ -12,11 +12,11 @@ class UpperMenuPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def get_general(self):
-        return self.driver.find_element(general[0], general[1])
+    def get_general_breadcrumbs(self):
+        return self.driver.find_element(general_breadcrumbs[0], general_breadcrumbs[1])
 
-    def get_home(self):
-        return self.driver.find_element(home[0], home[1])
+    def get_home_breadcrumbs(self):
+        return self.driver.find_element(home_breadcrumbs[0], home_breadcrumbs[1])
 
     def get_panel(self):
         return self.driver.find_element(panel[0], panel[1])
