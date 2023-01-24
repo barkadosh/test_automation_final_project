@@ -65,7 +65,7 @@ class WebFlows:
         elif number == 0:
             Verifications.verify_number_of_elements(page.web_server_admin.get_users_list(), number)
         else:
-            raise Exception("Non legal number, please provide number >= 0")
+            raise Exception("Non legal number, please provide number higher or equal to 0")
 
     @staticmethod
     def search_user(search_value):
