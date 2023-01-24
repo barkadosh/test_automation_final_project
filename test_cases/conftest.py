@@ -1,10 +1,13 @@
 import time
 
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
 from utilities.common_ops import get_data
+from utilities.event_listener import EventListener
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
@@ -20,7 +23,8 @@ action = None
 
 @pytest.fixture(scope="class")
 def init_web_driver(request):
-    globals()['driver'] = get_web_driver()
+    edriver = get_web_driver()
+    globals()['driver'] = EventFiringWebDriver(edriver, EventListener())
     driver = globals()['driver']
     driver.maximize_window()
     driver.implicitly_wait(int(get_data('WaitTime')))
