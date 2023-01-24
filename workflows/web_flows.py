@@ -59,9 +59,13 @@ class WebFlows:
 
     @staticmethod
     def verify_number_of_users(number):
-        wait(For.ELEMENT_EXIST, page_objects.web_objects.server_admin_page.users_list)
         if number > 0:
+            wait(For.ELEMENT_DISPLAYED, page_objects.web_objects.server_admin_page.users_list)
             Verifications.verify_number_of_elements(page.web_server_admin.get_users_list(), number)
+        elif number == 0:
+            Verifications.verify_number_of_elements(page.web_server_admin.get_users_list(), number)
+        else:
+            raise Exception("Non legal number, please provide number >= 0")
 
     @staticmethod
     def search_user(search_value):
