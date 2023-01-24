@@ -1,3 +1,5 @@
+import csv
+
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.remote.webelement import WebElement
@@ -7,13 +9,25 @@ import xml.etree.ElementTree as ET
 
 # Connectivity to XML file
 # From laptop:
-# def get_data(node_name):
-#     root = ET.parse('C:/Automation/Final_Proj_Aut_Py/configuration/data.xml').getroot()
-#     return root.find('.//' + node_name).text
-# From desktop:
 def get_data(node_name):
-    root = ET.parse('C:/Automation/test_automation_final_project/configuration/data.xml').getroot()
+    root = ET.parse('C:/Automation/Final_Proj_Aut_Py/configuration/data.xml').getroot()
     return root.find('.//' + node_name).text
+
+
+# From desktop:
+# def get_data(node_name):
+#     root = ET.parse('C:/Automation/test_automation_final_project/configuration/data.xml').getroot()
+#     return root.find('.//' + node_name).text
+
+# Connectivity to CSV file
+def read_csv(file_name):
+    data = []
+    with open(file_name, newline='') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            data.insert(len(data), row)
+        return data
+
 
 # Wait conditions
 def wait(for_element, elem):

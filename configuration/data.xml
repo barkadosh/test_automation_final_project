@@ -8,4 +8,5 @@
     <Url>http://localhost:3000</Url>
     <Username>admin</Username>
     <Password>admin</Password>
+    <CSV_Location>../ddt/users.csv</CSV_Location>
 </Environment>

@@ -5,7 +5,7 @@ import page_objects.web_objects.server_admin_page
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
-from utilities.common_ops import wait, For, get_data
+from utilities.common_ops import wait, For, get_data, read_csv
 
 
 class WebFlows:
@@ -59,9 +59,14 @@ class WebFlows:
 
     @staticmethod
     def verify_number_of_users(number):
-        wait(For.ELEMENT_DISPLAYED, page_objects.web_objects.server_admin_page.users_list)
+        wait(For.ELEMENT_EXIST, page_objects.web_objects.server_admin_page.users_list)
         if number > 0:
             Verifications.verify_number_of_elements(page.web_server_admin.get_users_list(), number)
+
+    @staticmethod
+    def search_user(search_value):
+        UiActions.clear(page.web_server_admin.get_search())
+        UiActions.update_text(page.web_server_admin.get_search(), search_value)
 
     @staticmethod
     def delete_user(by, value):
@@ -77,5 +82,10 @@ class WebFlows:
         self.driver.get(get_data('Url'))
 
 
-
+data = read_csv(get_data('CSV_Location'))
+testdata = [
+    (data[0][0], data[0][1]),
+    (data[1][0], data[1][1]),
+    (data[2][0], data[2][1])
+]
 
