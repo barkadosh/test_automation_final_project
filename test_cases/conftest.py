@@ -63,3 +63,6 @@ def get_firefox():
 def get_edge():
     edge_driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))  # Selenium 4.x
     return edge_driver
+
+def pytest_exception_interact(node, call, report):
+    image = 'c:/'

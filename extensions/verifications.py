@@ -1,3 +1,4 @@
+import allure
 from smart_assertions import soft_assert, verify_expectations
 
 from selenium.webdriver.remote.webelement import WebElement
@@ -5,15 +6,18 @@ from selenium.webdriver.remote.webelement import WebElement
 
 class Verifications:
     @staticmethod
+    @allure.step("Verify element is equal to expected")
     def verify_equals(actual, expected):
         assert actual == expected, f'Verify Equals Failed, Actual: {str(actual)} is notequal to Expected: {str(expected)}'
 
     @staticmethod
+    @allure.step("Verify element is displayed")
     def is_displayed(elem: WebElement):
         assert elem.is_displayed(), f'Verify Is Displayed Failed, Element: {elem.text} is not displayed'
 
     # Verify Menu Buttons Flow Soft Using smart-assertions
     @staticmethod
+    @allure.step("Soft verification of elements using smart-assertions")
     def soft_assert(elems):
         for i in range(len(elems)):
             soft_assert(elems[i].is_displayed())
@@ -21,6 +25,7 @@ class Verifications:
 
     # Verify Menu Buttons Flow Using My Implementation
     @staticmethod
+    @allure.step("Soft verification of elements using my implementation")
     def soft_displayed(elems):
         failed_elems = []
         for i in range(len(elems)):
@@ -32,6 +37,7 @@ class Verifications:
             raise AssertionError('Soft Displayed Failed')
 
     @staticmethod
+    @allure.step("Verify number of elements in list")
     def verify_number_of_elements(elems, size):
         assert len(elems) == size, f'Number of elements in list: {str(len(elems))} does not match Expected: {str(size)}'
 
