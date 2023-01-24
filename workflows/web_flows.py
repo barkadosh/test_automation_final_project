@@ -9,6 +9,7 @@ from utilities.common_ops import wait, For, get_data, read_csv
 
 
 class WebFlows:
+
     @staticmethod
     def login_flow(user: str, password: str):
         UiActions.update_text(page.web_login.get_user_name(), user)

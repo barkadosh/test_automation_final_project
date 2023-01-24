@@ -1,7 +1,5 @@
 import time
-
 import allure
-
 import pytest
 from utilities.common_ops import get_data, By
 from workflows import web_flows
@@ -10,16 +8,19 @@ from workflows.web_flows import WebFlows
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
-    @allure.title("TC01: Login")
-    @allure.description("Login to Grafana system")
+    @allure.title("TC01: Login to Grafana")
+    @allure.description("Verify a successful login to Grafana")
+    @pytest.mark.sanity
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.verify_grafana_title("Welcome to Grafana")
 
-    @allure.title("TC01: Login")
+    @allure.title("TC02: Login")
     @allure.description("Login to Grafana system")
+    @pytest.mark.sanity
     def test_verify_upper_menu(self):
-        WebFlows.verify_menu_buttons_flow_smart_assertions()   # smart-assertions
+        WebFlows.verify_menu_buttons_flow_smart_assertions()  # smart-assertions
+
     #     #WebFlows.verify_menu_buttons_flow()                   # my implementation
 
     def test_verify_new_users(self):
@@ -45,8 +46,3 @@ class TestWeb:
     def teardown_method(self):
         WebFlows.grafana_home(self)
         time.sleep(2)
-
-
-
-
-

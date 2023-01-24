@@ -20,7 +20,6 @@ driver = None
 action = None
 
 
-
 @pytest.fixture(scope="class")
 def init_web_driver(request):
     edriver = get_web_driver()

@@ -28,3 +28,4 @@ class UiActions:
     @staticmethod
     def clear(elem: WebElement):
         elem.clear()
+

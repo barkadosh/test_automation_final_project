@@ -1,17 +1,51 @@
-Setup for new automation env:
+Setup and info:
+
+Start grafana server: "C:\Automation\grafana-enterprise-9.3.2.windows-amd64\grafana-9.3.2\bin\grafana-server.exe"
 
 1. pytest - pip install pytest
 2. selenium - pip install selenium
 3. Driver manager - pip install webdriver-manager
-4. DriverManager - https://github.com/SergeyPirogov/webdriver_manager
-5. To fix project so we can view all functions with "driver." -
+DriverManager - https://github.com/SergeyPirogov/webdriver_manager
+4. To fix project so we can view all functions with "driver." -
 File -> Settings -> Project: test_automation_final... -> Project Structure ->click on venv\Lib\site-packages ->
 click on "Mark as:" Sources (blue folder) -> Click x on Excluded folders -> apply
 - now the pycharm recognize the site packages (selenium folders) and can fine modulus under 'driver.'
 (https://atidcollege.co.il/members/privates/fsta-py/content-final-project-1-selenium/fp06-auto-completion.html)
-6. Smart assertions plugin - pip install smart-assertions
-7. Allure reports - https://github.com/allure-framework/allure2
+5. Smart assertions plugin - pip install smart-assertions
+6. Allure reports - https://github.com/allure-framework/allure2
 download from releases: https://github.com/allure-framework/allure2/releases the zip file on the automation proj
 install: pip install allure-pytest
 To run: python -m pytest test_web.py --alluredir=../allure-results
 To open report: allure serve allure-results
+
+
+
+***Pytest***
+Run: python -m pytest -v -s test_web.py
+(* use python -m when the pytest install in another location - another project)
+run with -v : Verbose - more details on the logs
+run with -s : Print on screen values on print()
+run with -k - a specific test case/test cases: "python -m pytest -v -s test_web.py -k verify_login"
+or - pytest test_module.py::test_class:test_example -s -v
+
+Skip on test - @pytest.mark.skip
+Don't fail test that going to fail - @pytest.mark.xfail
+Sanity TC - @pytest.mark.sanity - python -m pytest -v -s test_web.py -m sanity
+
+Fixtures- metadata for classes
+@pytest.fixture
+def setup
+print("somthing1") - will run first
+yield
+print("somthing3") - will run last
+def test():
+print("somthing2") - will run second
+
+@classmethod
+def setup_class
+print("somthing1") - will run before tests in class
+
+@classmethod
+def teardown_class
+print("somthing2") - will run after tests in class
+
