@@ -15,14 +15,16 @@ class TestWeb:
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.verify_grafana_title("Welcome to Grafana")
 
-    @allure.title("TC02: Login")
-    @allure.description("Login to Grafana system")
+    @allure.title("TC02: Check upper menu buttons")
+    @allure.description("This test check that the upper menu buttons are displayed")
     @pytest.mark.sanity
     def test_verify_upper_menu(self):
         WebFlows.verify_menu_buttons_flow_smart_assertions()  # smart-assertions
 
     #     #WebFlows.verify_menu_buttons_flow()                   # my implementation
 
+    @allure.title("TC03: Create and verify new users")
+    @allure.description("This test create new users and check that the new users are displayed")
     def test_verify_new_users(self):
         WebFlows.open_users_page()
         WebFlows.create_user('test1', 'test1@gmail.com', 'test1user', '123456')
@@ -31,12 +33,16 @@ class TestWeb:
         WebFlows.open_users_page()
         WebFlows.verify_number_of_users(3)
 
+    @allure.title("TC04: Filter the users list")
+    @allure.description("This test filters the users list and check that the correct number of users are displayed")
     @pytest.mark.parametrize('search_value, expected_users', web_flows.testdata)
     def test_search_filter(self, search_value, expected_users):
         WebFlows.open_users_page()
         WebFlows.search_user(search_value)
         WebFlows.verify_number_of_users(int(expected_users))
 
+    @allure.title("TC05: Delete users")
+    @allure.description("This test delete new users and check that the users are deleted")
     def test_verify_deleted_user(self):
         WebFlows.open_users_page()
         WebFlows.delete_user(By.USER, 'test1user')

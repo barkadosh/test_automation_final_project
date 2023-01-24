@@ -92,7 +92,6 @@ class WebFlows:
         self.driver.get(get_data('Url'))
 
 
-
 data = read_csv(get_data('CSV_Location'))
 testdata = [
     (data[0][0], data[0][1]),

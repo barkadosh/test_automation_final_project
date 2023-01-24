@@ -17,7 +17,8 @@ download from releases: https://github.com/allure-framework/allure2/releases the
 install: pip install allure-pytest
 To run: python -m pytest test_web.py --alluredir=../allure-results
 To open report: allure serve allure-results
-
+**html reports: pip install pytest-html
+to run: python -m pytest test_web.py -s -v --html=Reports/my_report.html --capture=tee-sys
 
 
 ***Pytest***
@@ -30,7 +31,8 @@ or - pytest test_module.py::test_class:test_example -s -v
 
 Skip on test - @pytest.mark.skip
 Don't fail test that going to fail - @pytest.mark.xfail
-Sanity TC - @pytest.mark.sanity - python -m pytest -v -s test_web.py -m sanity
+Sanity TC - @pytest.mark.sanity , to run: python -m pytest -v -s test_web.py -m sanity
+
 
 Fixtures- metadata for classes
 @pytest.fixture
@@ -48,4 +50,21 @@ print("somthing1") - will run before tests in class
 @classmethod
 def teardown_class
 print("somthing2") - will run after tests in class
+
+Xunit style
+
+#before methods
+def setup_method(self):
+
+def teardown_method(self):
+
+#before classes
+def setup_class(self):
+
+def teardown_class(self):
+
+#before module
+def setup_module(self):
+
+def teardown_module(self):
 
