@@ -1,4 +1,7 @@
 import time
+
+import allure
+
 import pytest
 from utilities.common_ops import get_data, By
 from workflows import web_flows
@@ -7,12 +10,16 @@ from workflows.web_flows import WebFlows
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
+    @allure.title("TC01: Login")
+    @allure.description("Login to Grafana system")
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.verify_grafana_title("Welcome to Grafana")
 
-    # def test_verify_upper_menu(self):
-    #     WebFlows.verify_menu_buttons_flow_smart_assertions()   # smart-assertions
+    @allure.title("TC01: Login")
+    @allure.description("Login to Grafana system")
+    def test_verify_upper_menu(self):
+        WebFlows.verify_menu_buttons_flow_smart_assertions()   # smart-assertions
     #     #WebFlows.verify_menu_buttons_flow()                   # my implementation
 
     def test_verify_new_users(self):

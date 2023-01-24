@@ -12,3 +12,6 @@ click on "Mark as:" Sources (blue folder) -> Click x on Excluded folders -> appl
 6. Smart assertions plugin - pip install smart-assertions
 7. Allure reports - https://github.com/allure-framework/allure2
 download from releases: https://github.com/allure-framework/allure2/releases the zip file on the automation proj
+install: pip install allure-pytest
+To run: python -m pytest test_web.py --alluredir=../allure-results
+To open report: allure serve allure-results
