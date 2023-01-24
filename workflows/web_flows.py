@@ -15,6 +15,7 @@ class WebFlows:
         UiActions.update_text(page.web_login.get_password(), password)
         UiActions.click(page.web_login.get_submit())
         UiActions.click(page.web_login.get_skip())
+        time.sleep(2)
 
     @staticmethod
     def verify_grafana_title(expected: str):
@@ -47,6 +48,7 @@ class WebFlows:
         elem1 = page.web_side_menu_nav.get_server_admin_nav()
         elem2 = page.web_server_admin_popup_menu.get_users_nav()
         UiActions.mouse_hover(elem1, elem2)
+        time.sleep(2)
 
     @staticmethod
     def create_user(name, email, user, password):
@@ -56,6 +58,7 @@ class WebFlows:
         UiActions.update_text(page.web_server_admin_new_user.get_username(), user)
         UiActions.update_text(page.web_server_admin_new_user.get_password(), password)
         UiActions.click(page.web_server_admin_new_user.get_create_user())
+        time.sleep(2)
 
     @staticmethod
     def verify_number_of_users(number):
@@ -71,6 +74,7 @@ class WebFlows:
     def search_user(search_value):
         UiActions.clear(page.web_server_admin.get_search())
         UiActions.update_text(page.web_server_admin.get_search(), search_value)
+        time.sleep(2)
 
     @staticmethod
     def delete_user(by, value):
@@ -80,10 +84,12 @@ class WebFlows:
             UiActions.click(page.web_server_admin.get_user_by_index(value))
         UiActions.click(page.web_server_admin.get_delete())
         UiActions.click(page.web_server_admin.confirm_delete())
+        time.sleep(2)
 
     @staticmethod
     def grafana_home(self):
         self.driver.get(get_data('Url'))
+
 
 
 data = read_csv(get_data('CSV_Location'))

@@ -32,11 +32,12 @@ class TestWeb:
     def test_verify_deleted_user(self):
         WebFlows.open_users_page()
         WebFlows.delete_user(By.USER, 'test1user')
-        WebFlows.delete_user(By.INDEX, 2)
+        WebFlows.delete_user(By.INDEX, 1)
         WebFlows.verify_number_of_users(1)
 
     def teardown_method(self):
         WebFlows.grafana_home(self)
+        time.sleep(2)
 
 
 
