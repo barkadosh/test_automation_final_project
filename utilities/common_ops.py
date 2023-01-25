@@ -1,4 +1,5 @@
 import csv
+import time
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -18,6 +19,7 @@ def get_data(node_name):
 # def get_data(node_name):
 #     root = ET.parse('C:/Automation/test_automation_final_project/configuration/data.xml').getroot()
 #     return root.find('.//' + node_name).text
+
 
 # Connectivity to CSV file
 def read_csv(file_name):
@@ -49,3 +51,7 @@ class For:
 class By:
     USER = 'user'
     INDEX = 'index'
+
+
+def get_time_stamp():
+    return time.time()

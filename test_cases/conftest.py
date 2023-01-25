@@ -1,12 +1,14 @@
 import time
 
+import allure
+
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 
 import pytest
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
-from utilities.common_ops import get_data
+from utilities.common_ops import get_data, get_time_stamp
 from utilities.event_listener import EventListener
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.firefox.service import Service as FirefoxService
@@ -64,5 +66,9 @@ def get_edge():
     edge_driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))  # Selenium 4.x
     return edge_driver
 
+
+# catch exceptions and errors
 def pytest_exception_interact(node, call, report):
-    image = 'c:/'
+    image = get_data('ScreenshotPath') + f'screen_{str(get_time_stamp())}.png'
+    globals()['driver'].get_screenshot_as_file(image)
+    allure.attach.file(image, attachment_type=allure.attachment_type.PNG)

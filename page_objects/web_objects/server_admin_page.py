@@ -8,6 +8,7 @@ user_by_user_name = (By.CSS_SELECTOR, "a[title='some-user']")
 user_info = (By.CSS_SELECTOR, ".page-heading")
 delete = (By.CSS_SELECTOR, "div>button.css-mk7eo3-button")
 confirm_delete = (By.CSS_SELECTOR, "button[aria-label='Confirm Modal Danger Button']")
+close_alert = (By.CSS_SELECTOR, "button[aria-label='Close alert']")
 
 
 class ServerAdminPage:
@@ -37,3 +38,6 @@ class ServerAdminPage:
 
     def confirm_delete(self):
         return self.driver.find_element(confirm_delete[0], confirm_delete[1])
+
+    def close_alert(self):
+        return self.driver.find_element(close_alert[0], close_alert[1])

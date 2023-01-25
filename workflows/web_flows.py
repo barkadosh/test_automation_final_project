@@ -92,6 +92,8 @@ class WebFlows:
             UiActions.click(page.web_server_admin.get_user_by_index(value))
         UiActions.click(page.web_server_admin.get_delete())
         UiActions.click(page.web_server_admin.confirm_delete())
+        # I added this step because the alert interrupt clicking on the users_list element
+        UiActions.click(page.web_server_admin.close_alert())
 
     @staticmethod
     @allure.step("Go to home page flow")

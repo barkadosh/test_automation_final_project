@@ -1,0 +1,16 @@
+Before Find Element: [aria-label='Server admin']
+After Find Element [aria-label='Server admin']
+Before Find Element: a[href='/admin/users']
+After Find Element a[href='/admin/users']
+Before Find Element: .css-1mlczho-input-input
+After Find Element .css-1mlczho-input-input
+Before Change Value  
+After Change Value  
+Before Find Element: .css-1mlczho-input-input
+After Find Element .css-1mlczho-input-input
+Before Change Value  
+After Change Value  kuku
+Before Find Element: table>tbody>tr>td:first-child>a
+After Find Element table>tbody>tr>td:first-child>a
+Before Navigating to http://localhost:3000
+After Navigating to http://localhost:3000

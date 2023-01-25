@@ -13,7 +13,7 @@ class TestWeb:
     @pytest.mark.sanity
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
-        WebFlows.verify_grafana_title("Welcome to Grafana")
+        WebFlows.verify_grafana_title("failtest") #Welcome to Grafana
 
     @allure.title("TC02: Check upper menu buttons")
     @allure.description("This test check that the upper menu buttons are displayed")
