@@ -10,4 +10,6 @@
     <Username>admin</Username>
     <Password>admin</Password>
     <CSV_Location>../ddt/users.csv</CSV_Location>
+    <ExecuteApplitools>yes</ExecuteApplitools>  <!--yes / no-->
+    <ApplitoolsAPI>rCfg7VUAMD1y9jG97L8H101bVw0yaF0RQuC2ZWo0q47pCs110</ApplitoolsAPI>
 </Environment>

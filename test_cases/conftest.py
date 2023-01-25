@@ -1,6 +1,7 @@
 import time
 
 import allure
+from applitools.selenium import Eyes
 
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 
@@ -20,12 +21,16 @@ from utilities.manage_pages import ManagePages
 
 driver = None
 action = None
+eyes = Eyes()  # Applitools
 
 
 @pytest.fixture(scope="class")
 def init_web_driver(request):
-    edriver = get_web_driver()
-    globals()['driver'] = EventFiringWebDriver(edriver, EventListener())
+    if get_data("ExecuteApplitools").lower() == 'yes':
+        globals()['driver'] = get_web_driver()
+    else:
+        edriver = get_web_driver()
+        globals()['driver'] = EventFiringWebDriver(edriver, EventListener())
     driver = globals()['driver']
     driver.maximize_window()
     driver.implicitly_wait(int(get_data('WaitTime')))
@@ -33,9 +38,13 @@ def init_web_driver(request):
     request.cls.driver = driver
     globals()['action'] = ActionChains(driver)
     ManagePages.init_web_pages()
+    if get_data("ExecuteApplitools").lower() == 'yes':
+        eyes.api_key = get_data("ApplitoolsAPI")
     yield
-    time.sleep(2)
     driver.quit()
+    if get_data("ExecuteApplitools").lower() == 'yes':
+        eyes.close() # Applitools
+        eyes.abort() # Applitools
 
 
 def get_web_driver():

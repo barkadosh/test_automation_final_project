@@ -1,6 +1,8 @@
 import time
 import allure
 import pytest
+from test_cases import conftest as conf
+from test_cases.conftest import eyes
 from utilities.common_ops import get_data, By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
@@ -13,7 +15,7 @@ class TestWeb:
     @pytest.mark.sanity
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
-        WebFlows.verify_grafana_title("failtest") #Welcome to Grafana
+        WebFlows.verify_grafana_title("Welcome to Grafana")
 
     @allure.title("TC02: Check upper menu buttons")
     @allure.description("This test check that the upper menu buttons are displayed")
@@ -48,6 +50,15 @@ class TestWeb:
         WebFlows.delete_user(By.USER, 'test1user')
         WebFlows.delete_user(By.INDEX, 1)
         WebFlows.verify_number_of_users(1)
+
+    @allure.title("TC06: Visual testing - users chart")
+    @allure.description("Check visually the users chart")
+    @pytest.mark.visual_test
+    @pytest.mark.skipif(get_data("ExecuteApplitools").lower() == 'no', reason='Want to view Event Listeners')
+    def test_view_users_chart(self):
+        WebFlows.open_users_page()
+        eyes.open(conf.driver, "Grafana - users chart", "Check visually the users chart")
+        eyes.check_window("Check users table")
 
     def teardown_method(self):
         WebFlows.grafana_home(self)
