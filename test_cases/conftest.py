@@ -69,6 +69,8 @@ def get_edge():
 
 # catch exceptions and errors
 def pytest_exception_interact(node, call, report):
-    image = get_data('ScreenshotPath') + f'screen_{str(get_time_stamp())}.png'
-    globals()['driver'].get_screenshot_as_file(image)
-    allure.attach.file(image, attachment_type=allure.attachment_type.PNG)
+    if report.failed:
+        if globals()['driver'] is not None:  # if it is None - > this is exception from API test
+            image = get_data('ScreenshotPath') + f'screen_{str(get_time_stamp())}.png'
+            globals()['driver'].get_screenshot_as_file(image)
+            allure.attach.file(image, attachment_type=allure.attachment_type.PNG)
