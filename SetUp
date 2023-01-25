@@ -17,7 +17,7 @@ download from releases: https://github.com/allure-framework/allure2/releases the
 install: pip install allure-pytest
 To run: python -m pytest test_web.py --alluredir=../allure-results
 To open report: allure serve allure-results
-**html reports: pip install pytest-html
+**html reports: pip install pytest-html (*cause incompatibility problem with the latest pytest version!)
 to run: python -m pytest test_web.py -s -v --html=Reports/my_report.html --capture=tee-sys
 
 
