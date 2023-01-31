@@ -13,6 +13,7 @@ class TestWeb:
     @allure.title("TC01: Login to Grafana")
     @allure.description("Verify a successful login to Grafana")
     @pytest.mark.sanity
+    @pytest.mark.run_this
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.verify_grafana_title("Welcome to Grafana")
@@ -55,6 +56,7 @@ class TestWeb:
     @allure.description("Check visually the users chart")
     @pytest.mark.visual_test
     @pytest.mark.skipif(get_data("ExecuteApplitools").lower() == 'no', reason='Want to view Event Listeners')
+    @pytest.mark.run_this
     def test_view_users_chart(self):
         WebFlows.open_users_page()
         eyes.open(conf.driver, "Grafana - users chart", "Check visually the users chart")
