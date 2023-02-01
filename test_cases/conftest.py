@@ -1,12 +1,15 @@
 import time
 
 import allure
+import appium
+import selenium
 from applitools.selenium import Eyes
 
 from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 
 import pytest
 from selenium import webdriver
+from appium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.service import Service as ChromeService
 from utilities.common_ops import get_data, get_time_stamp
@@ -43,8 +46,19 @@ def init_web_driver(request):
     yield
     driver.quit()
     if get_data("ExecuteApplitools").lower() == 'yes':
-        eyes.close() # Applitools
-        eyes.abort() # Applitools
+        eyes.close()  # Applitools
+        eyes.abort()  # Applitools
+
+
+@pytest.fixture(scope="class")
+def init_mobile_driver(request):
+    edriver = get_mobile_driver()
+    globals()['driver'] = EventFiringWebDriver(edriver, EventListener())
+    driver = globals()['driver']
+    driver.implicitly_wait(int(get_data('WaitTime')))
+    request.cls.driver = driver
+    yield
+    driver.quit()
 
 
 def get_web_driver():
@@ -61,19 +75,49 @@ def get_web_driver():
     return driver
 
 
+def get_mobile_driver():
+    if get_data('Mobile_Device').lower() == 'android':
+        driver = get_android(get_data('Udid'))
+    elif get_data('Mobile_Device').lower() == 'ios':
+        driver = get_ios(get_data('Udid'))
+    else:
+        driver = None
+        raise Exception("Wrong input, unrecognized mobile OS")
+
+
 def get_chrome():
-    chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))  # Selenium 4.x
+    chrome_driver = selenium.webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))  # Selenium 4.x
     return chrome_driver
 
 
 def get_firefox():
-    firefox_driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))  # Selenium 4.x
+    firefox_driver = selenium.webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))  # Selenium 4.x
     return firefox_driver
 
 
 def get_edge():
-    edge_driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))  # Selenium 4.x
+    edge_driver = selenium.webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))  # Selenium 4.x
     return edge_driver
+
+
+def get_android(udid):
+    dc = {}
+    dc['udid'] = udid
+    dc['appPackage'] = get_data('App_Package')
+    dc['appActivity'] = get_data('App_Activity')
+    dc['platformName'] = 'android'
+    android_driver = appium.webdriver.Remote(get_data('Appium_Server'), dc)
+    return android_driver
+
+
+def get_ios(udid):
+    dc = {}
+    dc['udid'] = udid
+    dc['bundle_id'] = get_data('Bundle_ID')
+    dc['platformName'] = 'ios'
+    ios_driver = appium.webdriver.Remote(get_data('Appium_Server'), dc)
+    return ios_driver
+
 
 
 # catch exceptions and errors
