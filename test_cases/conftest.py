@@ -57,6 +57,7 @@ def init_mobile_driver(request):
     driver = globals()['driver']
     driver.implicitly_wait(int(get_data('WaitTime')))
     request.cls.driver = driver
+    ManagePages.init_mobile_pages()
     yield
     driver.quit()
 

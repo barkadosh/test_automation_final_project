@@ -1,4 +1,6 @@
 import test_cases.conftest as conf
+from page_objects.mobile_objects.calculator_page import CalculatorPage
+from page_objects.mobile_objects.saved_page import SavedPage
 from page_objects.web_objects.login_page import LoginPage
 from page_objects.web_objects.main_page import MainPage
 from page_objects.web_objects.server_admin_new_user_page import ServerAdminNewUser
@@ -16,6 +18,9 @@ web_server_admin_popup_menu = None
 web_server_admin = None
 web_server_admin_new_user = None
 
+# Mobile Objects
+mobile_calculator = None
+mobile_save = None
 
 class ManagePages:
     @staticmethod
@@ -27,4 +32,9 @@ class ManagePages:
         globals()['web_server_admin_popup_menu'] = ServerAdminPopUp(conf.driver)
         globals()['web_server_admin'] = ServerAdminPage(conf.driver)
         globals()['web_server_admin_new_user'] = ServerAdminNewUser(conf.driver)
+
+    @staticmethod
+    def init_mobile_pages():
+        globals()['mobile_calculator'] = CalculatorPage(conf.driver)
+        globals()['mobile_save'] = SavedPage(conf.driver)
 

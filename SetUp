@@ -20,7 +20,11 @@ To open report: allure serve allure-results
 **html reports: pip install pytest-html (*cause incompatibility problem with the latest pytest version!)
 to run: python -m pytest test_web.py -s -v --html=Reports/my_report.html --capture=tee-sys
 7. applitools- Installation: pip install eyes-selenium
-Login in: https://auth.applitools.com/users/login? (github)
+Login: https://auth.applitools.com/users/login? (github)
+
+
+
+
 
 ***Pytest***
 Run: python -m pytest -v -s test_web.py
