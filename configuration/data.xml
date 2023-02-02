@@ -20,4 +20,5 @@
     <App_Activity>.MainActivity</App_Activity> <!-- For Android -->
     <Bundle_ID>com.shivgadhia.ukMortgageCalc</Bundle_ID>   <!-- For IOS -->
     <Appium_Server>http://localhost:4723/wd/hub</Appium_Server>
+    <Swipe_Duration>200</Swipe_Duration>          <!-- milliseconds -->
 </Environment>

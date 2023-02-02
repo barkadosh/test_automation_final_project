@@ -29,6 +29,7 @@ driver = None
 action = None
 action2 = None
 m_action = None
+mobile_size = None
 eyes = Eyes()  # Applitools
 
 
@@ -69,6 +70,8 @@ def init_mobile_driver(request):
     request.cls.action2 = globals()['action2']
     globals()['m_action'] = MultiAction(driver)
     request.cls.m_action = globals()['m_action']
+    globals()['mobile_size'] = driver.get_window_size()
+    request.cls.mobile_size = globals()['mobile_size']
     ManagePages.init_mobile_pages()
     yield
     driver.quit()
@@ -96,6 +99,7 @@ def get_mobile_driver():
     else:
         driver = None
         raise Exception("Wrong input, unrecognized mobile OS")
+    return driver
 
 
 def get_chrome():
