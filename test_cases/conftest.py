@@ -2,6 +2,9 @@ import time
 
 import allure
 import appium
+from appium.webdriver.common.multi_action import MultiAction
+from appium.webdriver.common.touch_action import TouchAction
+
 import selenium
 from applitools.selenium import Eyes
 
@@ -24,6 +27,8 @@ from utilities.manage_pages import ManagePages
 
 driver = None
 action = None
+action2 = None
+m_action = None
 eyes = Eyes()  # Applitools
 
 
@@ -40,6 +45,7 @@ def init_web_driver(request):
     driver.get(get_data('Url'))
     request.cls.driver = driver
     globals()['action'] = ActionChains(driver)
+    request.cls.action = globals()['action']
     ManagePages.init_web_pages()
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.api_key = get_data("ApplitoolsAPI")
@@ -57,6 +63,12 @@ def init_mobile_driver(request):
     driver = globals()['driver']
     driver.implicitly_wait(int(get_data('WaitTime')))
     request.cls.driver = driver
+    globals()['action'] = TouchAction(driver)
+    request.cls.action = globals()['action']
+    globals()['action2'] = TouchAction(driver)
+    request.cls.action2 = globals()['action2']
+    globals()['m_action'] = MultiAction(driver)
+    request.cls.m_action = globals()['m_action']
     ManagePages.init_mobile_pages()
     yield
     driver.quit()
