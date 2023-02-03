@@ -20,7 +20,7 @@ class MobileFlows:
     @staticmethod
     @allure.step('Fill in mortgage details flow')
     def verify_mortgage_repayment(expected):
-        actual = page.mobile_calculator.get_repayment().text()
+        actual = page.mobile_calculator.get_repayment().text
         # £ - Press and hold the ALT key and type the number 0163 to make a Pound symbol
         Verifications.verify_equals(actual, '£' + expected)
 
@@ -56,7 +56,7 @@ class MobileFlows:
     @staticmethod
     @allure.step('Verify rate in saved transactions')
     def verify_rate(expected):
-        actual = page.mobile_save.get_rate().text()
+        actual = page.mobile_save.get_rate().text
         Verifications.verify_equals(actual, expected + '%')
 
     @staticmethod

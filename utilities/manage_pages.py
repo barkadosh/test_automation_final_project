@@ -22,6 +22,7 @@ web_server_admin_new_user = None
 mobile_calculator = None
 mobile_save = None
 
+
 class ManagePages:
     @staticmethod
     def init_web_pages():
@@ -37,4 +38,3 @@ class ManagePages:
     def init_mobile_pages():
         globals()['mobile_calculator'] = CalculatorPage(conf.driver)
         globals()['mobile_save'] = SavedPage(conf.driver)
-
