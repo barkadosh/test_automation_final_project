@@ -15,7 +15,7 @@ class TestMobile:
         MobileFlows.verify_mortgage_repayment('20.99')
 
     @allure.title("TC02: Verify saved details")
-    @allure.description("this test verify the transaction details")
+    @allure.description("This test verify saved transaction")
     @pytest.mark.sanity
     def test_verify_saved_details(self):
         MobileFlows.mortgage_flow('5000', '8', '3', Save.YES)
