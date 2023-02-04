@@ -44,6 +44,7 @@ def wait(for_element, elem):
 def get_time_stamp():
     return time.time()
 
+# Enums
 
 # Enum for selecting displayed element, exist element, etc.. my wait methode (in this file) use this enum
 class For:
@@ -61,3 +62,10 @@ class By:
 class Save:
     YES = True
     NO = False
+
+# Enum for tc- "test_verify_mortgage_repayment" in test_mobile, yes - for saving mortgage repayment, no - for not
+class Direction:
+    LEFT = 'left'
+    RIGHT = 'right'
+    UP = 'up'
+    DOWN = 'down'

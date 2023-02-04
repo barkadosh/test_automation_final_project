@@ -1,35 +1,38 @@
-import time
-
-import allure
 import appium
-from appium.webdriver.common.multi_action import MultiAction
-from appium.webdriver.common.touch_action import TouchAction
-
-import selenium
-from applitools.selenium import Eyes
-
-from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
 
 import pytest
+import allure
+
+# Selenium
 from selenium import webdriver
-from appium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.chrome.service import Service as ChromeService
-from utilities.common_ops import get_data, get_time_stamp
-from utilities.event_listener import EventListener
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver import ActionChains
+from applitools.selenium import Eyes
 
+# Selenium + Appium
+from selenium.webdriver.support.event_firing_webdriver import EventFiringWebDriver
+from utilities.event_listener import EventListener
 from utilities.manage_pages import ManagePages
+from utilities.common_ops import get_data, get_time_stamp
+
+
+# Appium
+from appium import webdriver
+from appium.webdriver.common.multi_action import MultiAction
+from appium.webdriver.common.touch_action import TouchAction
 
 driver = None
 action = None
 action2 = None
 m_action = None
 mobile_size = None
+dc = {}
+
 eyes = Eyes()  # Applitools
 
 
@@ -55,7 +58,6 @@ def init_web_driver(request):
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.close()  # Applitools
         eyes.abort()  # Applitools
-
 
 @pytest.fixture(scope="class")
 def init_mobile_driver(request):
@@ -93,9 +95,9 @@ def get_web_driver():
 
 def get_mobile_driver():
     if get_data('Mobile_Device').lower() == 'android':
-        driver = get_android(get_data('Udid'))
+        driver = get_android(get_data('Udid_Android'))
     elif get_data('Mobile_Device').lower() == 'ios':
-        driver = get_ios(get_data('Udid'))
+        driver = get_ios(get_data('Udid_ios'))
     else:
         driver = None
         raise Exception("Wrong input, unrecognized mobile OS")
@@ -103,38 +105,35 @@ def get_mobile_driver():
 
 
 def get_chrome():
-    chrome_driver = selenium.webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))  # Selenium 4.x
+    chrome_driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))  # Selenium 4.x
     return chrome_driver
 
 
 def get_firefox():
-    firefox_driver = selenium.webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))  # Selenium 4.x
+    firefox_driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))  # Selenium 4.x
     return firefox_driver
 
 
 def get_edge():
-    edge_driver = selenium.webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))  # Selenium 4.x
+    edge_driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))  # Selenium 4.x
     return edge_driver
 
 
 def get_android(udid):
-    dc = {}
     dc['udid'] = udid
     dc['appPackage'] = get_data('App_Package')
     dc['appActivity'] = get_data('App_Activity')
     dc['platformName'] = 'android'
-    android_driver = appium.webdriver.Remote(get_data('Appium_Server'), dc)
+    android_driver = appium.webdriver.Remote('http://localhost:4723/wd/hub', dc)
     return android_driver
 
 
 def get_ios(udid):
-    dc = {}
     dc['udid'] = udid
     dc['bundle_id'] = get_data('Bundle_ID')
     dc['platformName'] = 'ios'
-    ios_driver = appium.webdriver.Remote(get_data('Appium_Server'), dc)
+    ios_driver = appium.webdriver.Remote('http://localhost:4723/wd/hub', dc)
     return ios_driver
-
 
 
 # catch exceptions and errors

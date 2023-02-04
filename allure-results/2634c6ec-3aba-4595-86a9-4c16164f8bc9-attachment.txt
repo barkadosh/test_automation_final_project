@@ -1,2 +1,0 @@
---- Test passed. 
-	See details at https://eyes.applitools.com/app/batches/00000251727620645287/00000251727620645100?accountId=uC7pT3e6R0qz0R2dpXaRFA~~

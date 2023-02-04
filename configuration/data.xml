@@ -15,7 +15,8 @@
 
         <!--Mobile-->
     <Mobile_Device>Android</Mobile_Device>   <!-- Android/IOS -->
-    <Udid>R5CT80W3QWP</Udid>
+    <Udid_Android>R5CT80W3QWP</Udid_Android>
+    <Udid_ios>NONE</Udid_ios>
     <App_Package>com.shivgadhia.android.ukMortgageCalc</App_Package>  <!-- For Android -->
     <App_Activity>.MainActivity</App_Activity> <!-- For Android -->
     <Bundle_ID>com.shivgadhia.ukMortgageCalc</Bundle_ID>   <!-- For IOS -->

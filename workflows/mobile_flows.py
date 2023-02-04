@@ -1,9 +1,11 @@
 import allure
+
+import page_objects.mobile_objects.calculator_page
 from extensions.mobile_actions import MobileActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
 from test_cases import conftest as conf
-from utilities.common_ops import get_data
+from utilities.common_ops import get_data, wait, For
 
 
 class MobileFlows:
@@ -11,9 +13,10 @@ class MobileFlows:
     @allure.step('Fill in mortgage details flow')
     def mortgage_flow(amount, term, rate, save):
         MobileActions.update_text(page.mobile_calculator.get_amount(), amount)
-        MobileActions.update_text(page.mobile_calculator.get_term(), amount)
-        MobileActions.update_text(page.mobile_calculator.get_rate(), amount)
+        MobileActions.update_text(page.mobile_calculator.get_term(), term)
+        MobileActions.update_text(page.mobile_calculator.get_rate(), rate)
         MobileActions.click(page.mobile_calculator.get_calculate())
+        wait(For.ELEMENT_DISPLAYED, page_objects.mobile_objects.calculator_page.repayment)
         if save:
             MobileActions.click(page.mobile_calculator.get_save())
 
@@ -64,3 +67,11 @@ class MobileFlows:
     def delete_saved_trans():
         MobileActions.tap(page.mobile_save.get_delete())
         MobileActions.tap(page.mobile_save.get_confirm_delete())
+
+    @staticmethod
+    @allure.step('Verify saved transaction is deleted')
+    def verify_trans_is_deleted(repayment_amount):
+        repayments = page.mobile_save.get_repayment_list()
+        for repayment in repayments:
+            if repayment == repayment_amount:
+                Verifications.is_not_displayed(page.mobile_save.get_repayment())

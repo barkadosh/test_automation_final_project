@@ -15,6 +15,11 @@ class Verifications:
     def is_displayed(elem: WebElement):
         assert elem.is_displayed(), f'Verify Is Displayed Failed, Element: {elem.text} is not displayed'
 
+    @staticmethod
+    @allure.step("Verify element is not displayed")
+    def is_not_displayed(elem: WebElement):
+        assert not elem.is_displayed(), f'Verify Is Not Displayed Failed, Element: {elem.text} is displayed'
+
     # Verify Menu Buttons Flow Soft Using smart-assertions
     @staticmethod
     @allure.step("Soft verification of elements using smart-assertions")

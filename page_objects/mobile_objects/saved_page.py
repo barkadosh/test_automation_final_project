@@ -37,3 +37,7 @@ class SavedPage:
 
     def get_interest(self):
         return self.driver.find_element(interest[0], interest[1])
+
+    def get_repayment_list(self):
+        return self.driver.find_elements(repayment[0], repayment[1])
+
