@@ -4,9 +4,9 @@
     <WaitTime>3</WaitTime>
     <ScreenshotPath>./../allure-screen-shots/</ScreenshotPath>
 
-    <!--Web -->
+    <!--Web & API -->
     <Browser>Chrome</Browser>
-    <Url>http://localhost:3000</Url>
+    <Url>http://localhost:3000/</Url>
     <Username>admin</Username>
     <Password>admin</Password>
     <CSV_Location>../ddt/users.csv</CSV_Location>

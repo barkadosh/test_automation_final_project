@@ -28,6 +28,6 @@ class Test_Api_Temp:
     def test_02_get_team(self):
         response = requests.get(url + resources + '/search', auth=HTTPBasicAuth(user, password))
         response_json = response.json()
-        #print(json.dumps(response_json, indent=2))
+        print(json.dumps(response_json, indent=2))
         my_team_id = response_json['teams'][0]['id']
         print(my_team_id)
