@@ -34,13 +34,13 @@ class APIActions:
 
     @staticmethod
     @allure.step('PUT Request')
-    def post(path, payload, user, password):
+    def put(path, payload, user, password):
         response = requests.put(path, json=payload, headers=header, auth=HTTPBasicAuth(user, password))
         return response.status_code
 
     @staticmethod
     @allure.step('DELETE Request')
-    def post(path, user, password):
+    def delete(path, user, password):
         response = requests.delete(path, auth=HTTPBasicAuth(user, password))
         return response.status_code
 
