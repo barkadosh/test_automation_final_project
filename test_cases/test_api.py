@@ -2,10 +2,14 @@
 # curl http://admin:admin@localhost:3000/api/teams/search?name=test
 import json
 
+import allure
+
 from requests.auth import HTTPBasicAuth
 
 import requests
 
+team_name = 'Test api'
+team_email = 'testapi@gmail.com'
 url = 'http://localhost:3000/'
 resources = 'api/teams'
 user = 'admin'
@@ -13,7 +17,9 @@ password = 'admin'
 header = {'Content-Type': 'application/json'}
 
 
-class Test_Api_Temp:
+class Test_Api:
+    @allure.title('Test01: Create team & verify status code')
+    @allure.description('This test create new team in grafana')
     def test_01_create_team(self):
         payload = {
             "name": "MyTestTeam",
