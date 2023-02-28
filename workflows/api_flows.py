@@ -13,7 +13,7 @@ class APIFlows:
     @staticmethod
     @allure.step('Get value from Grafana api flow')
     def get_value_from_api(nodes):
-        response = APIActions.get(url + resources + '/search', user, password)
+        response = APIActions.get(url + resources + 'search', user, password)
         return APIActions.extract_value_from_response(response, nodes)
 
     @staticmethod

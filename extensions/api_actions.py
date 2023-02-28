@@ -21,9 +21,9 @@ class APIActions:
         if len(nodes) == 1:
             extracted_value = response_json[nodes[0]]
         elif len(nodes) == 2:
-            extracted_value = response_json[(nodes[0])][(nodes[1])]
+            extracted_value = response_json[nodes[0]][nodes[1]]
         elif len(nodes) == 3:
-            extracted_value = response_json[(nodes[0])][(nodes[1])][(nodes[2])]
+            extracted_value = response_json[nodes[0]][nodes[1]][nodes[2]]
         return extracted_value
 
     @staticmethod

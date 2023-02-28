@@ -8,7 +8,7 @@ class Verifications:
     @staticmethod
     @allure.step("Verify element is equal to expected")
     def verify_equals(actual, expected):
-        assert actual == expected, f'Verify Equals Failed, Actual: {str(actual)} is notequal to Expected: {str(expected)}'
+        assert actual == expected, f'Verify Equals Failed, Actual: {str(actual)} is not equal to Expected: {str(expected)}'
 
     @staticmethod
     @allure.step("Verify element is displayed")
