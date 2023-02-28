@@ -1,5 +1,6 @@
 import csv
 import time
+import socket
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,6 +8,8 @@ from selenium.webdriver.remote.webelement import WebElement
 import test_cases.conftest as conf
 import xml.etree.ElementTree as ET
 
+hostname = socket.gethostname()
+print("Hostname:", hostname)
 
 # Connectivity to XML file
 # From laptop:
