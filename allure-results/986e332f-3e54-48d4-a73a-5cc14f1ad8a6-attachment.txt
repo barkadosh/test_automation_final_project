@@ -1,0 +1,42 @@
+Before Find Element: [aria-label='Server admin']
+After Find Element [aria-label='Server admin']
+Before Find Element: a[href='/admin/users']
+After Find Element a[href='/admin/users']
+Before Find Element: a[title='test1user']
+After Find Element a[title='test1user']
+Before Click  test1user
+After Click  None
+Before Find Element: div>button.css-mk7eo3-button
+After Find Element div>button.css-mk7eo3-button
+Before Click  Delete user
+After Click  
+Before Find Element: button[aria-label='Confirm Modal Danger Button']
+After Find Element button[aria-label='Confirm Modal Danger Button']
+Before Click  Delete user
+After Click  
+Before Find Element: button[aria-label='Close alert']
+After Find Element button[aria-label='Close alert']
+Before Click  
+After Click  
+Before Find Element: table>tbody>tr>td:first-child>a
+After Find Element table>tbody>tr>td:first-child>a
+Before Click  
+After Click  None
+Before Find Element: div>button.css-mk7eo3-button
+After Find Element div>button.css-mk7eo3-button
+Before Click  Delete user
+After Click  
+Before Find Element: button[aria-label='Confirm Modal Danger Button']
+After Find Element button[aria-label='Confirm Modal Danger Button']
+Before Click  Delete user
+After Click  
+Before Find Element: button[aria-label='Close alert']
+After Find Element button[aria-label='Close alert']
+Before Click  
+After Click  
+Before Find Element: table>tbody>tr>td:first-child>a
+After Find Element table>tbody>tr>td:first-child>a
+Before Find Element: table>tbody>tr>td:first-child>a
+After Find Element table>tbody>tr>td:first-child>a
+Before Navigating to http://localhost:3000/
+After Navigating to http://localhost:3000/

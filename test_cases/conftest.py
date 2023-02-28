@@ -1,5 +1,3 @@
-import appium
-
 import pytest
 import allure
 
@@ -20,9 +18,8 @@ from utilities.event_listener import EventListener
 from utilities.manage_pages import ManagePages
 from utilities.common_ops import get_data, get_time_stamp
 
-
 # Appium
-from appium import webdriver
+import appium
 from appium.webdriver.common.multi_action import MultiAction
 from appium.webdriver.common.touch_action import TouchAction
 
@@ -58,6 +55,7 @@ def init_web_driver(request):
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.close()  # Applitools
         eyes.abort()  # Applitools
+
 
 @pytest.fixture(scope="class")
 def init_mobile_driver(request):

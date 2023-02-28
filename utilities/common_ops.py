@@ -13,7 +13,7 @@ print("Hostname:", hostname)
 
 if hostname == 'BarLaptop':
     root_path = 'C:/Automation/Final_Proj_Aut_Py/configuration/data.xml'
-if hostname == 'BarDesktop':
+elif hostname == 'BarDesktop':
     root_path = 'C:/Automation/test_automation_final_project/configuration/data.xml'
 
 

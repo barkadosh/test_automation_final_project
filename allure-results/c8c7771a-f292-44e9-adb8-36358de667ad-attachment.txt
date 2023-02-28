@@ -1,0 +1,66 @@
+Before Find Element: [aria-label='Server admin']
+After Find Element [aria-label='Server admin']
+Before Find Element: a[href='/admin/users']
+After Find Element a[href='/admin/users']
+Before Find Element: a[href='admin/users/create']
+After Find Element a[href='admin/users/create']
+Before Click  New user
+After Click  None
+Before Find Element: name-input
+After Find Element name-input
+Before Change Value  
+After Change Value  test1
+Before Find Element: email-input
+After Find Element email-input
+Before Change Value  
+After Change Value  test1@gmail.com
+Before Find Element: username-input
+After Find Element username-input
+Before Change Value  
+After Change Value  test1user
+Before Find Element: password-input
+After Find Element password-input
+Before Change Value  
+After Change Value  123456
+Before Find Element: button[type='submit']
+After Find Element button[type='submit']
+Before Click  Create user
+After Click  
+Before Find Element: [aria-label='Server admin']
+After Find Element [aria-label='Server admin']
+Before Find Element: a[href='/admin/users']
+After Find Element a[href='/admin/users']
+Before Find Element: a[href='admin/users/create']
+After Find Element a[href='admin/users/create']
+Before Click  New user
+After Click  None
+Before Find Element: name-input
+After Find Element name-input
+Before Change Value  
+After Change Value  test2
+Before Find Element: email-input
+After Find Element email-input
+Before Change Value  
+After Change Value  test2@gmail.com
+Before Find Element: username-input
+After Find Element username-input
+Before Change Value  
+After Change Value  test2user
+Before Find Element: password-input
+After Find Element password-input
+Before Change Value  
+After Change Value  123456
+Before Find Element: button[type='submit']
+After Find Element button[type='submit']
+Before Click  Create user
+After Click  
+Before Find Element: [aria-label='Server admin']
+After Find Element [aria-label='Server admin']
+Before Find Element: a[href='/admin/users']
+After Find Element a[href='/admin/users']
+Before Find Element: table>tbody>tr>td:first-child>a
+After Find Element table>tbody>tr>td:first-child>a
+Before Find Element: table>tbody>tr>td:first-child>a
+After Find Element table>tbody>tr>td:first-child>a
+Before Navigating to http://localhost:3000/
+After Navigating to http://localhost:3000/

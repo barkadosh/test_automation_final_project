@@ -1,0 +1,24 @@
+Before Navigating to http://localhost:3000/
+After Navigating to http://localhost:3000/
+Before Find Element: user
+After Find Element user
+Before Change Value  
+After Change Value  admin
+Before Find Element: password
+After Find Element password
+Before Change Value  
+After Change Value  admin
+Before Find Element: //button[@type='submit']
+After Find Element //button[@type='submit']
+Before Click  Log in
+After Click  
+Before Find Element: //span[text()='Skip']
+After Find Element //span[text()='Skip']
+Before Click  Skip
+After Click  None
+Before Find Element: css-17tm80
+After Find Element css-17tm80
+Before Find Element: css-17tm80
+After Find Element css-17tm80
+Before Navigating to http://localhost:3000/
+After Navigating to http://localhost:3000/
