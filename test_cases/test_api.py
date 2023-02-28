@@ -27,22 +27,42 @@ class Test_Api:
         actual = APIFlows.crete_team(team_name, team_email)
         Verifications.verify_equals(actual, 200)
 
-    @pytest.mark.run_this
     @allure.title('TC02: Verify team name')
     @allure.description('This test verify grafana team name')
-    def test_verify_team_member_name(self):
-        nodes = ('teams', 0, 'name')
+    def test_verify_team_name(self):
+        nodes = ['teams', 0, 'name']
         actual = APIFlows.get_value_from_api(nodes)
         Verifications.verify_equals(actual, team_name)
 
+    @allure.title('TC03: Update team name')
+    @allure.description('This test update grafana team name')
+    def test_update_team_name(self):
+        nodes = ['teams', 0, 'id']
+        id = APIFlows.get_value_from_api(nodes)
+        actual = APIFlows.update_team(team_name + 'bar', team_email, id)
+        Verifications.verify_equals(actual, 200)
+
+    @allure.title('TC04: Verify updated team name')
+    @allure.description('This test verify grafana team name')
+    def test_verify_updated_team_name(self):
+        nodes = ['teams', 0, 'name']
+        actual = APIFlows.get_value_from_api(nodes)
+        Verifications.verify_equals(actual, team_name + 'bar')
+
+    @allure.title('TC04: Verify updated team name')
+    @allure.description('This test verify grafana updated team name')
+    def test_verify_updated_team_name(self):
+        nodes = ['teams', 0, 'name']
+        actual = APIFlows.get_value_from_api(nodes)
+        Verifications.verify_equals(actual, team_name + 'bar')
+
+    @allure.title('TC05: Delete team')
+    @allure.description('This test delete grafana team')
+    def test_verify_updated_team_name(self):
+        nodes = ['teams', 0, 'id']
+        id = APIFlows.get_value_from_api(nodes)
+        actual = APIFlows.delete_team(id)
+        Verifications.verify_equals(actual, 200)
 
 
 
-    def test_get_team_id(self):
-        response = requests.get(url + resources + '/search', auth=HTTPBasicAuth(user, password))
-        response_json = response.json()
-        #print(json.dumps(response_json, indent=2))
-        my_team = response_json['teams'][0]['name']
-        print(my_team)
-        # my_team_id = response_json['teams'][0]['id']
-        # print(my_team_id)

@@ -18,17 +18,9 @@ elif hostname == 'BarDesktop':
 
 
 # Connectivity to XML file
-# From laptop:
 def get_data(node_name):
     root = ET.parse(root_path).getroot()
     return root.find('.//' + node_name).text
-
-
-# From desktop:
-# def get_data(node_name):
-#     root = ET.parse('C:/Automation/test_automation_final_project/configuration/data.xml').getroot()
-#     return root.find('.//' + node_name).text
-
 
 # Connectivity to CSV file
 def read_csv(file_name):

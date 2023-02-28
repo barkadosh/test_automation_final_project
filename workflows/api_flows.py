@@ -27,7 +27,7 @@ class APIFlows:
     @allure.step('update team in Grafana')
     def update_team(name, email, id):
         payload = {'name': name, 'email': email}
-        status_code = APIActions.post(url + resources + str(id), payload, user, password)
+        status_code = APIActions.put(url + resources + str(id), payload, user, password)
         return status_code
 
     @staticmethod
