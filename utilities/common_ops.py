@@ -11,10 +11,16 @@ import xml.etree.ElementTree as ET
 hostname = socket.gethostname()
 print("Hostname:", hostname)
 
+if hostname == 'BarLaptop':
+    root_path = 'C:/Automation/Final_Proj_Aut_Py/configuration/data.xml'
+if hostname == 'BarDesktop':
+    root_path = 'C:/Automation/test_automation_final_project/configuration/data.xml'
+
+
 # Connectivity to XML file
 # From laptop:
 def get_data(node_name):
-    root = ET.parse('C:/Automation/Final_Proj_Aut_Py/configuration/data.xml').getroot()
+    root = ET.parse(root_path).getroot()
     return root.find('.//' + node_name).text
 
 
