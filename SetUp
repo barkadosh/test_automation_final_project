@@ -24,10 +24,11 @@ To open report: allure serve allure-results
 to run: python -m pytest test_web.py -s -v --html=Reports/my_report.html --capture=tee-sys
 7. applitools- Installation: pip install eyes-selenium
 Login: https://auth.applitools.com/users/login? (github)
-
-
-
-
+8. Appium - app download -https://atidcollege.co.il/downloads/APKs/ukMortgageCalc.apk
+Appium studio download - https://digital.ai/products/continuous-testing/
+9. Electron app download - https://atidcollege.co.il/downloads/electron/TodoList-Setup.exe
+download driver: https://atidcollege.co.il/downloads/electron/electrondriver-v3.1.2-win32-x64.zip
+*Location: C:\Users\barka\AppData\Local\Programs\todolist
 
 ***Pytest***
 Run: python -m pytest -v -s test_web.py

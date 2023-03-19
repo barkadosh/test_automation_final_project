@@ -2,6 +2,7 @@ import pytest
 import allure
 
 # Selenium
+import selenium
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -76,6 +77,18 @@ def init_mobile_driver(request):
     yield
     driver.quit()
 
+@pytest.fixture(scope="class")
+def init_electron_driver(request):
+    edriver = get_electron_driver()
+    globals()['driver'] = EventFiringWebDriver(edriver, EventListener())
+    driver = globals()['driver']
+    driver.implicitly_wait(int(get_data('WaitTime')))
+    request.cls.driver = driver
+    globals()['action'] = ActionChains(driver)
+    request.cls.action = globals()['action']
+    ManagePages.init_electron_pages()
+    yield
+    driver.quit()
 
 def get_web_driver():
     web_driver = get_data('Browser')
@@ -99,6 +112,12 @@ def get_mobile_driver():
     else:
         driver = None
         raise Exception("Wrong input, unrecognized mobile OS")
+    return driver
+
+def get_electron_driver():
+    options = selenium.webdriver.ChromeOptions()
+    options.binary_location = get_data("Electron_App")
+    driver = selenium.webdriver.Chrome(chrome_options=options, executable_path=get_data("Electron_Driver"))
     return driver
 
 

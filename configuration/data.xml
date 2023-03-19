@@ -13,7 +13,7 @@
     <ExecuteApplitools>no</ExecuteApplitools>  <!--yes / no-->
     <ApplitoolsAPI>rCfg7VUAMD1y9jG97L8H101bVw0yaF0RQuC2ZWo0q47pCs110</ApplitoolsAPI>
 
-        <!--Mobile-->
+    <!--Mobile-->
     <Mobile_Device>Android</Mobile_Device>   <!-- Android/IOS -->
     <Udid_Android>R5CT80W3QWP</Udid_Android>
     <Udid_ios>NONE</Udid_ios>
@@ -22,4 +22,8 @@
     <Bundle_ID>com.shivgadhia.ukMortgageCalc</Bundle_ID>   <!-- For IOS -->
     <Appium_Server>http://localhost:4723/wd/hub</Appium_Server>
     <Swipe_Duration>200</Swipe_Duration>          <!-- milliseconds -->
+
+    <!--Electron-->
+    <Electron_App>C:\Users\barka\AppData\Local\Programs\todolist\Todolist.exe</Electron_App>
+    <Electron_Driver>C:\Automation\Electron_App\electrondriver-v3.1.2-win32-x64\electrondriver.exe</Electron_Driver>
 </Environment>

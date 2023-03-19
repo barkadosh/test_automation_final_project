@@ -1,5 +1,6 @@
 import allure
 
+from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.webelement import WebElement
 
 import test_cases.conftest as conf
@@ -16,6 +17,12 @@ class UiActions:
     @allure.step("Updating text")
     def update_text(elem: WebElement, value: str):
         elem.send_keys(value)
+
+    # For electron app - need to define here the action chains because the app rendering all the time-
+    @staticmethod
+    @allure.step("Mouse hover tooltip")
+    def mouse_hover_tooltip(elem: WebElement):
+        ActionChains(conf.driver).move_to_element(elem).click().perform()
 
     @staticmethod
     @allure.step("Mouse hover to elements")
