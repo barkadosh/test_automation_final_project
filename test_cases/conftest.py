@@ -52,7 +52,6 @@ def init_web_driver(request):
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.api_key = get_data("ApplitoolsAPI")
     yield
-
     driver.quit()
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.close()  # Applitools
