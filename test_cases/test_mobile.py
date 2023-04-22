@@ -29,3 +29,7 @@ class TestMobile:
     def test_delete_saved_trans(self):
         MobileFlows.delete_saved_trans()
         MobileFlows.verify_trans_is_deleted('59.36')
+
+
+# ~~~ My test cases ~~~
+

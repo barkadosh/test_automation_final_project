@@ -1,2 +1,0 @@
-Before Quiting Session
-After Quiting Session

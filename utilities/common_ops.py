@@ -4,7 +4,6 @@ import socket
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.remote.webelement import WebElement
 import test_cases.conftest as conf
 import xml.etree.ElementTree as ET
 
@@ -13,6 +12,7 @@ print("Hostname:", hostname)
 
 if hostname == 'BarLaptop':
     root_path = 'C:/Automation/Final_Proj_Aut_Py/configuration/data.xml'
+
 elif hostname == 'BarDesktop':
     root_path = 'C:/Automation/test_automation_final_project/configuration/data.xml'
 elif hostname == 'LP-BARK-51XN8S3':

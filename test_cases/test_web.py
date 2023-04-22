@@ -66,16 +66,15 @@ class TestWeb:
         WebFlows.grafana_home(self)
         time.sleep(2)
 
+
 # ~~~ My test cases ~~~
 
-    @pytest.mark.usefixtures('init_web_driver')
-    class TestWeb:
-        @allure.title("TC01: Create new dashboard")
-        @allure.description("Create and verify new dashboard in grafana")
-        def test_create_new_dashboard(self):
-            WebFlows.login_flow(get_data('Username'), get_data('Password'))
-
-
+@pytest.mark.usefixtures('init_web_driver')
+class MyTestWeb:
+    @allure.title("TC01: Create new dashboard")
+    @allure.description("Create and verify new dashboard in grafana")
+    def test_create_new_dashboard(self):
+        WebFlows.login_flow(get_data('Username'), get_data('Password'))
 
 
         def teardown_method(self):

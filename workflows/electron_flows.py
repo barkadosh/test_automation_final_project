@@ -1,11 +1,12 @@
 import time
 
 import allure
+
+import pytest
 from selenium.webdriver.common.keys import Keys
 
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
-
 
 class ElectronFlows:
     @staticmethod
@@ -21,7 +22,7 @@ class ElectronFlows:
 
     @staticmethod
     @allure.step("Delete all tasks from the list")
-    def delete_all_tasks():
+    def delete_all_tasks_flow():
         for x in range(ElectronFlows.get_number_of_task_flow()):
             time.sleep(0.5)
             UiActions.mouse_hover_tooltip(page.electron_task.get_delete_buttons()[0])

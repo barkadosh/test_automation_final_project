@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 create_field = (By.CSS_SELECTOR, "input.input_b5pqF")
 tasks = (By.CSS_SELECTOR, "div.view_2Ow90")
-delete_buttons = (By.CSS_SELECTOR, "div.view_2Ow90>svg")
+delete_buttons = (By.XPATH, "//*[@class='destroy_19w1q']")
 
 class TaskPage:
 
