@@ -1,3 +1,4 @@
+import subprocess
 import time
 import allure
 import pytest
@@ -7,9 +8,15 @@ from utilities.common_ops import get_data, By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
 
+# Run: python -m pytest test_web.py -s -v --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
+    @classmethod
+    def setup_class(cls):
+        process = subprocess.Popen(get_data('GrafanaPath'), shell=True)
+        time.sleep(5)
+
     @allure.title("TC01: Login to Grafana")
     @allure.description("Verify a successful login to Grafana")
     @pytest.mark.sanity

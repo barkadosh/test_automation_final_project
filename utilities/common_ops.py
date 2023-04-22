@@ -12,12 +12,10 @@ print("Hostname:", hostname)
 
 if hostname == 'BarLaptop':
     root_path = 'C:/Automation/Final_Proj_Aut_Py/configuration/data.xml'
-
 elif hostname == 'BarDesktop':
     root_path = 'C:/Automation/test_automation_final_project/configuration/data.xml'
 elif hostname == 'LP-BARK-51XN8S3':
     root_path = 'C:/Users/BarKadosh-Cello/PycharmProjects/test_automation_final_project/configuration/data.xml'
-
 
 # Connectivity to XML file
 def get_data(node_name):
@@ -46,6 +44,7 @@ def wait(for_element, elem):
 
 def get_time_stamp():
     return time.time()
+
 
 # Enums
 
