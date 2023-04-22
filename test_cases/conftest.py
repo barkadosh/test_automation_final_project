@@ -1,3 +1,6 @@
+import subprocess
+import time
+
 import pytest
 import allure
 
@@ -36,6 +39,8 @@ eyes = Eyes()  # Applitools
 
 @pytest.fixture(scope="class")
 def init_web_driver(request):
+    process = subprocess.Popen(get_data('GrafanaPath'))
+    time.sleep(2)
     if get_data("ExecuteApplitools").lower() == 'yes':
         globals()['driver'] = get_web_driver()
     else:
@@ -52,6 +57,7 @@ def init_web_driver(request):
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.api_key = get_data("ApplitoolsAPI")
     yield
+    process.terminate()
     driver.quit()
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.close()  # Applitools

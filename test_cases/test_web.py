@@ -1,4 +1,3 @@
-import subprocess
 import time
 import allure
 import pytest
@@ -8,15 +7,10 @@ from utilities.common_ops import get_data, By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
 
-# Run: python -m pytest test_web.py -s -v --alluredir=../allure-results
+# Run: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
-    @classmethod
-    def setup_class(cls):
-        process = subprocess.Popen(get_data('GrafanaPath'), shell=True)
-        time.sleep(5)
-
     @allure.title("TC01: Login to Grafana")
     @allure.description("Verify a successful login to Grafana")
     @pytest.mark.sanity
@@ -63,7 +57,6 @@ class TestWeb:
     @allure.description("Check visually the users chart")
     @pytest.mark.visual_test
     @pytest.mark.skipif(get_data("ExecuteApplitools").lower() == 'no', reason='Want to view Event Listeners')
-    @pytest.mark.run_this
     def test_view_users_chart(self):
         WebFlows.open_users_page()
         eyes.open(conf.driver, "Grafana - users chart", "Check visually the users chart")
@@ -72,6 +65,7 @@ class TestWeb:
     def teardown_method(self):
         WebFlows.grafana_home(self)
         time.sleep(2)
+
 
 
 # ~~~ My test cases ~~~
