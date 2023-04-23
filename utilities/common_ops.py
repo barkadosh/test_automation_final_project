@@ -4,6 +4,7 @@ import socket
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.remote.webelement import WebElement
 import test_cases.conftest as conf
 import xml.etree.ElementTree as ET
 
@@ -17,10 +18,12 @@ elif hostname == 'BarDesktop':
 elif hostname == 'LP-BARK-51XN8S3':
     root_path = 'C:/Users/BarKadosh-Cello/PycharmProjects/test_automation_final_project/configuration/data.xml'
 
+
 # Connectivity to XML file
 def get_data(node_name):
     root = ET.parse(root_path).getroot()
     return root.find('.//' + node_name).text
+
 
 # Connectivity to CSV file
 def read_csv(file_name):
@@ -64,6 +67,7 @@ class By:
 class Save:
     YES = True
     NO = False
+
 
 # Enum for tc- "test_verify_mortgage_repayment" in test_mobile, yes - for saving mortgage repayment, no - for not
 class Direction:
