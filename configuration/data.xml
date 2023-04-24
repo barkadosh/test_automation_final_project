@@ -28,4 +28,8 @@
     <!--Electron-->
     <Electron_App>C:\Users\barka\AppData\Local\Programs\todolist\Todolist.exe</Electron_App>
     <Electron_Driver>C:\Automation\Electron_App\electrondriver-v3.1.2-win32-x64\electrondriver.exe</Electron_Driver>
+
+    <!--Desktop-->
+    <ApplicationName>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</ApplicationName>
+    <WinAppDriverService>C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe</WinAppDriverService>
 </Environment>
