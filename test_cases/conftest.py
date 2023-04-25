@@ -94,7 +94,19 @@ def init_electron_driver(request):
     request.cls.action = globals()['action']
     ManagePages.init_electron_pages()
     yield
+    driver.quit()@pytest.fixture(scope="class")
+def init_desktop_driver(request):
+    edriver = get_desktop_driver()
+    globals()['driver'] = EventFiringWebDriver(edriver, EventListener())
+    driver = globals()['driver']
+    driver.implicitly_wait(int(get_data('WaitTime')))
+    request.cls.driver = driver
+
+    ManagePages.init_desktop_pages()
+    yield
     driver.quit()
+
+
 
 def get_web_driver():
     web_driver = get_data('Browser')
@@ -124,6 +136,14 @@ def get_electron_driver():
     options = selenium.webdriver.ChromeOptions()
     options.binary_location = get_data("Electron_App")
     driver = selenium.webdriver.Chrome(chrome_options=options, executable_path=get_data("Electron_Driver"))
+    return driver
+
+def get_desktop_driver():
+    dc = {}
+    dc['app'] = get_data('ApplicationName')
+    dc['platformName'] ='Windows'
+    dc['deviceName'] = 'WindowsPC'
+    driver = appium.webdriver.Remote(get_data('WinAppDriverService'), dc)
     return driver
 
 

@@ -1,4 +1,5 @@
 import test_cases.conftest as conf
+from page_objects.desktop_objects.standrad_page import StandardPage
 from page_objects.electron_objects.task_page import TaskPage
 from page_objects.mobile_objects.calculator_page import CalculatorPage
 from page_objects.mobile_objects.saved_page import SavedPage
@@ -26,6 +27,9 @@ mobile_save = None
 # Electron Objects
 electron_task = None
 
+# Electron Objects
+standard_calc = None
+
 
 class ManagePages:
     @staticmethod
@@ -46,3 +50,7 @@ class ManagePages:
     @staticmethod
     def init_electron_pages():
         globals()['electron_task'] = TaskPage(conf.driver)
+
+    @staticmethod
+    def init_desktop_pages():
+        globals()['standard_calc'] = StandardPage(conf.driver)
