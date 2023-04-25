@@ -95,13 +95,14 @@ def init_electron_driver(request):
     ManagePages.init_electron_pages()
     yield
     driver.quit()@pytest.fixture(scope="class")
+
+@pytest.fixture(scope="class")
 def init_desktop_driver(request):
     edriver = get_desktop_driver()
     globals()['driver'] = EventFiringWebDriver(edriver, EventListener())
     driver = globals()['driver']
     driver.implicitly_wait(int(get_data('WaitTime')))
     request.cls.driver = driver
-
     ManagePages.init_desktop_pages()
     yield
     driver.quit()
