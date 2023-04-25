@@ -31,5 +31,5 @@
 
     <!--Desktop-->
     <ApplicationName>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</ApplicationName>
-    <WinAppDriverService>C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe</WinAppDriverService>
+    <WinAppDriverService>http://127.0.0.1:4723</WinAppDriverService>
 </Environment>
