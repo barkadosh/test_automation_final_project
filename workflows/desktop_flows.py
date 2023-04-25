@@ -3,12 +3,13 @@ import allure
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
 
+
 class DesktopFlows:
 
     @staticmethod
     @allure.step('Calculate equation')
     def calculate_flow(equation):
-        for i in equation:                      # example equation: 1+9-5*100
+        for i in equation:  # example equation: 1+9-5*100
             DesktopFlows.calculator_click(i)
         UiActions.click(page.standard_calc.get_equals())
 
@@ -45,11 +46,12 @@ class DesktopFlows:
         else:
             raise Exception('Invalid Input')
 
-
     @staticmethod
     @allure.step("Get calculator result")
     def get_result_flow():
-        result = page.standard_calc.get_result().text.replace("Display is", "").strip()   # strip get rid of spaces before and after the text
+        result = page.standard_calc.get_result().text.replace("Display is",
+                                                              "").strip()  # strip get rid of spaces before and after the text
+        return result
 
     @staticmethod
     @allure.step("Clear calculator result")
