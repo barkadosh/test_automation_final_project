@@ -32,4 +32,14 @@
     <!--Desktop-->
     <ApplicationName>Microsoft.WindowsCalculator_8wekyb3d8bbwe!App</ApplicationName>
     <WinAppDriverService>http://127.0.0.1:4723</WinAppDriverService>
+
+    <!-- Local Database (MySQL)-->
+    <DBHost>127.0.0.1</DBHost>
+    <DBName>automationtestspython</DBName>
+    <DBUser>root</DBUser>
+    <DBPassword>Bkrl29!#</DBPassword>
+
+
+
+
 </Environment>

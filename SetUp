@@ -45,6 +45,7 @@ Find AUMID of a desktop app (that allow it)
     * Run Windows PowerShell
     * Run command: Get-StartApps
     * Copy relevant AUMID for relevant app
+11. DB tests -  MySql connector: pip install mysql-connector-python
 
 ***Pytest***
 Run: python -m pytest -v -s test_web.py

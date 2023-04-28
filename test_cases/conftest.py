@@ -1,6 +1,8 @@
 import subprocess
 import time
 
+import mysql.connector
+
 import pytest
 import allure
 
@@ -32,6 +34,7 @@ action = None
 action2 = None
 m_action = None
 mobile_size = None
+db_connector = None
 dc = {}
 
 eyes = Eyes()  # Applitools
@@ -107,6 +110,19 @@ def init_desktop_driver(request):
     yield
     driver.quit()
 
+@pytest.fixture(scope="class")
+def init_db_connector(request):
+    db_connector = mysql.connector.connect(
+        host = get_data('DBHost'),
+        database = get_data('DBName'),
+        user = get_data('DBUser'),
+        password = get_data('DBPassword')
+    )
+    globals()['db_connector'] = db_connector
+    request.cls.db_connector = db_connector
+    yield
+    db_connector.close()
+
 
 
 def get_web_driver():
@@ -140,7 +156,6 @@ def get_electron_driver():
     return driver
 
 def get_desktop_driver():
-    dc = {}
     dc['app'] = get_data('ApplicationName')
     dc['platformName'] ='Windows'
     dc['deviceName'] = 'WindowsPC'
