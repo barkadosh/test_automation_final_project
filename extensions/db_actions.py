@@ -7,7 +7,8 @@ class DBActions:
     # Example: "# SELECT user, password, From usersfinalprojectaut WHERE comments = 'correct'"
     def query_builder(columns, table, where_name, where_value):
         cols = ','.join(columns)
-        query = f'SELECT {cols} FROM {table} WHERE {where_name} = {where_value};'
+        query = f'SELECT {cols} FROM {table} WHERE {where_name} = "{where_value}";'
+
         return query
 
     @staticmethod
