@@ -8,6 +8,7 @@ from workflows import web_flows
 from workflows.web_flows import WebFlows
 
 # Run: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
+# Notice: need to be run only with command line when starting grafana server with subprocess
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
