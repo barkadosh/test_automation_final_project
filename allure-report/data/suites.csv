@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Apr 29 21:53:41 IDT 2023","Sat Apr 29 21:53:41 IDT 2023","20","test_cases","test_api","Test_Api","","","TC02: Verify team name","This test verify grafana team name"
+"passed","Sat Apr 29 22:10:12 IDT 2023","Sat Apr 29 22:10:14 IDT 2023","2201","test_cases","test_electron","TestElectron","","","TC01: Add and verify new task","Add new task to the electron app and verify 1 task was added"
+"failed","Sat Apr 29 22:10:17 IDT 2023","Sat Apr 29 22:10:17 IDT 2023","441","test_cases","test_electron","TestElectron","","","TC02: Add and verify new tasks","Add 3 new task to the electron app and verify 3 task was added"
+"passed","Sat Apr 29 21:53:41 IDT 2023","Sat Apr 29 21:53:41 IDT 2023","45","test_cases","test_api","Test_Api","","","TC05: Delete team","This test delete grafana team"
+"passed","Sat Apr 29 21:53:41 IDT 2023","Sat Apr 29 21:53:41 IDT 2023","53","test_cases","test_api","Test_Api","","","TC03: Update team name","This test update grafana team name"
+"passed","Sat Apr 29 21:53:41 IDT 2023","Sat Apr 29 21:53:41 IDT 2023","55","test_cases","test_api","Test_Api","","","TC01: Create team & verify status code","This test create new team in grafana"

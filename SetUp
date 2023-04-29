@@ -1,27 +1,27 @@
 Setup and info:
-* Install grafana : https://grafana.com/grafana/download?platform=windows&edition=oss
+
+
+** Grafana **
+# Install grafana : https://grafana.com/grafana/download?platform=windows&edition=oss
 # Start grafana server: C:\Automation\grafana-enterprise-9.3.2.windows-amd64\grafana-9.3.2\bin\grafana-server.exe
 # Start grafana server from cello PC: C:\Program Files\GrafanaLabs\grafana\bin\grafana-server.exe
 Grafana local host: http://localhost:3000/login
 
-* Desktop app:
-# Run the WinAppDriver.exe - WIN-key+R: C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe
-# Inspect Elements
-* On laptop cello app: WIN-key+R: C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64\inspect.exe
-* My laptop - C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x86\inspect.exe
-* My desktop - C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x86\inspect.exe
-
-
 1. pytest - pip install pytest
+
 2. selenium - pip install selenium
+
 3. Driver manager - pip install webdriver-manager
 DriverManager - https://github.com/SergeyPirogov/webdriver_manager
+
 4. To fix project so we can view all functions with "driver." -
 File -> Settings -> Project: test_automation_final... -> Project Structure ->click on venv\Lib\site-packages ->
 click on "Mark as:" Sources (blue folder) -> Click x on Excluded folders -> apply
 - now the pycharm recognize the site packages (selenium folders) and can fine modulus under 'driver.'
 (https://atidcollege.co.il/members/privates/fsta-py/content-final-project-1-selenium/fp06-auto-completion.html)
+
 5. Smart assertions plugin - pip install smart-assertions
+
 6. Allure reports - https://github.com/allure-framework/allure2
 download from releases: https://github.com/allure-framework/allure2/releases the zip file on the automation proj
 install: pip install allure-pytest
@@ -29,13 +29,17 @@ To run: python -m pytest test_web.py --alluredir=../allure-results
 To open report: allure serve allure-results
 **html reports: pip install pytest-html (*cause incompatibility problem with the latest pytest version!)
 to run: python -m pytest test_web.py -s -v --html=Reports/my_report.html --capture=tee-sys
+
 7. applitools- Installation: pip install eyes-selenium
 Login: https://auth.applitools.com/users/login? (github)
+
 8. Appium - app download -https://atidcollege.co.il/downloads/APKs/ukMortgageCalc.apk
 Appium studio download - https://digital.ai/products/continuous-testing/
+
 9. Electron app download - https://atidcollege.co.il/downloads/electron/TodoList-Setup.exe
 download driver: https://atidcollege.co.il/downloads/electron/electrondriver-v3.1.2-win32-x64.zip
 *Location: C:\Users\barka\AppData\Local\Programs\todolist
+
 10.Desktop apps:
 download : https://github.com/Microsoft/WinAppDriver/releases (latest not pre release)
 *documentation- https://github.com/microsoft/WinAppDriver
@@ -45,7 +49,14 @@ Find AUMID of a desktop app (that allow it)
     * Run Windows PowerShell
     * Run command: Get-StartApps
     * Copy relevant AUMID for relevant app
+# Run the WinAppDriver.exe - WIN-key+R: C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe
+# Inspect Elements:
+ On laptop cello app: WIN-key+R: C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64\inspect.exe
+ My laptop - C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x86\inspect.exe
+ My desktop - C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x86\inspect.exe
+
 11. DB tests -  MySql connector: pip install mysql-connector-python
+
 12. Jenkins -
 * Open Source
 * Required Java installation
@@ -56,7 +67,18 @@ Find AUMID of a desktop app (that allow it)
     works pc - C:\Users\BarKadosh-Cello\PycharmProjects\JenkinsServer
     laptop - C:\Automation\Jenkins
     2. run in cmd: java -jar jenkins.war --httpPort=9090
-Jenkins url: http://localhost:9090/
+    3. Jenkins url: http://localhost:9090/
+# Job Schedular: job > Configure > Build periodically >> set time with cron scheduler
+Cron schedular: https://plumsail.com/sharepoint-workflow-scheduler/docs/advanced-schedule-cron-syntax/
+# Execution dependency - job > Configure > Build after other projects are built
+ >> set the name of the other job this job is dependent on
+# Set up allure:
+-Dashboard > Manage Jenkins > Plugin Manager > Search allure > download
+> restart jenkins (in cmd "Ctrl+c" + run jenkins start command again > refresh to browser
+- job > Configure > add in python command "--alluredir=../allure-results"
+- Post-build Actions > Allure Report
+-Dashboard > Manage Jenkins > Global Tool Configuration > Allure Commandline > set path to installation directory
+
 
 ***Pytest***
 Run: python -m pytest -v -s test_web.py

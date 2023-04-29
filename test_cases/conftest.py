@@ -97,7 +97,7 @@ def init_electron_driver(request):
     request.cls.action = globals()['action']
     ManagePages.init_electron_pages()
     yield
-    driver.quit()@pytest.fixture(scope="class")
+    driver.quit()
 
 @pytest.fixture(scope="class")
 def init_desktop_driver(request):

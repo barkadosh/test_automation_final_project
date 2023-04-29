@@ -20,7 +20,7 @@ class TestElectron:
         ElectronFlows.add_new_task_flow('Test2')
         ElectronFlows.add_new_task_flow('Test3')
         ElectronFlows.add_new_task_flow('Test4')
-        Verifications.verify_equals(ElectronFlows.get_number_of_task_flow(),4)
+        Verifications.verify_equals(ElectronFlows.get_number_of_task_flow(),3)
     def teardown_method(self):
         ElectronFlows.delete_all_tasks_flow()
         time.sleep(2)
