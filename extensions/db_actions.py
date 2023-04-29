@@ -17,5 +17,5 @@ class DBActions:
         query = DBActions.query_builder(columns, table, where_name, where_value)
         db_cursor = conf.db_connector.cursor()
         db_cursor.execute(query)
-        result = db_cursor.fatchall()
+        result = db_cursor.fetchall()
         return result

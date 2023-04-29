@@ -9,5 +9,5 @@ class DBFlows:
     @allure.step('Login to grafana via data base flow')
     def login_grafana_via_db():
         columns = ['name', 'password']
-        result = DBActions.get_query_result(columns, 'usersfinalprojectaut', 'comments', 'correct')
+        result = DBActions.get_query_result(columns, 'usersfinalprojectaut', 'comment', 'correct')
         WebFlows.login_flow(result[0][0], result[0][1])

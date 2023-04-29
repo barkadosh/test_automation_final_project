@@ -43,7 +43,7 @@ eyes = Eyes()  # Applitools
 @pytest.fixture(scope="class")
 def init_web_driver(request):
     process = subprocess.Popen(get_data('GrafanaPath'))       # Starting Grafana server
-    time.sleep(2)
+    time.sleep(4)
     if get_data("ExecuteApplitools").lower() == 'yes':
         globals()['driver'] = get_web_driver()
     else:
