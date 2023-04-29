@@ -46,6 +46,17 @@ Find AUMID of a desktop app (that allow it)
     * Run command: Get-StartApps
     * Copy relevant AUMID for relevant app
 11. DB tests -  MySql connector: pip install mysql-connector-python
+12. Jenkins -
+* Open Source
+* Required Java installation
+* Download from the LTS version - https://www.jenkins.io/download/
+ the "Generic Java package (.war)" !!!
+* To run the server
+    1.open cmd from:
+    works pc - C:\Users\BarKadosh-Cello\PycharmProjects\JenkinsServer
+    laptop - C:\Automation\Jenkins
+    2. run in cmd: java -jar jenkins.war --httpPort=9090
+Jenkins url: http://localhost:9090/
 
 ***Pytest***
 Run: python -m pytest -v -s test_web.py
