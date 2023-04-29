@@ -4,7 +4,7 @@ import test_cases.conftest as conf
 class DBActions:
     @staticmethod
     @allure.step('Query Builder - WHERE statement')
-    # Example: "# SELECT user, password, From usersfinalprojectaut WHERE comments = 'correct'"
+    # SELECT columns From table WHERE where_name = 'where_value'
     def query_builder(columns, table, where_name, where_value):
         cols = ','.join(columns)
         query = f'SELECT {cols} FROM {table} WHERE {where_name} = "{where_value}";'
