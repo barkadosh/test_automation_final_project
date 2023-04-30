@@ -68,6 +68,8 @@ class MobileFlows:
         MobileActions.tap(page.mobile_save.get_delete())
         MobileActions.tap(page.mobile_save.get_confirm_delete())
 
+
+
     @staticmethod
     @allure.step('Verify saved transaction is deleted')
     def verify_trans_is_deleted(repayment_amount):

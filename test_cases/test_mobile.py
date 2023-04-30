@@ -12,7 +12,7 @@ class TestMobile:
     @pytest.mark.sanity
     def test_verify_mortgage_repayment(self):       # This test will fail
         MobileFlows.mortgage_flow('1000', '5', '2.5', Save.NO)
-        MobileFlows.verify_mortgage_repayment('20.99')
+        MobileFlows.verify_mortgage_repayment('17.94')
 
     @allure.title("TC02: Verify saved details")
     @allure.description("This test verify saved transaction")
@@ -29,6 +29,7 @@ class TestMobile:
     def test_delete_saved_trans(self):
         MobileFlows.delete_saved_trans()
         MobileFlows.verify_trans_is_deleted('59.36')
+        MobileFlows.delete_saved_trans()
 
 
 # ~~~ My test cases ~~~

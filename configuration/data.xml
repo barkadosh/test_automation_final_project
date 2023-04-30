@@ -22,7 +22,7 @@
     <App_Package>com.shivgadhia.android.ukMortgageCalc</App_Package>  <!-- For Android -->
     <App_Activity>.MainActivity</App_Activity> <!-- For Android -->
     <Bundle_ID>com.shivgadhia.ukMortgageCalc</Bundle_ID>   <!-- For IOS -->
-    <Appium_Server>http://localhost:4723/wd/hub</Appium_Server>
+    <Appium_Server>http://localhost:4730/wd/hub</Appium_Server>  <!--  Changed to port 4730 from 4723 (jenkins-for WinAppDriverService) -->
     <Swipe_Duration>200</Swipe_Duration>          <!-- milliseconds -->
 
     <!--Electron-->

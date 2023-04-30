@@ -183,7 +183,7 @@ def get_android(udid):
     dc['appPackage'] = get_data('App_Package')
     dc['appActivity'] = get_data('App_Activity')
     dc['platformName'] = 'android'
-    android_driver = appium.webdriver.Remote('http://localhost:4723/wd/hub', dc)
+    android_driver = appium.webdriver.Remote(get_data('Appium_Server'), dc)
     return android_driver
 
 
@@ -191,7 +191,7 @@ def get_ios(udid):
     dc['udid'] = udid
     dc['bundle_id'] = get_data('Bundle_ID')
     dc['platformName'] = 'ios'
-    ios_driver = appium.webdriver.Remote('http://localhost:4723/wd/hub', dc)
+    ios_driver = appium.webdriver.Remote(get_data('Appium_Server'), dc)
     return ios_driver
 
 
