@@ -65,7 +65,7 @@ Find AUMID of a desktop app (that allow it)
 * To run the server
     1.open cmd from:
     works pc - C:\Users\BarKadosh-Cello\PycharmProjects\JenkinsServer
-    laptop - C:\Automation\Jenkins
+    laptop / desktop - C:\Automation\Jenkins
     2. run in cmd: java -jar jenkins.war --httpPort=9090
     3. Jenkins url: http://localhost:9090/
 # Job Schedular: job > Configure > Build periodically >> set time with cron scheduler
