@@ -60,7 +60,7 @@ def init_web_driver(request):
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.api_key = get_data("ApplitoolsAPI")
     yield
-    #process.terminate()           # Closing Grafana server without jenkins
+    # process.terminate()           # Closing Grafana server without jenkins
     driver.quit()
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.close()  # Applitools
@@ -86,6 +86,7 @@ def init_mobile_driver(request):
     yield
     driver.quit()
 
+
 @pytest.fixture(scope="class")
 def init_electron_driver(request):
     edriver = get_electron_driver()
@@ -99,6 +100,7 @@ def init_electron_driver(request):
     yield
     driver.quit()
 
+
 @pytest.fixture(scope="class")
 def init_desktop_driver(request):
     edriver = get_desktop_driver()
@@ -110,19 +112,19 @@ def init_desktop_driver(request):
     yield
     driver.quit()
 
+
 @pytest.fixture(scope="class")
 def init_db_connector(request):
     db_connector = mysql.connector.connect(
-        host = get_data('DBHost'),
-        database = get_data('DBName'),
-        user = get_data('DBUser'),
-        password = get_data('DBPassword')
+        host=get_data('DBHost'),
+        database=get_data('DBName'),
+        user=get_data('DBUser'),
+        password=get_data('DBPassword')
     )
     globals()['db_connector'] = db_connector
     request.cls.db_connector = db_connector
     yield
     db_connector.close()
-
 
 
 def get_web_driver():
@@ -149,15 +151,17 @@ def get_mobile_driver():
         raise Exception("Wrong input, unrecognized mobile OS")
     return driver
 
+
 def get_electron_driver():
     options = selenium.webdriver.ChromeOptions()
     options.binary_location = get_data("Electron_App")
     driver = selenium.webdriver.Chrome(chrome_options=options, executable_path=get_data("Electron_Driver"))
     return driver
 
+
 def get_desktop_driver():
     dc['app'] = get_data('ApplicationName')
-    dc['platformName'] ='Windows'
+    dc['platformName'] = 'Windows'
     dc['deviceName'] = 'WindowsPC'
     driver = appium.webdriver.Remote(get_data('WinAppDriverService'), dc)
     return driver

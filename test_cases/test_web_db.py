@@ -4,6 +4,7 @@ import pytest
 from workflows.db_flows import DBFlows
 from workflows.web_flows import WebFlows
 
+
 # Run command: python -m pytest test_web_db.py -s -v --alluredir=../allure-results
 # Notice: need to be run only with command line when starting grafana server with subprocess
 @pytest.mark.usefixtures('init_web_driver', 'init_db_connector')
