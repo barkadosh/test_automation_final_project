@@ -2,14 +2,14 @@
 <Environment>
     <!--General -->
     <WaitTime>3</WaitTime>
-    <ScreenshotPath>./allure-screen-shots/</ScreenshotPath> <!-- when running without jenkins, from test cases folder: add "../" before "allure"-->
+    <ScreenshotPath>./../allure-screen-shots/</ScreenshotPath> <!-- when running without jenkins, from test cases folder: add "../" before "allure"-->
 
     <!--Web & API -->
     <Browser>Chrome</Browser>
     <Url>http://localhost:3000/</Url>
     <Username>admin</Username>
     <Password>admin</Password>
-    <CSV_Location>ddt/users.csv</CSV_Location>  <!-- when running without jenkins, from :test_cases" folder: add "../" before "ddt"-->
+    <CSV_Location>../ddt/users.csv</CSV_Location>  <!-- when running without jenkins, from :test_cases" folder: add "../" before "ddt"-->
     <ExecuteApplitools>no</ExecuteApplitools>  <!--yes / no-->
     <ApplitoolsAPI>rCfg7VUAMD1y9jG97L8H101bVw0yaF0RQuC2ZWo0q47pCs110</ApplitoolsAPI>
     <GrafanaPath>C:\\Automation\\grafana-enterprise-9.3.2.windows-amd64\\grafana-9.3.2\\bin\\grafana-server.exe --homepath=C:\\Automation\\grafana-enterprise-9.3.2.windows-amd64\\grafana-9.3.2</GrafanaPath>
