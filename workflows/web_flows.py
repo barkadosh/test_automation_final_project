@@ -7,8 +7,8 @@ import page_objects.web_objects.server_admin_page
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
-from utilities.common_ops import wait, For, get_data, read_csv
-
+from utilities.common_ops import wait, get_data, read_csv
+from utilities.enums import For
 
 class WebFlows:
 

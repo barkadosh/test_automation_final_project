@@ -5,7 +5,8 @@ from extensions.mobile_actions import MobileActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
 from test_cases import conftest as conf
-from utilities.common_ops import get_data, wait, For
+from utilities.common_ops import get_data, wait
+from utilities.enums import For
 
 
 class MobileFlows:

@@ -3,7 +3,8 @@ import allure
 import pytest
 from test_cases import conftest as conf
 from test_cases.conftest import eyes
-from utilities.common_ops import get_data, By
+from utilities.common_ops import get_data
+from utilities.enums import By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
 

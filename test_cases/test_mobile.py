@@ -1,7 +1,7 @@
 import allure
 
 import pytest
-from utilities.common_ops import Save, Direction
+from utilities.enums import Save, Direction
 from workflows.mobile_flows import MobileFlows
 
 

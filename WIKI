@@ -81,16 +81,6 @@ Cron schedular: https://plumsail.com/sharepoint-workflow-scheduler/docs/advanced
 - job > Configure > This project is parameterized >> Name (Browser), Choices (Safari Edge Chrome Firefox *in a column)
 - job > Configure > Build periodically with parameters >> set time with cron scheduler (45 17 * * * %Browser=Chrome)
 
-*Proj requirements (GEPETA):
-To save project requirements file in PyCharm, you can follow these steps:
-1.Open your PyCharm project and make sure that the virtual environment is activated. You can check this by looking at the bottom-right corner
-of the PyCharm window, where you should see the name of the virtual environment.
-2.Go to the "Terminal" tab at the bottom of the screen and navigate to your project directory using the "cd" command.
-3.Once you are in the project directory, create a new requirements file by running the command "pip freeze > requirements.txt".
-This command will save a list of all the installed packages and their versions in the requirements.txt file.
-
-
-
 ***Pytest***
 Run: python -m pytest -v -s test_web.py
 (* use python -m when the pytest install in another location - another project)
@@ -138,3 +128,12 @@ def setup_module(self):
 
 def teardown_module(self):
 
+*** General setups for the Project ***
+
+*Proj requirements (GEPETA):
+To save project requirements file in PyCharm, you can follow these steps:
+1.Open your PyCharm project and make sure that the virtual environment is activated. You can check this by looking at the bottom-right corner
+of the PyCharm window, where you should see the name of the virtual environment.
+2.Go to the "Terminal" tab at the bottom of the screen and navigate to your project directory using the "cd" command.
+3.Once you are in the project directory, create a new requirements file by running the command "pip freeze > requirements.txt".
+This command will save a list of all the installed packages and their versions in the requirements.txt file.
