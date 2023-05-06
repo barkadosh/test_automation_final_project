@@ -4,8 +4,6 @@ import pytest
 from extensions.verifications import Verifications
 from workflows.desktop_flows import DesktopFlows
 
-
-# This automated tests works only on Windows 10!!! - No computability yet with Windows 11
 # python -m pytest test_desktop.py -s -v --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_desktop_driver')
