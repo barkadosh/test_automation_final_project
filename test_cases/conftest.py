@@ -1,4 +1,5 @@
-#import subprocess
+# import subprocess
+import os
 import time
 
 import mysql.connector
@@ -42,7 +43,7 @@ eyes = Eyes()  # Applitools
 
 @pytest.fixture(scope="class")
 def init_web_driver(request):
-    #process = subprocess.Popen(get_data('GrafanaPath'))       # Starting Grafana server without jenkins
+    # process = subprocess.Popen(get_data('GrafanaPath'))       # Starting Grafana server without jenkins
     time.sleep(4)
     if get_data("ExecuteApplitools").lower() == 'yes':
         globals()['driver'] = get_web_driver()
@@ -60,7 +61,7 @@ def init_web_driver(request):
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.api_key = get_data("ApplitoolsAPI")
     yield
-    #process.terminate()           # Closing Grafana server without jenkins
+    # process.terminate()           # Closing Grafana server without jenkins
     driver.quit()
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.close()  # Applitools
@@ -128,7 +129,8 @@ def init_db_connector(request):
 
 
 def get_web_driver():
-    web_driver = get_data('Browser')
+    # web_driver = get_data('Browser')   # To choose browser from XML
+    web_driver = os.getenv('Browser')    # To choose browser from Jenkins
     if web_driver.lower() == 'chrome':
         driver = get_chrome()
     elif web_driver.lower() == 'firefox':
