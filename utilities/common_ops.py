@@ -8,7 +8,7 @@ from selenium.webdriver.remote.webelement import WebElement
 import test_cases.conftest as conf
 import xml.etree.ElementTree as ET
 
-# To run the automation from different machines
+# To run the automation from different machines - set the root path to the xml configuration file
 hostname = socket.gethostname()
 print("Hostname:", hostname)
 
@@ -20,13 +20,23 @@ elif hostname == 'LP-BARK-51XN8S3':
     root_path = 'C:/Users/BarKadosh-Cello/PycharmProjects/test_automation_final_project/configuration/data.xml'
 
 
-# Connectivity to XML file
+###########################################
+# Function Name: get_data
+# Function Description: This function reads data from external xml file
+# Function Parameters: String - the node name
+# Function Return: String - the node value
+###########################################
 def get_data(node_name):
     root = ET.parse(root_path).getroot()
     return root.find('.//' + node_name).text
 
 
-# Connectivity to CSV file
+###########################################
+# Function Name: read_csv
+# Function Description: This function reads data from external csv file
+# Function Parameters: String - file_name
+# Function Return: String - data
+###########################################
 def read_csv(file_name):
     data = []
     with open(file_name, newline='') as file:
@@ -36,7 +46,12 @@ def read_csv(file_name):
         return data
 
 
-# Wait conditions
+###########################################
+# Function Name: wait
+# Function Description: Explicitly Wait for a web element - this function get the wait time from the config file,
+# and wait for the appearance of the web element
+# Function Parameters: String(Enum) - for_element , Web element - elem
+###########################################
 def wait(for_element, elem):
     if for_element == 'element_exist':
         WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(EC.presence_of_element_located((elem[0], elem[1])))
@@ -46,7 +61,10 @@ def wait(for_element, elem):
             EC.visibility_of_element_located((elem[0], elem[1])))
 
 
+###########################################
+# Function Name: get_time_stamp
+# Function Description: This function get the time stamp for the file name of the allure screenshots
+# Function Return: Flot - time stamp
+###########################################
 def get_time_stamp():
     return time.time()
-
-

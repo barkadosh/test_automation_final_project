@@ -8,8 +8,8 @@ from utilities.enums import By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
 
-# Run: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
-# Notice: need to be run only with command line when starting grafana server with subprocess
+
+# Run command: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
@@ -69,7 +69,6 @@ class TestWeb:
         time.sleep(2)
 
 
-
 # ~~~ My test cases ~~~
 
 @pytest.mark.usefixtures('init_web_driver')
@@ -78,7 +77,6 @@ class MyTestWeb:
     @allure.description("Create and verify new dashboard in grafana")
     def test_create_new_dashboard(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
-
 
         def teardown_method(self):
             WebFlows.grafana_home(self)
