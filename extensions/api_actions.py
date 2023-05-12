@@ -14,7 +14,7 @@ class APIActions:
         return response
 
     @staticmethod
-    @allure.step('Extract_value_from_response')
+    @allure.step('Extract a value from the response')
     def extract_value_from_response(response, nodes):
         extracted_value = None
         response_json = response.json()

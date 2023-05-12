@@ -2,7 +2,7 @@
 <Environment>
     <!--General -->
     <WaitTime>3</WaitTime>
-    <ScreenshotPath>./allure-screen-shots/</ScreenshotPath> <!-- when running without jenkins, from test cases folder: add "../" before "allure"-->
+    <ScreenshotPath>./allure-screen-shots/</ScreenshotPath> <!-- when running without Jenkins, from test cases folder: add "../" before "allure"-->
 
     <!--Web & API -->
     <!--Browser>Chrome</Browser-->  <!--Marked as comment when running with Jenkins parameters -->
@@ -22,7 +22,7 @@
     <App_Package>com.shivgadhia.android.ukMortgageCalc</App_Package>  <!-- For Android -->
     <App_Activity>.MainActivity</App_Activity> <!-- For Android -->
     <Bundle_ID>com.shivgadhia.ukMortgageCalc</Bundle_ID>   <!-- For IOS -->
-    <Appium_Server>http://localhost:4730/wd/hub</Appium_Server>  <!--  Changed to port 4730 from 4723 (jenkins-for WinAppDriverService) -->
+    <Appium_Server>http://localhost:4730/wd/hub</Appium_Server>  <!--  Changed to port 4730 from 4723 (Jenkins-for WinAppDriverService) -->
     <Swipe_Duration>200</Swipe_Duration>          <!-- milliseconds -->
 
     <!--Electron-->
