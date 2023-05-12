@@ -71,6 +71,8 @@ class TestWeb:
 
 # ~~~ My test cases ~~~
 
+# add performance tests
+
 @pytest.mark.usefixtures('init_web_driver')
 class MyTestWeb:
     @allure.title("TC01: Create new dashboard")

@@ -18,6 +18,7 @@ equals = (By.NAME, "Equals")
 result = (By.XPATH, "//*[@AutomationId='CalculatorResults']")
 clear = (By.NAME, "Clear")
 
+
 class StandardPage:
 
     def __init__(self, driver):
@@ -73,4 +74,3 @@ class StandardPage:
 
     def get_clear(self):
         return self.driver.find_element(clear[0], clear[1])
-

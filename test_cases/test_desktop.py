@@ -25,3 +25,4 @@ class TestDesktopApp:
 
 
 # ~~~ My test cases ~~~
+
