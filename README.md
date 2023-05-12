@@ -1,5 +1,5 @@
-# Full SFunctional tack Test Automation Project
-This is a final test automation project for a Fullstuck Test Automation Course with Python.
+# Full Stack Test Automation Project
+This is a final test automation project for a Fullstuck Test Automation Course with Python. 
 This project covering:
 * Functional, Visual and Performance test cases on a Web and a Mobile Apps.
 * Functional test on Electron and Desktop Apps.
@@ -7,6 +7,9 @@ This project covering:
 * Tests on MySQL Data Base.
 
 # Concepts Included: 
+* Selenium.
+* Appium. 
+* Python testing framework - Pytest.
 * Project Layers: 
   * Page objects design.
   * Actions.
@@ -26,4 +29,5 @@ This project covering:
 * Ci support with Jenkins.
 
 # List of applications that were tested on this project: 
-* Grafana
+* Grafana - for web testing.
+..
