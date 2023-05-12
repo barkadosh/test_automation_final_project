@@ -32,6 +32,11 @@ standard_calc = None
 
 
 class ManagePages:
+
+    ###########################################
+    # Function Name: init_web_pages
+    # Function Description: Initiate the pages of web page objects for the init_web_driver function
+    ###########################################
     @staticmethod
     def init_web_pages():
         globals()['web_login'] = LoginPage(conf.driver)
@@ -42,15 +47,27 @@ class ManagePages:
         globals()['web_server_admin'] = ServerAdminPage(conf.driver)
         globals()['web_server_admin_new_user'] = ServerAdminNewUser(conf.driver)
 
+    ###########################################
+    # Function Name: init_mobile_pages
+    # Function Description: Initiate the pages of mobile page objects for the init_mobile_driver function
+    ###########################################
     @staticmethod
     def init_mobile_pages():
         globals()['mobile_calculator'] = CalculatorPage(conf.driver)
         globals()['mobile_save'] = SavedPage(conf.driver)
 
+    ###########################################
+    # Function Name: init_electron_pages
+    # Function Description: Initiate the pages of electron page objects for the init_electron_driver function
+    ###########################################
     @staticmethod
     def init_electron_pages():
         globals()['electron_task'] = TaskPage(conf.driver)
 
+    ###########################################
+    # Function Name: init_desktop_pages
+    # Function Description: Initiate the pages of desktop page objects for the init_desktop_driver function
+    ###########################################
     @staticmethod
     def init_desktop_pages():
         globals()['standard_calc'] = StandardPage(conf.driver)

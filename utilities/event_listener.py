@@ -1,6 +1,9 @@
 from selenium.webdriver.support.events import AbstractEventListener
 
 
+###################################################################################
+# Events listeners - events descriptions for the console while running test cases #
+###################################################################################
 class EventListener(AbstractEventListener):
     button_text = None
 
