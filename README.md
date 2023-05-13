@@ -24,10 +24,12 @@ This project covering:
 * Reporting System - Allure Reports. 
 * Error handaling including Events Listeners and screen shots(Allure).  
 * External Files support (XML, CSV).
-* pytest.ini (to manage cross project fixtures).
+* pytest.ini (manage cross project fixtures).
 * Data Base support
-* Ci support with Jenkins.
+* CI/CD support with Jenkins.
 
-# List of applications that were tested on this project: 
-* Grafana - for web testing.
-..
+# Applications that were tested on this project: 
+* [Grafana](https://grafana.com/) - Web based application.
+* [ukMortgageCalc](https://github.com/barkadosh/test_automation_final_project/blob/master/APKs/ukMortgageCalc.apk) - Mobile application.
+* 
+* Windows Calculator - desktop app.
