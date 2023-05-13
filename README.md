@@ -6,10 +6,17 @@ This project covering:
 * API tests on a web service.
 * Tests on MySQL Data Base.
 
+# Tools
+* Pycharm IDE
+* Appium Studio
+* Selenium webdriver.
+* Python testing tool - Pytest.
+* Appium Webdriver. 
+* WinAppDriver.
+* Windows SDK.
+* MySql Data Base.
+
 # Concepts Included: 
-* Selenium.
-* Appium. 
-* Python testing framework - Pytest.
 * Project Layers: 
   * Page objects design.
   * Actions.
@@ -22,9 +29,10 @@ This project covering:
 * Support of IOS and Android. 
 * Visual Testing with Applitools.
 * Reporting System - Allure Reports. 
-* Error handaling including Events Listeners and screen shots(Allure).  
+* Error handaling including Events Listeners and screen shots (Allure).  
 * External Files support (XML, CSV).
 * pytest.ini (manage cross project fixtures).
+* Rest API Testing with Requests Python package.
 * Data Base support
 * CI/CD support with Jenkins.
 
@@ -33,3 +41,9 @@ This project covering:
 * [ukMortgageCalc](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/APKs/ukMortgageCalc.apk) - Mobile apk.
 * [ToDo List](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/TodoList-Setup.exe) - Electron.
 * Windows Calculator - Desktop.
+
+# Requirements
+[Rquirements.txt](https://github.com/barkadosh/test_automation_final_project/blob/master/requirements.txt)
+
+# Known Issiues: 
+Can't run Mobile test cases peralel to Desktop test cases, changed appium server to run trough port 4730. 
