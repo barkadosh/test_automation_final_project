@@ -29,7 +29,7 @@ This project covering:
 * CI/CD support with Jenkins.
 
 # Applications that were tested on this project: 
-* [Grafana](https://grafana.com/) - Web based application.
-* [ukMortgageCalc](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/APKs/ukMortgageCalc.apk) - Mobile application.
-* [ToDo List](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/TodoList-Setup.exe) - Electron application.
-* Windows Calculator - Desktop app.
+* [Grafana](https://grafana.com/) - Web based.
+* [ukMortgageCalc](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/APKs/ukMortgageCalc.apk) - Mobile apk.
+* [ToDo List](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/TodoList-Setup.exe) - Electron.
+* Windows Calculator - Desktop.
