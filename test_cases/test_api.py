@@ -2,25 +2,15 @@
 # curl http://admin:admin@localhost:3000/api/teams/search?name=test (view in cmd)
 # To run: python -m pytest test_api.py -m run_this --alluredir=../allure-results
 
-import json
 import allure
-import pytest
-
 from extensions.verifications import Verifications
-from requests.auth import HTTPBasicAuth
-import requests
 from workflows.api_flows import APIFlows
 
 team_name = 'Test api'
 team_email = 'testapi@gmail.com'
-url = 'http://localhost:3000/'
-resources = 'api/teams'
-user = 'admin'
-password = 'admin'
-header = {'Content-Type': 'application/json'}
 
 
-class Test_Api:
+class TestApi:
     @allure.title('TC01: Create team & verify status code')
     @allure.description('This test create new team in grafana')
     def test_create_and_verify_team(self):

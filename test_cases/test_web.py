@@ -41,7 +41,7 @@ class TestWeb:
 
     @allure.title("TC04: Filter the users list")
     @allure.description("This test filters the users list and check that the correct number of users are displayed")
-    @pytest.mark.parametrize('search_value, expected_users', web_flows.testdata)
+    @pytest.mark.parametrize('search_value, expected_users', web_flows.users_testdata)
     def test_search_filter(self, search_value, expected_users):
         WebFlows.open_users_page()
         WebFlows.search_user(search_value)

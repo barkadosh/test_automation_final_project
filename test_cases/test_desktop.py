@@ -4,6 +4,7 @@ import pytest
 from extensions.verifications import Verifications
 from workflows.desktop_flows import DesktopFlows
 
+
 # python -m pytest test_desktop.py -s -v --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_desktop_driver')
@@ -23,6 +24,4 @@ class TestDesktopApp:
     def teardown_methode(self):
         DesktopFlows.clear_flow()
 
-
 # ~~~ My test cases ~~~
-
