@@ -1,3 +1,9 @@
+
+#################################################################################
+# SQL query used for creating the data for test cases in  module test_web_db.py #
+#################################################################################
+
+
 create table UsersFinalProjectAut(
 id int,
 name varchar(10),
