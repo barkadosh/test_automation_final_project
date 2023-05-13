@@ -43,7 +43,7 @@ This project covering:
 * Windows Calculator - Desktop.
 
 # Requirements
-[Rquirements. txt](https://github.com/barkadosh/test_automation_final_project/blob/master/requirements.txt)
+[Rquirements.txt](https://github.com/barkadosh/test_automation_final_project/blob/master/requirements.txt)
 
 # Known Issues: 
 Can't run Mobile test cases parallel to Desktop test cases, changed appium server to run through port 4730. 
