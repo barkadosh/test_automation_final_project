@@ -1,7 +1,7 @@
 # Full Stack Test Automation Project
 This is a final test automation project for a Fullstuck Test Automation Course in Python. 
 This project covering:
-* Functional, Visual and Performance test cases on a Web and a Mobile Apps.
+* Functional, Visual, and Performance test cases on Web and Mobile Apps.
 * Functional test on Electron and Desktop Apps.
 * API tests on a web service.
 * Tests on MySQL Data Base.
@@ -18,20 +18,20 @@ This project covering:
 
 # Concepts Included: 
 * Project Layers: 
-  * Page objects design.
+  * Page object design.
   * Actions.
   * Verifications including smart assertions.
-  * Work flows.
+  * Workflows.
   * Enums.
-  * Confoguration file.
+  * Configuration file.
   * Test cases.
-* Support of diffrent browsers.
+* Support of different browsers.
 * Support of IOS and Android. 
 * Visual Testing with Applitools.
 * Reporting System - Allure Reports. 
-* Error handaling including Events Listeners and screen shots (Allure).  
+* Error handling including Events Listeners and screenshots (Allure).  
 * External Files support (XML, CSV).
-* pytest.ini (manage cross project fixtures).
+* pytest.ini (manage cross-project fixtures).
 * Rest API Testing with Requests Python package.
 * Data Base support
 * CI/CD support with Jenkins.
@@ -43,7 +43,7 @@ This project covering:
 * Windows Calculator - Desktop.
 
 # Requirements
-[Rquirements.txt](https://github.com/barkadosh/test_automation_final_project/blob/master/requirements.txt)
+[Rquirements. txt](https://github.com/barkadosh/test_automation_final_project/blob/master/requirements.txt)
 
-# Known Issiues: 
-Can't run Mobile test cases peralel to Desktop test cases, changed appium server to run trough port 4730. 
+# Known Issues: 
+Can't run Mobile test cases parallel to Desktop test cases, changed appium server to run through port 4730. 
