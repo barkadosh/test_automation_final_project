@@ -1,5 +1,5 @@
 # Full Stack Test Automation Project
-This is a final test automation project for a Fullstuck Test Automation Course with Python. 
+This is a final test automation project for a Fullstuck Test Automation Course in Python. 
 This project covering:
 * Functional, Visual and Performance test cases on a Web and a Mobile Apps.
 * Functional test on Electron and Desktop Apps.
