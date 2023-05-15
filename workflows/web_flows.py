@@ -101,6 +101,11 @@ class WebFlows:
     def grafana_home(self):
         self.driver.get(get_data('Url'))
 
+    @staticmethod
+    @allure.step("Open create dashboard page")
+    def open_create_dashboard(self):
+        elem1 = page.web_side_menu_nav.get_dashboards_nav()
+        elem2 =
 
 # Parameters for "TC04: Filter the users list" from test_web.py, imported from Users_CSV File
 data = read_csv(get_data('Users_CSV'))
