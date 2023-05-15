@@ -2,7 +2,7 @@
 import os
 import time
 
-import mysql.connector
+#import mysql.connector
 
 import pytest
 import allure
@@ -134,18 +134,18 @@ def init_desktop_driver(request):
 # Function Name: init_db_connector
 # Function Description: This function initiate the database connector for the tests cases in test_web_db.py module
 ###########################################
-@pytest.fixture(scope="class")
-def init_db_connector(request):
-    db_connector = mysql.connector.connect(
-        host=get_data('DBHost'),
-        database=get_data('DBName'),
-        user=get_data('DBUser'),
-        password=get_data('DBPassword')
-    )
-    globals()['db_connector'] = db_connector
-    request.cls.db_connector = db_connector
-    yield
-    db_connector.close()
+# @pytest.fixture(scope="class")
+# def init_db_connector(request):
+#     db_connector = mysql.connector.connect(
+#         host=get_data('DBHost'),
+#         database=get_data('DBName'),
+#         user=get_data('DBUser'),
+#         password=get_data('DBPassword')
+#     )
+#     globals()['db_connector'] = db_connector
+#     request.cls.db_connector = db_connector
+#     yield
+#     db_connector.close()
 
 
 ###########################################

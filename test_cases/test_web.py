@@ -1,3 +1,4 @@
+# Run command: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
 import time
 import allure
 import pytest
@@ -7,9 +8,6 @@ from utilities.common_ops import get_data
 from utilities.enums import By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
-
-
-# Run command: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
