@@ -39,7 +39,7 @@ This project covering:
 # Applications that were tested on this project: 
 * [Grafana](https://grafana.com/) - Web based.
 * [ukMortgageCalc](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/APKs/ukMortgageCalc.apk) - Mobile apk.
-* [ToDo List](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/TodoList-Setup.exe) - Electron.
+* [ToDo List](https://github.com/barkadosh/test_automation_final_project/blob/master/Apps/TodoList-Setup.exe) - Electron app.
 * Windows Calculator - Desktop.
 
 # Requirements
