@@ -5,6 +5,8 @@ from utilities.enums import Save, Direction
 from workflows.mobile_flows import MobileFlows
 
 
+# add performance tests
+
 @pytest.mark.usefixtures('init_mobile_driver')
 class TestMobile:
     @allure.title("TC01: Verify mortgage repayment")

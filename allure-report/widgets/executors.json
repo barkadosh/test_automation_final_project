@@ -1,1 +1,1 @@
-[{"name":"Jenkins","type":"jenkins","url":"http://jenkins:9090/","buildOrder":9,"buildName":"Electron Tests #9","buildUrl":"http://jenkins:9090/job/Final%20Proj%20Electron%20Tests/9/","reportName":"AllureReport","reportUrl":"http://jenkins:9090/job/Final%20Proj%20Electron%20Tests/9/allure"}]
+[{"name":"Jenkins","type":"jenkins","url":"http://localhost:9090/","buildOrder":8,"buildName":"Web Tests (Grafana) #8","buildUrl":"http://localhost:9090/job/Web%20Tests/8/","reportName":"AllureReport","reportUrl":"http://localhost:9090/job/Web%20Tests/8/allure"}]

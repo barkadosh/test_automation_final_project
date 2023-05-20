@@ -1,3 +1,4 @@
+# Run command: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
 import time
 import allure
 import pytest
@@ -7,9 +8,6 @@ from utilities.common_ops import get_data
 from utilities.enums import By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
-
-
-# Run command: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
@@ -41,7 +39,7 @@ class TestWeb:
 
     @allure.title("TC04: Filter the users list")
     @allure.description("This test filters the users list and check that the correct number of users are displayed")
-    @pytest.mark.parametrize('search_value, expected_users', web_flows.testdata)
+    @pytest.mark.parametrize('search_value, expected_users', web_flows.users_testdata)
     def test_search_filter(self, search_value, expected_users):
         WebFlows.open_users_page()
         WebFlows.search_user(search_value)
@@ -71,8 +69,10 @@ class TestWeb:
 
 # ~~~ My test cases ~~~
 
+# add performance tests
+
 @pytest.mark.usefixtures('init_web_driver')
-class MyTestWeb:
+class TestDashboard:
     @allure.title("TC01: Create new dashboard")
     @allure.description("Create and verify new dashboard in grafana")
     def test_create_new_dashboard(self):
@@ -81,3 +81,23 @@ class MyTestWeb:
         def teardown_method(self):
             WebFlows.grafana_home(self)
             time.sleep(2)
+
+    @allure.title("TC02: Favorite a dashboard")
+    @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
+    def test_favorite_a_dashboard(self):
+        @allure.title("TC02: Favorite a dashboard")
+        @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
+
+
+    @allure.title("TC02: Rename a dashboard")
+    @allure.description("Change a dashboard title")
+    def test_rename_a_dashboard(self):
+        @allure.title("TC02: Favorite a dashboard")
+        @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
+
+
+    @allure.title("TC02: Change position")
+    @allure.description("Drag a dashboard to another position")
+    def test_rename_a_dashboard(self):
+        @allure.title("TC02: Favorite a dashboard")
+        @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")

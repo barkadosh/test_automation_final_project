@@ -10,6 +10,7 @@ from extensions.verifications import Verifications
 from utilities.common_ops import wait, get_data, read_csv
 from utilities.enums import For
 
+
 class WebFlows:
 
     @staticmethod
@@ -100,10 +101,18 @@ class WebFlows:
     def grafana_home(self):
         self.driver.get(get_data('Url'))
 
+    @staticmethod
+    @allure.step("Open create dashboard page")
+    def open_create_dashboard(self):
+        elem1 = page.web_side_menu_nav.get_dashboards_nav()
+        elem2 =
 
-data = read_csv(get_data('CSV_Location'))
-testdata = [
+# Parameters for "TC04: Filter the users list" from test_web.py, imported from Users_CSV File
+data = read_csv(get_data('Users_CSV'))
+users_testdata = [
     (data[0][0], data[0][1]),
     (data[1][0], data[1][1]),
     (data[2][0], data[2][1])
 ]
+
+

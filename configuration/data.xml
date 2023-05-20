@@ -2,17 +2,20 @@
 <Environment>
     <!--General -->
     <WaitTime>3</WaitTime>
-    <ScreenshotPath>./allure-screen-shots/</ScreenshotPath> <!-- when running without jenkins, from test cases folder: add "../" before "allure"-->
+    <ScreenshotPath>./allure-screen-shots/</ScreenshotPath>
+    <!-- when running without Jenkins, from test cases folder: add "../" before "allure"-->
 
     <!--Web & API -->
     <!--Browser>Chrome</Browser-->  <!--Marked as comment when running with Jenkins parameters -->
     <Url>http://localhost:3000/</Url>
     <Username>admin</Username>
     <Password>admin</Password>
-    <CSV_Location>ddt/users.csv</CSV_Location>  <!-- when running without Jenkins, from :test_cases" folder: add "../" before "ddt"-->
+    <Users_CSV>ddt/users.csv</Users_CSV>
+    <!-- when running without Jenkins, from :test_cases" folder: add "../" before "ddt"-->
     <ExecuteApplitools>no</ExecuteApplitools>  <!--yes / no-->
     <ApplitoolsAPI>rCfg7VUAMD1y9jG97L8H101bVw0yaF0RQuC2ZWo0q47pCs110</ApplitoolsAPI>
     <GrafanaPath>C:\\Automation\\grafana-enterprise-9.3.2.windows-amd64\\grafana-9.3.2\\bin\\grafana-server.exe --homepath=C:\\Automation\\grafana-enterprise-9.3.2.windows-amd64\\grafana-9.3.2</GrafanaPath>
+
 
 
     <!--Mobile-->
@@ -22,7 +25,7 @@
     <App_Package>com.shivgadhia.android.ukMortgageCalc</App_Package>  <!-- For Android -->
     <App_Activity>.MainActivity</App_Activity> <!-- For Android -->
     <Bundle_ID>com.shivgadhia.ukMortgageCalc</Bundle_ID>   <!-- For IOS -->
-    <Appium_Server>http://localhost:4730/wd/hub</Appium_Server>  <!--  Changed to port 4730 from 4723 (jenkins-for WinAppDriverService) -->
+    <Appium_Server>http://localhost:4730/wd/hub</Appium_Server>  <!--  Changed to port 4730 from 4723 (Jenkins-for WinAppDriverService) -->
     <Swipe_Duration>200</Swipe_Duration>          <!-- milliseconds -->
 
     <!--Electron-->

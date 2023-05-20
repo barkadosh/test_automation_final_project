@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 main_title = (By.CLASS_NAME, "css-17tm80")
 
 
+
 class MainPage:
     def __init__(self, driver):
         self.driver = driver
