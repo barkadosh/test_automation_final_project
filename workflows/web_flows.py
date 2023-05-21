@@ -96,6 +96,7 @@ class WebFlows:
         # I added this step because the alert interrupt clicking on the users_list element
         UiActions.click(page.web_server_admin.close_alert())
 
+    # Flows related to creating and managing dashboards
     @staticmethod
     @allure.step("Go to home page flow")
     def grafana_home(self):
@@ -103,9 +104,25 @@ class WebFlows:
 
     @staticmethod
     @allure.step("Open create dashboard page")
-    def open_create_dashboard(self):
+    def open_create_dashboard_page(self):
         elem1 = page.web_side_menu_nav.get_dashboards_nav()
-        elem2 =
+        elem2 = page.web_dashboards_popup_menu()
+        UiActions.mouse_hover(elem1,elem2)
+
+    @staticmethod
+    @allure.step("Create new panel dashboard")
+    def create_dashboard(self):
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_new_panel())
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_dashboard_title(), 'Test')
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_dashboard_description(), 'This is a test dashboard')
+
+
+
+
+
+
+
+
 
 # Parameters for "TC04: Filter the users list" from test_web.py, imported from Users_CSV File
 data = read_csv(get_data('Users_CSV'))

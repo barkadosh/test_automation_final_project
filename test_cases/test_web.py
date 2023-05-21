@@ -67,6 +67,8 @@ class TestWeb:
         time.sleep(2)
 
 
+
+
 # ~~~ My test cases ~~~
 
 # add performance tests
@@ -77,27 +79,28 @@ class TestDashboard:
     @allure.description("Create and verify new dashboard in grafana")
     def test_create_new_dashboard(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
-
-        def teardown_method(self):
-            WebFlows.grafana_home(self)
-            time.sleep(2)
-
-    @allure.title("TC02: Favorite a dashboard")
-    @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
-    def test_favorite_a_dashboard(self):
-        @allure.title("TC02: Favorite a dashboard")
-        @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
+        WebFlows.open_create_dashboard_page()
+        WebFlows.create_dashboard()
 
 
-    @allure.title("TC02: Rename a dashboard")
-    @allure.description("Change a dashboard title")
-    def test_rename_a_dashboard(self):
-        @allure.title("TC02: Favorite a dashboard")
-        @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
 
 
-    @allure.title("TC02: Change position")
-    @allure.description("Drag a dashboard to another position")
-    def test_rename_a_dashboard(self):
-        @allure.title("TC02: Favorite a dashboard")
-        @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
+    # @allure.title("TC02: Favorite a dashboard")
+    # @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
+    # def test_favorite_a_dashboard(self):
+    #
+    #
+    # @allure.title("TC02: Rename a dashboard")
+    # @allure.description("Change a dashboard title")
+    # def test_rename_a_dashboard(self):
+    #
+    #
+    #
+    # @allure.title("TC02: Change position")
+    # @allure.description("Drag a dashboard to another position")
+    # def test_rename_a_dashboard(self):
+
+
+    def teardown_method(self):
+        WebFlows.grafana_home(self)
+        time.sleep(2)
