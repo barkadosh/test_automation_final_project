@@ -1,6 +1,7 @@
 # Run command: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
-import time
 import allure
+
+import time
 import pytest
 from test_cases import conftest as conf
 from test_cases.conftest import eyes
