@@ -138,3 +138,4 @@ of the PyCharm window, where you should see the name of the virtual environment.
 2.Go to the "Terminal" tab at the bottom of the screen and navigate to your project directory using the "cd" command.
 3.Once you are in the project directory, create a new requirements file by running the command "pip freeze > requirements.txt".
 This command will save a list of all the installed packages and their versions in the requirements.txt file.
+

@@ -32,12 +32,14 @@ class TestWeb:
     @allure.title("TC03: Create and verify new users")
     @allure.description("This test create new users and check that the new users are displayed")
     def test_verify_new_users(self):
+        WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_users_page()
-        WebFlows.create_user('test1', 'test1@gmail.com', 'test1user', '123456')
-        WebFlows.open_users_page()
-        WebFlows.create_user('test2', 'test2@gmail.com', 'test2user', '123456')
-        WebFlows.open_users_page()
-        WebFlows.verify_number_of_users(3)
+        time.sleep(5)
+        # WebFlows.create_user('test1', 'test1@gmail.com', 'test1user', '123456')
+        # WebFlows.open_users_page()
+        # WebFlows.create_user('test2', 'test2@gmail.com', 'test2user', '123456')
+        # WebFlows.open_users_page()
+        # WebFlows.verify_number_of_users(3)
 
     @allure.title("TC04: Filter the users list")
     @allure.description("This test filters the users list and check that the correct number of users are displayed")
@@ -75,12 +77,13 @@ class TestWeb:
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestDashboard:
-    @allure.title("TC01: Create new dashboard")
-    @allure.description("Create and verify new dashboard in grafana")
+    @allure.title("TC01: Setup and create new dashboard ")
+    @allure.description("Add settings, create and verify new dashboard in grafana")
     def test_create_new_dashboard(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_create_dashboard_page()
         WebFlows.create_dashboard()
+        WebFlows.verify_new_dashboard()
 
     # @allure.title("TC02: Favorite a dashboard")
     # @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")

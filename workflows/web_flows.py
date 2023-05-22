@@ -4,6 +4,7 @@ import allure
 
 import page_objects.web_objects.main_page as main
 import page_objects.web_objects.server_admin_page
+import page_objects.web_objects.dashboards_popup_menu
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
@@ -106,15 +107,18 @@ class WebFlows:
     @allure.step("Open create dashboard page")
     def open_create_dashboard_page():
         elem1 = page.web_side_menu_nav.get_dashboards_nav()
+        UiActions.mouse_hover_element(elem1)
+        wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.new_dashboard)
         elem2 = page.web_dashboards_popup_menu.get_new_dashboard()
-        UiActions.mouse_hover(elem1,elem2)
+        UiActions.mouse_hover_tooltip(elem2)
 
     @staticmethod
-    @allure.step("Create new panel dashboard")
-    def create_dashboard(self):
+    @allure.step("Add settings and create new panel dashboard")
+    def create_dashboard():
         UiActions.click(page.web_dashboards_new_dashboard_page.get_new_panel())
-        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_dashboard_title(), 'Test')
-        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_dashboard_description(),
+        UiActions.clear(page.web_dashboards_new_dashboard_page.get_add_dashboard_title())
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_title(), 'Test')
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_description(),
                               'This is a test dashboard')
         if page.web_dashboards_new_dashboard_page.get_panel_link().get_attribute("aria-expanded") == "false":
             UiActions.click(page.web_dashboards_new_dashboard_page.get_panel_link())
@@ -125,7 +129,24 @@ class WebFlows:
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_link_url(),
                               'https://noc.co.il/')
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_url())
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_table_mode())
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_placement_right())
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_time_zone())
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_browser_time())
+        UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_line_width_slider())
+        UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_fill_opacity_slider())
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_apply_dashboard())
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_save_dashboard())
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.dashboard_name(), "Test Dashboard")
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_save_new_dashboard())
+        time.sleep(3)
 
+
+    @staticmethod
+    @allure.step("Verify the new dashboard was created by name and title")
+    def verify_new_dashboard():
+        Verifications.verify_equals(page.web_dashboards_new_dashboard_page.get_dashboard_name(), 'Test Dashboard')
+        Verifications.verify_equals(page.web_dashboards_new_dashboard_page.get_dashboard_name(), 'Test Dashboard')
 
 
 
