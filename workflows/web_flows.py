@@ -104,9 +104,9 @@ class WebFlows:
 
     @staticmethod
     @allure.step("Open create dashboard page")
-    def open_create_dashboard_page(self):
+    def open_create_dashboard_page():
         elem1 = page.web_side_menu_nav.get_dashboards_nav()
-        elem2 = page.web_dashboards_popup_menu()
+        elem2 = page.web_dashboards_popup_menu.get_new_dashboard()
         UiActions.mouse_hover(elem1,elem2)
 
     @staticmethod
@@ -114,7 +114,22 @@ class WebFlows:
     def create_dashboard(self):
         UiActions.click(page.web_dashboards_new_dashboard_page.get_new_panel())
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_dashboard_title(), 'Test')
-        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_dashboard_description(), 'This is a test dashboard')
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_dashboard_description(),
+                              'This is a test dashboard')
+        if page.web_dashboards_new_dashboard_page.get_panel_link().get_attribute("aria-expanded") == "false":
+            UiActions.click(page.web_dashboards_new_dashboard_page.get_panel_link())
+            UiActions.click(page.web_dashboards_new_dashboard_page.get_add_link())
+        else:
+            UiActions.click(page.web_dashboards_new_dashboard_page.get_add_link())
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_link_title(), 'Test Link')
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_link_url(),
+                              'https://noc.co.il/')
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_save_url())
+
+
+
+
+
 
 
 

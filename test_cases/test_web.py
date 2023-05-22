@@ -10,6 +10,7 @@ from utilities.enums import By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
 
+
 @pytest.mark.usefixtures('init_web_driver')
 class TestWeb:
     @allure.title("TC01: Login to Grafana")
@@ -68,8 +69,6 @@ class TestWeb:
         time.sleep(2)
 
 
-
-
 # ~~~ My test cases ~~~
 
 # add performance tests
@@ -82,9 +81,6 @@ class TestDashboard:
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_create_dashboard_page()
         WebFlows.create_dashboard()
-
-
-
 
     # @allure.title("TC02: Favorite a dashboard")
     # @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
@@ -100,7 +96,6 @@ class TestDashboard:
     # @allure.title("TC02: Change position")
     # @allure.description("Drag a dashboard to another position")
     # def test_rename_a_dashboard(self):
-
 
     def teardown_method(self):
         WebFlows.grafana_home(self)

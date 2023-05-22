@@ -4,6 +4,7 @@ new_panel = (By.CSS_SELECTOR, "button[aria-label='Add new panel']")
 # Edit dashboard
 dashboard_title = (By.ID, "PanelFrameTitle")
 dashboard_description = (By.ID, "description-text-area")
+panel_link = (By.CSS_SELECTOR, ".css-jengqr>.css-g6c6gc-button")
 add_link = (By.CSS_SELECTOR, "button.css-9ue6bh-button")
 link_title = (By.XPATH, "//*[@placeholder='Show details']")
 link_url = (By.CLASS_NAME, "slate-query-field")
@@ -29,6 +30,9 @@ class NewDashboard:
 
     def get_dashboard_description(self):
         return self.driver.find_element(dashboard_description[0], dashboard_description[1])
+
+    def get_panel_link(self):
+        return self.driver.find_elements(panel_link[0], panel_link[1])[0]
 
     def get_add_link(self):
         return self.driver.find_elements(add_link[0], add_link[1])[0]

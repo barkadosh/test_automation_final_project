@@ -154,8 +154,8 @@ def init_desktop_driver(request):
 # and return it to the init_web_driver function
 ###########################################
 def get_web_driver():
-    # web_driver = get_data('Browser')   # To choose browser from XML
-    web_driver = os.getenv('Browser')    # To choose browser from Jenkins
+    web_driver = get_data('Browser')   # To choose browser from XML
+    # web_driver = os.getenv('Browser')    # To choose browser from Jenkins
     if web_driver.lower() == 'chrome':
         driver = get_chrome()
     elif web_driver.lower() == 'firefox':
