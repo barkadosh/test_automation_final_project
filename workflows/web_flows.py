@@ -120,11 +120,7 @@ class WebFlows:
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_title(), 'Test')
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_description(),
                               'This is a test dashboard')
-        if page.web_dashboards_new_dashboard_page.get_panel_link().get_attribute("aria-expanded") == "false":
-            UiActions.click(page.web_dashboards_new_dashboard_page.get_panel_link())
-            UiActions.click(page.web_dashboards_new_dashboard_page.get_add_link())
-        else:
-            UiActions.click(page.web_dashboards_new_dashboard_page.get_add_link())
+        UiActions.click(page.web_dashboards_new_dashboard_page.get_add_link())
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_link_title(), 'Test Link')
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_link_url(),
                               'https://noc.co.il/')
@@ -133,6 +129,7 @@ class WebFlows:
         UiActions.click(page.web_dashboards_new_dashboard_page.get_placement_right())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_time_zone())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_browser_time())
+        UiActions.scroll_to_element(100,15)
         UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_line_width_slider())
         UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_fill_opacity_slider())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_apply_dashboard())

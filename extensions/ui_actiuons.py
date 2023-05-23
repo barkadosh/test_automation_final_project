@@ -1,6 +1,6 @@
 import allure
 
-from selenium.webdriver import ActionChains, Keys
+from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.webelement import WebElement
 
 import test_cases.conftest as conf
@@ -48,6 +48,12 @@ class UiActions:
     @allure.step("Drag an element")
     def drag_element(elem: WebElement):
         conf.action.click_and_hold(elem).move_by_offset(50,0).release().perform()
+
+    # This function gets x, y coordinates and scroll to that location
+    @staticmethod
+    @allure.step("Scroll to element location")
+    def scroll_to_element(x, y):
+        conf.driver.execute_script(f"scrollTo({x},{y})")
 
 
     @staticmethod
