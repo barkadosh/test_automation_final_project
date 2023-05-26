@@ -17,7 +17,7 @@ line_width_slider = (By.CLASS_NAME, "rc-slider-handle")
 fill_opacity_slider = (By.CLASS_NAME, "rc-slider-handle")
 apply_dashboard = (By.CSS_SELECTOR, ".css-ta03ya>.css-1sara2j-button")
 save_dashboard = (By.XPATH, "//button[@aria-label='Save dashboard']")
-add_dashboard_name = (By.NAME, "title")
+add_dashboard_name = (By.CLASS_NAME, "css-1mlczho-input-input")
 save_new_dashboard = (By.XPATH, "//button[@type='submit']")
 dashboard_name = (By.XPATH, "//span[@class= 'css-aqkpyi']")
 dashboard_title = (By.XPATH, "//h2[@class= 'css-1m35bcr']")
@@ -75,8 +75,14 @@ class NewDashboard:
     def get_save_dashboard(self):
         return self.driver.find_element(save_dashboard[0], save_dashboard[1])
 
-    def get_dashboard_name(self):
+    def get_add_dashboard_name(self):
         return self.driver.find_element(add_dashboard_name[0], add_dashboard_name[1])
+
+    def get_save_new_dashboard(self):
+        return self.driver.find_element(save_new_dashboard[0], save_new_dashboard[1])
+
+    def get_dashboard_name(self):
+        return self.driver.find_element(dashboard_name[0], dashboard_name[1])
 
     def get_dashboard_title(self):
         return self.driver.find_element(dashboard_title[0], dashboard_title[1])

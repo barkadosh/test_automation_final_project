@@ -47,17 +47,15 @@ class UiActions:
     @staticmethod
     @allure.step("Drag an element")
     def drag_element(elem: WebElement):
-        conf.action.click_and_hold(elem).move_by_offset(200,0).release().perform()
+        conf.action.click_and_hold(elem).move_by_offset(150, 0).release().perform()
 
     # This function gets x, y coordinates and scroll to that location
     @staticmethod
     @allure.step("Scroll to element location")
-    def scroll_to_element(x,y):
-        conf.driver.execute_script(f"scrollTo({x},{y})")
-
+    def scroll_to_element(elem):
+        conf.driver.execute_script("arguments[0].scrollIntoView();", elem)
 
     @staticmethod
     @allure.step("Clear text field in elements")
     def clear(elem: WebElement):
         elem.clear()
-

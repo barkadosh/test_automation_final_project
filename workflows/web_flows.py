@@ -129,32 +129,23 @@ class WebFlows:
         UiActions.click(page.web_dashboards_new_dashboard_page.get_placement_right())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_time_zone())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_browser_time())
-        #UiActions.scroll_to_element(0, 500)
+        UiActions.scroll_to_element(page.web_dashboards_new_dashboard_page.get_line_width_slider())
         UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_line_width_slider())
         UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_fill_opacity_slider())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_apply_dashboard())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_dashboard())
-        UiActions.update_text(page.web_dashboards_new_dashboard_page.dashboard_name(), "Test Dashboard")
+        UiActions.clear(page.web_dashboards_new_dashboard_page.get_add_dashboard_name())
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_name(), "Test Dashboard")
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_new_dashboard())
         time.sleep(3)
-
 
     @staticmethod
     @allure.step("Verify the new dashboard was created by name and title")
     def verify_new_dashboard():
-        Verifications.verify_equals(page.web_dashboards_new_dashboard_page.get_dashboard_name(), 'Test Dashboard')
-        Verifications.verify_equals(page.web_dashboards_new_dashboard_page.get_dashboard_name(), 'Test Dashboard')
-
-
-
-
-
-
-
-
-
-
-
+        actual_name = page.web_dashboards_new_dashboard_page.get_dashboard_name().text
+        Verifications.verify_equals(actual_name, 'Test Dashboard')
+        actual_title = page.web_dashboards_new_dashboard_page.get_dashboard_title().text
+        Verifications.verify_equals(actual_title, 'Test')
 
 
 # Parameters for "TC04: Filter the users list" from test_web.py, imported from Users_CSV File
@@ -164,5 +155,3 @@ users_testdata = [
     (data[1][0], data[1][1]),
     (data[2][0], data[2][1])
 ]
-
-
