@@ -129,7 +129,7 @@ class WebFlows:
         UiActions.click(page.web_dashboards_new_dashboard_page.get_placement_right())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_time_zone())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_browser_time())
-        UiActions.scroll_to_element(100,15)
+        #UiActions.scroll_to_element(0, 500)
         UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_line_width_slider())
         UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_fill_opacity_slider())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_apply_dashboard())

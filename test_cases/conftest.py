@@ -1,8 +1,8 @@
 # import subprocess
-import os
+# import os
 import time
 
-#import mysql.connector
+# import mysql.connector
 
 import pytest
 import allure
