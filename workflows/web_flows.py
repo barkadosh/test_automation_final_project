@@ -147,6 +147,16 @@ class WebFlows:
         actual_title = page.web_dashboards_new_dashboard_page.get_dashboard_title().text
         Verifications.verify_equals(actual_title, 'Test')
 
+    @staticmethod
+    @allure.step("Open create dashboard page")
+    def open_brows_dashboard_page():
+        elem1 = page.web_side_menu_nav.get_dashboards_nav()
+        UiActions.mouse_hover_element(elem1)
+        wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.brows_dashboards)
+        elem2 = page.web_dashboards_popup_menu.get_brows_dashboards()
+        UiActions.mouse_hover_tooltip(elem2)
+
+
 
 # Parameters for "TC04: Filter the users list" from test_web.py, imported from Users_CSV File
 data = read_csv(get_data('Users_CSV'))

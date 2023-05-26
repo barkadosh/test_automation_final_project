@@ -85,21 +85,33 @@ class TestDashboard:
         WebFlows.create_dashboard()
         WebFlows.verify_new_dashboard()
 
+    @allure.title("TC02: Save a dashboard to file")
+    @allure.description("Via the sharing menu, save the dashboard to file")
+    def test_dashboard_to_file(self):
+        WebFlows.login_flow(get_data('Username'), get_data('Password'))
+        WebFlows.open_brows_dashboard_page()
+        # need to edit steps
+
+
+
     # @allure.title("TC02: Favorite a dashboard")
     # @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
     # def test_favorite_a_dashboard(self):
     #
     #
-    # @allure.title("TC02: Rename a dashboard")
+    # @allure.title("TC03: Rename a dashboard")
     # @allure.description("Change a dashboard title")
     # def test_rename_a_dashboard(self):
-    #
     #
     #
     # @allure.title("TC02: Change position")
     # @allure.description("Drag a dashboard to another position")
     # def test_rename_a_dashboard(self):
-
+    #
+    #
+    # @allure.title("TC02: Change position")
+    # @allure.description("Drag a dashboard to another position")
+    # def test_rename_a_dashboard(self):
     def teardown_method(self):
         WebFlows.grafana_home(self)
         time.sleep(2)
