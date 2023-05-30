@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Environment>
     <!--General -->
-    <WaitTime>3</WaitTime>
+    <WaitTime>5</WaitTime>
     <ScreenshotPath>./../allure-screen-shots/</ScreenshotPath>
     <!-- when running without Jenkins, from test cases folder: add "../" before "allure"-->
 
@@ -14,9 +14,6 @@
     <!-- when running without Jenkins, from :test_cases" folder: add "../" before "ddt"-->
     <ExecuteApplitools>no</ExecuteApplitools>  <!--yes / no-->
     <ApplitoolsAPI>rCfg7VUAMD1y9jG97L8H101bVw0yaF0RQuC2ZWo0q47pCs110</ApplitoolsAPI>
-    <GrafanaPath>C:\\Automation\\grafana-9.3.2.windows-amd64\\grafana-9.3.2\\bin\\grafana-server.exe --homepath=C:\\Automation\\grafana-enterprise-9.3.2.windows-amd64\\grafana-9.3.2</GrafanaPath>
-    <!-- laptop path: C:\\Automation\\grafana-enterprise-9.3.2.windows-amd64\\grafana-9.3.2\\bin\\grafana-server.exe
-    - -homepath=C:\\Automation\\grafana-enterprise-9.3.2.windows-amd64\\grafana-9.3.2 -->
     <path_to_download_directory>./../downloads/</path_to_download_directory>
 
 

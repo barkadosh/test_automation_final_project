@@ -4,7 +4,6 @@ import socket
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.remote.webelement import WebElement
 import test_cases.conftest as conf
 import xml.etree.ElementTree as ET
 
@@ -59,6 +58,18 @@ def wait(for_element, elem):
     elif for_element == 'element_displayed':
         WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(
             EC.visibility_of_element_located((elem[0], elem[1])))
+
+
+###########################################
+# Function Name: wait_for_element_text
+# Function Description: Explicitly Wait for a web element text - this function get the wait time from the config file,
+# and wait for the text of the web element
+# Function Parameters: String(Enum) - for_element , Web element - elem, text - String
+###########################################
+def wait_for_element_text(for_element, elem, text):
+    if for_element == 'text_present_in_element':
+        WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(
+            EC.text_to_be_present_in_element((elem[0], elem[1]), text))
 
 
 ###########################################

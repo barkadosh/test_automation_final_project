@@ -19,7 +19,7 @@ apply_dashboard = (By.CSS_SELECTOR, ".css-ta03ya>.css-1sara2j-button")
 save_dashboard = (By.XPATH, "//button[@aria-label='Save dashboard']")
 add_dashboard_name = (By.CLASS_NAME, "css-1mlczho-input-input")
 save_new_dashboard = (By.XPATH, "//button[@type='submit']")
-dashboard_name = (By.XPATH, "//span[@class= 'css-aqkpyi']")
+dashboard_name = (By.CSS_SELECTOR, ".css-aqkpyi")
 dashboard_title = (By.XPATH, "//h2[@class= 'css-1m35bcr']")
 
 

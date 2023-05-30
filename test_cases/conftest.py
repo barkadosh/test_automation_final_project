@@ -1,9 +1,4 @@
-# import subprocess
-# import os
-import time
-
-# import mysql.connector
-
+import mysql.connector
 import pytest
 import allure
 
@@ -48,8 +43,6 @@ eyes = Eyes()  # Applitools
 ###########################################
 @pytest.fixture(scope="class")
 def init_web_driver(request):
-    # process = subprocess.Popen(get_data('GrafanaPath'))       # Starting Grafana server without jenkins
-    time.sleep(4)
     if get_data("ExecuteApplitools").lower() == 'yes':
         globals()['driver'] = get_web_driver()
     else:
@@ -66,7 +59,6 @@ def init_web_driver(request):
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.api_key = get_data("ApplitoolsAPI")
     yield
-    # process.terminate()           # Closing Grafana server without jenkins
     driver.quit()
     if get_data("ExecuteApplitools").lower() == 'yes':
         eyes.close()  # Applitools
@@ -135,18 +127,18 @@ def init_desktop_driver(request):
 # Function Name: init_db_connector
 # Function Description: This function initiate the database connector for the tests cases in test_web_db.py module
 ###########################################
-# @pytest.fixture(scope="class")
-# def init_db_connector(request):
-#     db_connector = mysql.connector.connect(
-#         host=get_data('DBHost'),
-#         database=get_data('DBName'),
-#         user=get_data('DBUser'),
-#         password=get_data('DBPassword')
-#     )
-#     globals()['db_connector'] = db_connector
-#     request.cls.db_connector = db_connector
-#     yield
-#     db_connector.close()
+@pytest.fixture(scope="class")
+def init_db_connector(request):
+    db_connector = mysql.connector.connect(
+        host=get_data('DBHost'),
+        database=get_data('DBName'),
+        user=get_data('DBUser'),
+        password=get_data('DBPassword')
+    )
+    globals()['db_connector'] = db_connector
+    request.cls.db_connector = db_connector
+    yield
+    db_connector.close()
 
 
 ###########################################

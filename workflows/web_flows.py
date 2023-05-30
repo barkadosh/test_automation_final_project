@@ -5,10 +5,11 @@ import allure
 import page_objects.web_objects.main_page as main
 import page_objects.web_objects.server_admin_page
 import page_objects.web_objects.dashboards_popup_menu
+import page_objects.web_objects.dashboards_new_dashboard_page
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
-from utilities.common_ops import wait, get_data, read_csv
+from utilities.common_ops import wait, wait_for_element_text, get_data, read_csv
 from utilities.enums import For
 
 
@@ -108,7 +109,7 @@ class WebFlows:
     def open_create_dashboard_page():
         elem1 = page.web_side_menu_nav.get_dashboards_nav()
         UiActions.mouse_hover_element(elem1)
-        wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.new_dashboard)
+        #wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.new_dashboard)
         elem2 = page.web_dashboards_popup_menu.get_new_dashboard()
         UiActions.mouse_hover_tooltip(elem2)
 
@@ -137,24 +138,26 @@ class WebFlows:
         UiActions.clear(page.web_dashboards_new_dashboard_page.get_add_dashboard_name())
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_name(), "Test Dashboard")
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_new_dashboard())
-        time.sleep(3)
 
     @staticmethod
     @allure.step("Verify the new dashboard was created by name and title")
     def verify_new_dashboard():
+        wait_for_element_text(For.ELEMENT_TEXT_PRESENT, page_objects.web_objects.dashboards_new_dashboard_page
+                              .dashboard_name, 'Test Dashboard')
         actual_name = page.web_dashboards_new_dashboard_page.get_dashboard_name().text
         Verifications.verify_equals(actual_name, 'Test Dashboard')
         actual_title = page.web_dashboards_new_dashboard_page.get_dashboard_title().text
         Verifications.verify_equals(actual_title, 'Test')
 
     @staticmethod
-    @allure.step("Open create dashboard page")
-    def open_brows_dashboard_page():
+    @allure.step("Open Browse page")
+    def open_brows_dashboards_page():
         elem1 = page.web_side_menu_nav.get_dashboards_nav()
         UiActions.mouse_hover_element(elem1)
-        wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.brows_dashboards)
-        elem2 = page.web_dashboards_popup_menu.get_brows_dashboards()
+        #wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.browse_dashboards)
+        elem2 = page.web_dashboards_popup_menu.get_browse_dashboards()
         UiActions.mouse_hover_tooltip(elem2)
+        time.sleep(3)
 
 
 

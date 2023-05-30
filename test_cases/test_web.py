@@ -16,7 +16,6 @@ class TestWeb:
     @allure.title("TC01: Login to Grafana")
     @allure.description("Verify a successful login to Grafana")
     @pytest.mark.sanity
-    @pytest.mark.run_this
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.verify_grafana_title("Welcome to Grafana")
@@ -71,14 +70,13 @@ class TestWeb:
         time.sleep(2)
 
 
-# ~~~ My test cases ~~~
-
 # add performance tests
 
 @pytest.mark.usefixtures('init_web_driver')
 class TestDashboard:
     @allure.title("TC01: Setup and create new dashboard ")
     @allure.description("Add settings, create and verify new dashboard in grafana")
+    @pytest.mark.run_this
     def test_create_new_dashboard(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_create_dashboard_page()
@@ -89,10 +87,8 @@ class TestDashboard:
     @allure.description("Via the sharing menu, save the dashboard to file")
     def test_dashboard_to_file(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
-        WebFlows.open_brows_dashboard_page()
+        WebFlows.open_brows_dashboards_page()
         # need to edit steps
-
-
 
     # @allure.title("TC02: Favorite a dashboard")
     # @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
