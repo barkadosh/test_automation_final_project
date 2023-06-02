@@ -114,7 +114,7 @@ class WebFlows:
 
     @staticmethod
     @allure.step("Add settings and create new panel dashboard")
-    def create_dashboard():
+    def create_dashboard_changed_settings():
         UiActions.click(page.web_dashboards_new_dashboard_page.get_new_panel())
         UiActions.clear(page.web_dashboards_new_dashboard_page.get_add_dashboard_title())
         UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_title(), 'Test')

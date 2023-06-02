@@ -79,32 +79,27 @@ class TestDashboard:
     def test_create_new_dashboard(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_create_dashboard_page()
-        WebFlows.create_dashboard()
+        WebFlows.create_dashboard_changed_settings()
         WebFlows.verify_new_dashboard()
 
     @allure.title("TC02: Favorite a dashboard")
     @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
     @pytest.mark.run_this
     def test_favorite_a_dashboard(self):
-        WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_brows_dashboards_page()
         WebFlows.open_a_dashboard_board()
         WebFlows.favorite_a_dashboard_and_verify()
+        time.sleep(5)
 
-    #
-    # @allure.title("TC03: Rename a dashboard")
+    # @allure.title("TC02: Change position")
+    # @allure.description("Drag a dashboard to another position")
+    # def test_rename_a_dashboard(self):
+
+    # @allure.title("TC03: Delete a dashboard")
     # @allure.description("Change a dashboard title")
     # def test_rename_a_dashboard(self):
     #
-    #
-    # @allure.title("TC02: Change position")
-    # @allure.description("Drag a dashboard to another position")
-    # def test_rename_a_dashboard(self):
-    #
-    #
-    # @allure.title("TC02: Change position")
-    # @allure.description("Drag a dashboard to another position")
-    # def test_rename_a_dashboard(self):
+
     def teardown_method(self):
-        # WebFlows.grafana_home(self)
+        WebFlows.grafana_home(self)
         time.sleep(2)

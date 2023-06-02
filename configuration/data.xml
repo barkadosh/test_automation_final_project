@@ -10,7 +10,8 @@
     <Url>http://localhost:3000/</Url>
     <Username>admin</Username>
     <Password>admin</Password>
-    <dashboard_name>test 2</dashboard_name>
+    <dashboard_name>Test_Dashboard_1</dashboard_name>
+    <dashboard_name_2>Test_Dashboard_2</dashboard_name_2>
     <Users_CSV>../ddt/users.csv</Users_CSV>
     <!-- when running without Jenkins, from :test_cases" folder: add "../" before "ddt"-->
     <ExecuteApplitools>no</ExecuteApplitools>  <!--yes / no-->
