@@ -71,7 +71,7 @@ class TestWeb:
 
 
 # add performance tests
-
+# python -m pytest test_web.py::TestDashboard -s -v --alluredir=../allure-results
 @pytest.mark.usefixtures('init_web_driver')
 class TestDashboard:
     @allure.title("TC01: Setup and create new dashboard ")

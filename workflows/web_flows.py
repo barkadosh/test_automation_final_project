@@ -1,5 +1,3 @@
-import time
-
 import allure
 import pytest
 
@@ -110,8 +108,8 @@ class WebFlows:
     def open_create_dashboard_page():
         elem1 = page.web_side_menu_nav.get_dashboards_nav()
         UiActions.mouse_hover_element(elem1)
-        #wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.new_dashboard)
-        elem2 = page.web_dashboards_popup_menu.get_new_dashboard()
+        # wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.new_dashboard)
+        elem2 = page.web_dashboards_popups_menus.get_new_dashboard()
         UiActions.mouse_hover_tooltip(elem2)
 
     @staticmethod
@@ -137,7 +135,8 @@ class WebFlows:
         UiActions.click(page.web_dashboards_new_dashboard_page.get_apply_dashboard())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_dashboard())
         UiActions.clear(page.web_dashboards_new_dashboard_page.get_add_dashboard_name())
-        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_name(), get_data("dashboard_name"))
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_name(),
+                              get_data("dashboard_name"))
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_new_dashboard())
 
     @staticmethod
@@ -164,7 +163,7 @@ class WebFlows:
         elems = page.web_dashboards_browse_page.get_dashboards_names()
         expected = get_data("dashboard_name")
         try:
-            elem_dashboard = Verifications.verify_equals_from_list(elems,expected)
+            elem_dashboard = Verifications.verify_equals_from_list(elems, expected)
             UiActions.click(elem_dashboard)
         except Exception as e:
             print(f"This dashboard doesn't exist, error: {e}")
@@ -178,37 +177,6 @@ class WebFlows:
         actual = page.web_dashboards_popups_menus.get_stared_dashboard().text
         expected = get_data("dashboard_name")
         Verifications.verify_equals(actual, expected)
-
-
-
-
-        # elems = page.web_dashboards_browse_page.get_dashboards_names()
-        # expected = get_data("dashboard_name")
-        # for i in range(0, len(elems)):
-        #     actual = elems[i].text
-        #     if actual == expected:
-        #         UiActions.click(elems[i])
-        #         break
-        #     else:
-        #         i += 1
-        print('test')
-
-
-        #
-        # try:
-        # except Exception as e:
-        # print(f"This dashboard doesn't exist, error: {e}")
-        # pytest.fail()
-
-        #test_dashboard_name = Verifications.verify_one_from_list_is_equal(page.web_dashboards_browse_page.get_dashboards_names(), get_data("dashboard_name"))
-
-
-
-
-
-
-
-
 
 
 # Parameters for "TC04: Filter the users list" from test_web.py, imported from Users_CSV File
