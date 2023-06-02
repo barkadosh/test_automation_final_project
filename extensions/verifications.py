@@ -1,4 +1,5 @@
 import allure
+import pytest
 from smart_assertions import soft_assert, verify_expectations
 
 from selenium.webdriver.remote.webelement import WebElement
@@ -9,6 +10,16 @@ class Verifications:
     @allure.step("Verify element is equal to expected")
     def verify_equals(actual, expected):
         assert actual == expected, f'Verify Equals Failed, Actual: {str(actual)} is not equal to Expected: {str(expected)}'
+
+    @staticmethod
+    @allure.step("Verify there's an element from a list of elements that equal to expected and return that element")
+    def verify_equals_from_list(elems, expected):
+        for i in range(0, len(elems)):
+            actual = elems[i].text
+            if actual == expected:
+                return elems[i]
+            else:
+                i += 1
 
     @staticmethod
     @allure.step("Verify element is displayed")

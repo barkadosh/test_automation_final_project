@@ -34,11 +34,11 @@ class TestWeb:
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_users_page()
         time.sleep(5)
-        # WebFlows.create_user('test1', 'test1@gmail.com', 'test1user', '123456')
-        # WebFlows.open_users_page()
-        # WebFlows.create_user('test2', 'test2@gmail.com', 'test2user', '123456')
-        # WebFlows.open_users_page()
-        # WebFlows.verify_number_of_users(3)
+        WebFlows.create_user('test1', 'test1@gmail.com', 'test1user', '123456')
+        WebFlows.open_users_page()
+        WebFlows.create_user('test2', 'test2@gmail.com', 'test2user', '123456')
+        WebFlows.open_users_page()
+        WebFlows.verify_number_of_users(3)
 
     @allure.title("TC04: Filter the users list")
     @allure.description("This test filters the users list and check that the correct number of users are displayed")
@@ -76,24 +76,21 @@ class TestWeb:
 class TestDashboard:
     @allure.title("TC01: Setup and create new dashboard ")
     @allure.description("Add settings, create and verify new dashboard in grafana")
-    @pytest.mark.run_this
     def test_create_new_dashboard(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_create_dashboard_page()
         WebFlows.create_dashboard()
         WebFlows.verify_new_dashboard()
 
-    @allure.title("TC02: Save a dashboard to file")
-    @allure.description("Via the sharing menu, save the dashboard to file")
-    def test_dashboard_to_file(self):
+    @allure.title("TC02: Favorite a dashboard")
+    @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
+    @pytest.mark.run_this
+    def test_favorite_a_dashboard(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_brows_dashboards_page()
-        # need to edit steps
+        WebFlows.open_a_dashboard_board()
+        WebFlows.favorite_a_dashboard_and_verify()
 
-    # @allure.title("TC02: Favorite a dashboard")
-    # @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
-    # def test_favorite_a_dashboard(self):
-    #
     #
     # @allure.title("TC03: Rename a dashboard")
     # @allure.description("Change a dashboard title")
@@ -109,5 +106,5 @@ class TestDashboard:
     # @allure.description("Drag a dashboard to another position")
     # def test_rename_a_dashboard(self):
     def teardown_method(self):
-        WebFlows.grafana_home(self)
+        # WebFlows.grafana_home(self)
         time.sleep(2)

@@ -1,10 +1,11 @@
 import time
 
 import allure
+import pytest
 
 import page_objects.web_objects.main_page as main
 import page_objects.web_objects.server_admin_page
-import page_objects.web_objects.dashboards_popup_menu
+import page_objects.web_objects.dashboards_popups_menus
 import page_objects.web_objects.dashboards_new_dashboard_page
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
@@ -136,28 +137,77 @@ class WebFlows:
         UiActions.click(page.web_dashboards_new_dashboard_page.get_apply_dashboard())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_dashboard())
         UiActions.clear(page.web_dashboards_new_dashboard_page.get_add_dashboard_name())
-        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_name(), "Test Dashboard")
+        UiActions.update_text(page.web_dashboards_new_dashboard_page.get_add_dashboard_name(), get_data("dashboard_name"))
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_new_dashboard())
 
     @staticmethod
     @allure.step("Verify the new dashboard was created by name and title")
     def verify_new_dashboard():
         wait_for_element_text(For.ELEMENT_TEXT_PRESENT, page_objects.web_objects.dashboards_new_dashboard_page
-                              .dashboard_name, 'Test Dashboard')
+                              .dashboard_name, get_data("dashboard_name"))
         actual_name = page.web_dashboards_new_dashboard_page.get_dashboard_name().text
-        Verifications.verify_equals(actual_name, 'Test Dashboard')
+        Verifications.verify_equals(actual_name, get_data("dashboard_name"))
         actual_title = page.web_dashboards_new_dashboard_page.get_dashboard_title().text
         Verifications.verify_equals(actual_title, 'Test')
 
     @staticmethod
     @allure.step("Open Browse page")
     def open_brows_dashboards_page():
-        elem1 = page.web_side_menu_nav.get_dashboards_nav()
-        UiActions.mouse_hover_element(elem1)
-        #wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.browse_dashboards)
-        elem2 = page.web_dashboards_popup_menu.get_browse_dashboards()
-        UiActions.mouse_hover_tooltip(elem2)
-        time.sleep(3)
+        UiActions.click(page.web_side_menu_nav.get_dashboards_nav())
+
+    # This function search in the dashboard list the expected dashboard and open it,
+    # if the dashboard not exist it report it to the log
+    @staticmethod
+    @allure.step("Open Dashboard's board")
+    def open_a_dashboard_board():
+        UiActions.click(page.web_dashboards_browse_page.get_collapse_folder())
+        elems = page.web_dashboards_browse_page.get_dashboards_names()
+        expected = get_data("dashboard_name")
+        try:
+            elem_dashboard = Verifications.verify_equals_from_list(elems,expected)
+            UiActions.click(elem_dashboard)
+        except Exception as e:
+            print(f"This dashboard doesn't exist, error: {e}")
+            pytest.fail()
+
+    @staticmethod
+    @allure.step("Mark dashboard as favorite and verify it appear's in the stared popup menu")
+    def favorite_a_dashboard_and_verify():
+        UiActions.click(page.web_dashboards_browse_page.get_favorite_button())
+        UiActions.click_and_hold(page.web_side_menu_nav.get_starred_nav())
+        actual = page.web_dashboards_popups_menus.get_stared_dashboard().text
+        expected = get_data("dashboard_name")
+        Verifications.verify_equals(actual, expected)
+
+
+
+
+        # elems = page.web_dashboards_browse_page.get_dashboards_names()
+        # expected = get_data("dashboard_name")
+        # for i in range(0, len(elems)):
+        #     actual = elems[i].text
+        #     if actual == expected:
+        #         UiActions.click(elems[i])
+        #         break
+        #     else:
+        #         i += 1
+        print('test')
+
+
+        #
+        # try:
+        # except Exception as e:
+        # print(f"This dashboard doesn't exist, error: {e}")
+        # pytest.fail()
+
+        #test_dashboard_name = Verifications.verify_one_from_list_is_equal(page.web_dashboards_browse_page.get_dashboards_names(), get_data("dashboard_name"))
+
+
+
+
+
+
+
 
 
 

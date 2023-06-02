@@ -4,7 +4,8 @@ from page_objects.electron_objects.task_page import TaskPage
 from page_objects.mobile_objects.calculator_page import CalculatorPage
 from page_objects.mobile_objects.saved_page import SavedPage
 from page_objects.web_objects.dashboards_new_dashboard_page import NewDashboard
-from page_objects.web_objects.dashboards_popup_menu import DashboardPopup
+from page_objects.web_objects.dashboards_popups_menus import DashboardPopup
+from page_objects.web_objects.dashboards_browse_page  import BrowseDashboards
 from page_objects.web_objects.login_page import LoginPage
 from page_objects.web_objects.main_page import MainPage
 from page_objects.web_objects.server_admin_new_user_page import ServerAdminNewUser
@@ -21,9 +22,9 @@ web_side_menu_nav = None
 web_server_admin_popup_menu = None
 web_server_admin = None
 web_server_admin_new_user = None
-web_dashboards_popup_menu = None
+web_dashboards_popups_menus = None
 web_dashboards_new_dashboard_page = None
-
+web_dashboards_browse_page = None
 
 # Mobile Objects
 mobile_calculator = None
@@ -53,8 +54,9 @@ class ManagePages:
         globals()['web_server_admin'] = ServerAdminPage(conf.driver)
         globals()['web_server_admin_new_user'] = ServerAdminNewUser(conf.driver)
         # Dashboards
-        globals()['web_dashboards_popup_menu'] = DashboardPopup(conf.driver)
+        globals()['web_dashboards_popups_menus'] = DashboardPopup(conf.driver)
         globals()['web_dashboards_new_dashboard_page'] = NewDashboard(conf.driver)
+        globals()['web_dashboards_browse_page'] = BrowseDashboards(conf.driver)
 
     ###########################################
     # Function Name: init_mobile_pages

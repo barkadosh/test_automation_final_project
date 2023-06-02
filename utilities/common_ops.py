@@ -79,3 +79,5 @@ def wait_for_element_text(for_element, elem, text):
 ###########################################
 def get_time_stamp():
     return time.time()
+
+

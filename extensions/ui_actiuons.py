@@ -14,6 +14,11 @@ class UiActions:
         elem.click()
 
     @staticmethod
+    @allure.step("Click and hold")
+    def click_and_hold(elem: WebElement):
+        ActionChains(conf.driver).click_and_hold(elem).perform()
+
+    @staticmethod
     @allure.step("Updating text")
     def update_text(elem: WebElement, value: str):
         elem.send_keys(value)
