@@ -3,6 +3,10 @@ from selenium.webdriver.common.by import By
 collapse_folder = (By.CLASS_NAME, "css-1w3h79v")
 dashboard_name = (By.CSS_SELECTOR, ".css-1cqw476")
 favorite_button = (By.XPATH, "//button[@aria-label='Mark as favorite']")
+search_bar = (By.CLASS_NAME, "css-1mlczho-input-input")
+dashboard_checkbox = (By.XPATH, "//div[@class='css-yzyzzx']/label/span[@class='css-10xnr05']")
+delete_button = (By.CLASS_NAME, "css-mk7eo3-button")
+approve_delete_button = (By.XPATH, "//button[@aria-label='Confirm Modal Danger Button']")
 
 
 class BrowseDashboards:
@@ -17,3 +21,15 @@ class BrowseDashboards:
 
     def get_favorite_button(self):
         return self.driver.find_element(favorite_button[0], favorite_button[1])
+
+    def get_search_bar(self):
+        return self.driver.find_element(search_bar[0], search_bar[1])
+
+    def get_dashboard_checkbox(self):
+        return self.driver.find_element(dashboard_checkbox[0], dashboard_checkbox[1])
+
+    def get_delete_button(self):
+        return self.driver.find_element(delete_button[0], delete_button[1])
+
+    def get_approve_delete_button(self):
+        return self.driver.find_element(approve_delete_button[0], approve_delete_button[1])

@@ -6,6 +6,7 @@ class For:
     ELEMENT_EXIST = 'element_exist'
     ELEMENT_DISPLAYED = 'element_displayed'
     ELEMENT_TEXT_PRESENT = 'text_present_in_element'
+    ELEMENT_TO_BE_CLICKABLE = 'element_to_be_clickable'
 
 
 # Enum for selecting from users list in users page by username or by index, "open_user_settings" web flow use this Enum.

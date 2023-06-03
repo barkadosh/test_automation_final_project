@@ -1,10 +1,10 @@
 # Full Stack Test Automation Project
 This is a final test automation project for a Fullstuck Test Automation Course in Python. 
 This project covering:
-* Functional, Visual, and Performance test cases on Web and Mobile Apps.
+* Functional and Visual test cases on Web and Mobile Apps.
 * Functional test on Electron and Desktop Apps.
-* API tests on a web service.
-* Tests on MySQL Data Base.
+* API testing on a web service.
+* Data testing on MySQL Data Base.
 
 # Tools
 * Pycharm IDE

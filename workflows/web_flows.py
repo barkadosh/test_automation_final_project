@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 
@@ -5,6 +7,7 @@ import page_objects.web_objects.main_page as main
 import page_objects.web_objects.server_admin_page
 import page_objects.web_objects.dashboards_popups_menus
 import page_objects.web_objects.dashboards_new_dashboard_page
+import page_objects.web_objects.dashboards_browse_page
 from extensions.ui_actiuons import UiActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
@@ -51,6 +54,7 @@ class WebFlows:
                  page.web_upper_menu.get_cycle_view()]
         Verifications.soft_displayed(elems)
 
+    ###################### Flows related to creating and managing users ######################
     @staticmethod
     @allure.step("Go to users page flow")
     def open_users_page():
@@ -97,7 +101,7 @@ class WebFlows:
         # I added this step because the alert interrupt clicking on the users_list element
         UiActions.click(page.web_server_admin.close_alert())
 
-    # Flows related to creating and managing dashboards
+    ###################### Flows related to creating and managing dashboards  ######################
     @staticmethod
     @allure.step("Go to home page flow")
     def grafana_home(self):
@@ -108,7 +112,6 @@ class WebFlows:
     def open_create_dashboard_page():
         elem1 = page.web_side_menu_nav.get_dashboards_nav()
         UiActions.mouse_hover_element(elem1)
-        # wait(For.ELEMENT_EXIST, page_objects.web_objects.dashboards_popup_menu.new_dashboard)
         elem2 = page.web_dashboards_popups_menus.get_new_dashboard()
         UiActions.mouse_hover_tooltip(elem2)
 
@@ -177,6 +180,21 @@ class WebFlows:
         actual = page.web_dashboards_popups_menus.get_stared_dashboard().text
         expected = get_data("dashboard_name")
         Verifications.verify_equals(actual, expected)
+
+    @staticmethod
+    @allure.step("Search and check the checkbox of a dashboard")
+    def search_and_check_dashboard():
+        UiActions.update_text(page.web_dashboards_browse_page.get_search_bar(), get_data("dashboard_name"))
+        wait(For.ELEMENT_TO_BE_CLICKABLE, page_objects.web_objects.dashboards_browse_page.dashboard_checkbox)
+        UiActions.click(page.web_dashboards_browse_page.get_dashboard_checkbox())
+
+
+    @staticmethod
+    @allure.step("Delete a dashboard")
+    def delete_dashboard():
+        UiActions.click(page.web_dashboards_browse_page.get_delete_button())
+        UiActions.click(page.web_dashboards_browse_page.get_approve_delete_button())
+
 
 
 # Parameters for "TC04: Filter the users list" from test_web.py, imported from Users_CSV File

@@ -2,6 +2,7 @@ import csv
 import time
 import socket
 
+import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import test_cases.conftest as conf
@@ -50,6 +51,8 @@ def read_csv(file_name):
 # Function Description: Explicitly Wait for a web element - this function get the wait time from the config file,
 # and wait for the appearance of the web element
 # Function Parameters: String(Enum) - for_element , Web element - elem
+# Documentation:
+# https://www.selenium.dev/selenium/docs/api/py/webdriver_support/selenium.webdriver.support.expected_conditions.html?highlight=expected
 ###########################################
 def wait(for_element, elem):
     if for_element == 'element_exist':
@@ -58,6 +61,10 @@ def wait(for_element, elem):
     elif for_element == 'element_displayed':
         WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(
             EC.visibility_of_element_located((elem[0], elem[1])))
+
+    elif for_element == 'element_to_be_clickable':
+        WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(
+            EC.element_to_be_clickable((elem[0], elem[1])))
 
 
 ###########################################
@@ -81,3 +88,11 @@ def get_time_stamp():
     return time.time()
 
 
+###########################################
+# Function Name: save_screenshot()
+# Function Description: This function save screenshots to allure report at the end of some of the test cases
+###########################################
+def save_screenshot():
+    image = get_data('ScreenshotPath') + f'screen_{str(get_time_stamp())}.png'
+    conf.driver.get_screenshot_as_file(image)
+    allure.attach.file(image, attachment_type=allure.attachment_type.PNG)

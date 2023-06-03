@@ -1,18 +1,19 @@
-# Run command: python -m pytest test_web.py -s -v -m run_this --alluredir=../allure-results
 import allure
 
 import time
 import pytest
 from test_cases import conftest as conf
 from test_cases.conftest import eyes
-from utilities.common_ops import get_data
+from utilities.common_ops import get_data, save_screenshot
 from utilities.enums import By
 from workflows import web_flows
 from workflows.web_flows import WebFlows
 
 
+# Run command: python -m pytest test_web.py::TestWebUsers  -s -v -m run_this --alluredir=../allure-results
+
 @pytest.mark.usefixtures('init_web_driver')
-class TestWeb:
+class TestWebUsers:
     @allure.title("TC01: Login to Grafana")
     @allure.description("Verify a successful login to Grafana")
     @pytest.mark.sanity
@@ -71,9 +72,9 @@ class TestWeb:
 
 
 # add performance tests
-# python -m pytest test_web.py::TestDashboard -s -v --alluredir=../allure-results
+# Run command: python -m pytest test_web.py::TestWebDashboard -s -v -m run_this --alluredir=../allure-results
 @pytest.mark.usefixtures('init_web_driver')
-class TestDashboard:
+class TestWebDashboard:
     @allure.title("TC01: Setup and create new dashboard ")
     @allure.description("Add settings, create and verify new dashboard in grafana")
     def test_create_new_dashboard(self):
@@ -84,22 +85,29 @@ class TestDashboard:
 
     @allure.title("TC02: Favorite a dashboard")
     @allure.description("Add dashboard to Favorite and validate the dashboard appear in the favorite menu")
-    @pytest.mark.run_this
     def test_favorite_a_dashboard(self):
         WebFlows.open_brows_dashboards_page()
         WebFlows.open_a_dashboard_board()
         WebFlows.favorite_a_dashboard_and_verify()
-        time.sleep(5)
+        save_screenshot()
 
-    # @allure.title("TC02: Change position")
+    # @allure.title("TC03: Change position and size of a dashboard")
     # @allure.description("Drag a dashboard to another position")
     # def test_rename_a_dashboard(self):
+    #     WebFlows.login_flow(get_data('Username'), get_data('Password'))
 
-    # @allure.title("TC03: Delete a dashboard")
-    # @allure.description("Change a dashboard title")
-    # def test_rename_a_dashboard(self):
-    #
+    @allure.title("TC04: Delete a dashboard")
+    @allure.description("Delete a dashboard from the browse dashboards page")
+    @pytest.mark.run_this
+    def test_delete_a_dashboard(self):
+        #WebFlows.login_flow(get_data('Username'), get_data('Password'))
+        WebFlows.open_brows_dashboards_page()
+        WebFlows.search_and_check_dashboard()
+        WebFlows.delete_dashboard()
+        save_screenshot()
 
     def teardown_method(self):
+        time.sleep(3)
         WebFlows.grafana_home(self)
-        time.sleep(2)
+        time.sleep(1)
+
