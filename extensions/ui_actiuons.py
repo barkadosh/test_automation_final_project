@@ -49,10 +49,19 @@ class UiActions:
     def drag_and_drop(elem1: WebElement, elem2: WebElement):
         conf.action.drag_and_drop(elem1, elem2).perform()
 
+    # Click anywhere on element and drag it to specified location by coordinates
     @staticmethod
-    @allure.step("Drag an element")
-    def drag_element(elem: WebElement):
-        conf.action.click_and_hold(elem).move_by_offset(150, 0).release().perform()
+    @allure.step("Drag an element with coordinates")
+    def drag_element_by_coordinates(elem: WebElement, x, y):
+        conf.action.click_and_hold(elem).move_by_offset(x, y).release().perform()
+
+    @staticmethod
+    @allure.step("Move to element with coordinates, click and hold and drag")
+    def move_to_element_by_coordinates(elem: WebElement, x, y):
+        width = elem.rect['x']
+        height = elem.rect['y']
+        conf.action.move_to_element_with_offset(elem, width, height). \
+            click_and_hold().move_by_offset(x, y).release().perform()
 
     # This function gets x, y coordinates and scroll to that location
     @staticmethod

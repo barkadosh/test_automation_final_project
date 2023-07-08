@@ -1,5 +1,3 @@
-import time
-
 import allure
 import pytest
 
@@ -133,8 +131,8 @@ class WebFlows:
         UiActions.click(page.web_dashboards_new_dashboard_page.get_time_zone())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_browser_time())
         UiActions.scroll_to_element(page.web_dashboards_new_dashboard_page.get_line_width_slider())
-        UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_line_width_slider())
-        UiActions.drag_element(page.web_dashboards_new_dashboard_page.get_fill_opacity_slider())
+        UiActions.drag_element_by_coordinates(page.web_dashboards_new_dashboard_page.get_line_width_slider(), 150, 0)
+        UiActions.drag_element_by_coordinates(page.web_dashboards_new_dashboard_page.get_fill_opacity_slider(), 150, 0)
         UiActions.click(page.web_dashboards_new_dashboard_page.get_apply_dashboard())
         UiActions.click(page.web_dashboards_new_dashboard_page.get_save_dashboard())
         UiActions.clear(page.web_dashboards_new_dashboard_page.get_add_dashboard_name())
@@ -180,6 +178,16 @@ class WebFlows:
         actual = page.web_dashboards_popups_menus.get_stared_dashboard().text
         expected = get_data("dashboard_name")
         Verifications.verify_equals(actual, expected)
+
+    @staticmethod
+    @allure.step("Change dashboard position in page")
+    def change_dashboard_position():
+        UiActions.drag_element_by_coordinates(page.web_dashboards_browse_page.get_panel_title_bar(), 300, 0)
+
+    @staticmethod
+    @allure.step("Change dashboard position in page")
+    def change_dashboard_size():
+        UiActions.move_to_element_by_coordinates(page.web_dashboards_browse_page.get_panel_title_bar(), 400, 980)
 
     @staticmethod
     @allure.step("Search and check the checkbox of a dashboard")

@@ -2,11 +2,13 @@ from selenium.webdriver.common.by import By
 
 collapse_folder = (By.CLASS_NAME, "css-1w3h79v")
 dashboard_name = (By.CSS_SELECTOR, ".css-1cqw476")
-favorite_button = (By.XPATH, "//button[@aria-label='Mark as favorite']")
 search_bar = (By.CLASS_NAME, "css-1mlczho-input-input")
 dashboard_checkbox = (By.XPATH, "//div[@class='css-yzyzzx']/label/span[@class='css-10xnr05']")
 delete_button = (By.CLASS_NAME, "css-mk7eo3-button")
 approve_delete_button = (By.XPATH, "//button[@aria-label='Confirm Modal Danger Button']")
+# dashboard page
+favorite_button = (By.XPATH, "//button[@aria-label='Mark as favorite']")
+panel_title_bar = (By.CLASS_NAME, "panel-title")
 
 
 class BrowseDashboards:
@@ -33,3 +35,6 @@ class BrowseDashboards:
 
     def get_approve_delete_button(self):
         return self.driver.find_element(approve_delete_button[0], approve_delete_button[1])
+
+    def get_panel_title_bar(self):
+        return self.driver.find_element(panel_title_bar[0], panel_title_bar[1])
