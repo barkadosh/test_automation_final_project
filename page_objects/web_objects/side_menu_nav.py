@@ -4,6 +4,7 @@ home_nav = (By.CSS_SELECTOR, "[aria-label='Home']")
 open_navigation_menu = (By.CSS_SELECTOR, "[aria-label='Open navigation menu']")
 search_nav = (By.CSS_SELECTOR, "[aria-label='Search dashboards']")
 starred_nav = (By.CSS_SELECTOR, "[aria-label='Starred']")
+starred_dash = (By.XPATH, "//*[contains(@data-key, 'starred/')]")
 dashboards_nav = (By.CSS_SELECTOR, "[aria-label='Dashboards']")
 explore_nav = (By.CSS_SELECTOR, "[aria-label='Explore']")
 alerting_nav = (By.CSS_SELECTOR, "[aria-label='Alerting']")
@@ -27,6 +28,9 @@ class SideMenuNav:
 
     def get_starred_nav(self):
         return self.driver.find_element(starred_nav[0], starred_nav[1])
+
+    def get_starred_dashboard(self):
+        return self.driver.find_element(starred_dash[0], starred_dash[1])
 
     def get_dashboards_nav(self):
         return self.driver.find_element(dashboards_nav[0], dashboards_nav[1])

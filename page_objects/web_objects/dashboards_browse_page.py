@@ -9,6 +9,8 @@ approve_delete_button = (By.XPATH, "//button[@aria-label='Confirm Modal Danger B
 # dashboard page
 favorite_button = (By.XPATH, "//button[@aria-label='Mark as favorite']")
 panel_title_bar = (By.CLASS_NAME, "panel-title")
+save_dashboard = (By.XPATH, "//*[@aria-label='Save dashboard']")
+modal_save_dashboard = (By.XPATH, "//*[@aria-label='Dashboard settings Save Dashboard Modal Save button']")
 
 
 class BrowseDashboards:
@@ -38,3 +40,9 @@ class BrowseDashboards:
 
     def get_panel_title_bar(self):
         return self.driver.find_element(panel_title_bar[0], panel_title_bar[1])
+
+    def get_save_dashboard(self):
+        return self.driver.find_element(save_dashboard[0], save_dashboard[1])
+
+    def get_modal_save_dashboard(self):
+        return self.driver.find_element(modal_save_dashboard[0], modal_save_dashboard[1])

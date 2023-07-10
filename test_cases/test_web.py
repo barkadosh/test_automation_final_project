@@ -91,15 +91,11 @@ class TestWebDashboard:
         WebFlows.favorite_a_dashboard_and_verify()
         save_screenshot()
 
-    @allure.title("TC03: Change position and size of a dashboard")
+    @allure.title("TC03: Change position of a dashboard")
     @allure.description("Drag a dashboard to another position and change is size")
     def test_change_position_and_size(self):
-        WebFlows.login_flow(get_data('Username'), get_data('Password'))
-        WebFlows.open_brows_dashboards_page()
-        WebFlows.open_a_dashboard_board()
+        WebFlows.open_starred_dashboard()
         WebFlows.change_dashboard_position()
-        WebFlows.change_dashboard_size()
-
 
     @allure.title("TC04: Delete a dashboard")
     @allure.description("Delete a dashboard from the browse dashboards page")

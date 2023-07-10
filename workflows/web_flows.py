@@ -180,14 +180,19 @@ class WebFlows:
         Verifications.verify_equals(actual, expected)
 
     @staticmethod
-    @allure.step("Change dashboard position in page")
-    def change_dashboard_position():
-        UiActions.drag_element_by_coordinates(page.web_dashboards_browse_page.get_panel_title_bar(), 300, 0)
+    @allure.step("Mark dashboard as favorite and verify it appear's in the stared popup menu")
+    def open_starred_dashboard():
+        elem1 = page.web_side_menu_nav.get_starred_nav()
+        UiActions.mouse_hover_element(elem1)
+        elem2 = page.web_side_menu_nav.get_starred_dashboard()
+        UiActions.mouse_hover_tooltip(elem2)
 
     @staticmethod
-    @allure.step("Change dashboard position in page")
-    def change_dashboard_size():
-        UiActions.move_to_element_by_coordinates(page.web_dashboards_browse_page.get_panel_title_bar(), 400, 980)
+    @allure.step("Change dashboard position in page and save")
+    def change_dashboard_position():
+        UiActions.drag_element_by_coordinates(page.web_dashboards_browse_page.get_panel_title_bar(), 300, 0)
+        UiActions.click(page.web_dashboards_browse_page.get_save_dashboard())
+        UiActions.click(page.web_dashboards_browse_page.get_modal_save_dashboard())
 
     @staticmethod
     @allure.step("Search and check the checkbox of a dashboard")
