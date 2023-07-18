@@ -1,0 +1,1 @@
+ERROR    applitools.selenium.command_executor:command_executor.py:276 Re-raising an error received from SDK server: DiffsFoundError("Test 'Check visually the users chart' of 'Grafana - users chart' detected differences! See details at: https://eyes.applitools.com/app/batches/00000251712596903506/00000251712596903293?accountId=uC7pT3e6R0qz0R2dpXaRFA~~")

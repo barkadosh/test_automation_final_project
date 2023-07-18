@@ -17,6 +17,7 @@ class TestWebUsers:
     @allure.title("TC01: Login to Grafana")
     @allure.description("Verify a successful login to Grafana")
     @pytest.mark.sanity
+    @pytest.mark.visual_test
     def test_verify_login(self):
         WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.verify_grafana_title("Welcome to Grafana")
@@ -32,7 +33,6 @@ class TestWebUsers:
     @allure.title("TC03: Create and verify new users")
     @allure.description("This test create new users and check that the new users are displayed")
     def test_verify_new_users(self):
-        WebFlows.login_flow(get_data('Username'), get_data('Password'))
         WebFlows.open_users_page()
         time.sleep(5)
         WebFlows.create_user('test1', 'test1@gmail.com', 'test1user', '123456')

@@ -2,19 +2,19 @@
 <Environment>
     <!--General -->
     <WaitTime>10</WaitTime>
-    <ScreenshotPath>./../allure-screen-shots/</ScreenshotPath>
+    <ScreenshotPath>./allure-screen-shots/</ScreenshotPath>
     <!-- when running without Jenkins, from test cases folder: add "../" before "allure"-->
 
     <!--Web & API -->
-    <Browser>Chrome</Browser>  <!--Marked as comment when running with Jenkins parameters -->
+    <!--Browser>Chrome</Browser-->  <!--Marked as comment when running with Jenkins parameters -->
     <Url>http://localhost:3000/</Url>
     <Username>admin</Username>
     <Password>admin</Password>
     <dashboard_name>Test_Dashboard_1</dashboard_name>
     <dashboard_name_2>Test_Dashboard_2</dashboard_name_2>
-    <Users_CSV>../ddt/users.csv</Users_CSV>
+    <Users_CSV>ddt/users.csv</Users_CSV>
     <!-- when running without Jenkins, from :test_cases" folder: add "../" before "ddt"-->
-    <ExecuteApplitools>no</ExecuteApplitools>  <!--yes / no-->
+    <ExecuteApplitools>yes</ExecuteApplitools>  <!--yes / no-->
     <ApplitoolsAPI>rCfg7VUAMD1y9jG97L8H101bVw0yaF0RQuC2ZWo0q47pCs110</ApplitoolsAPI>
     <path_to_download_directory>./../downloads/</path_to_download_directory>
 

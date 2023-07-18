@@ -1,4 +1,6 @@
-import mysql.connector
+import os
+
+#import mysql.connector
 import pytest
 import allure
 
@@ -127,18 +129,18 @@ def init_desktop_driver(request):
 # Function Name: init_db_connector
 # Function Description: This function initiate the database connector for the tests cases in test_web_db.py module
 ###########################################
-@pytest.fixture(scope="class")
-def init_db_connector(request):
-    db_connector = mysql.connector.connect(
-        host=get_data('DBHost'),
-        database=get_data('DBName'),
-        user=get_data('DBUser'),
-        password=get_data('DBPassword')
-    )
-    globals()['db_connector'] = db_connector
-    request.cls.db_connector = db_connector
-    yield
-    db_connector.close()
+# @pytest.fixture(scope="class")
+# def init_db_connector(request):
+#     db_connector = mysql.connector.connect(
+#         host=get_data('DBHost'),
+#         database=get_data('DBName'),
+#         user=get_data('DBUser'),
+#         password=get_data('DBPassword')
+#     )
+#     globals()['db_connector'] = db_connector
+#     request.cls.db_connector = db_connector
+#     yield
+#     db_connector.close()
 
 
 ###########################################
@@ -147,8 +149,8 @@ def init_db_connector(request):
 # and return it to the init_web_driver function
 ###########################################
 def get_web_driver():
-    web_driver = get_data('Browser')   # To choose browser from XML
-    # web_driver = os.getenv('Browser')    # To choose browser from Jenkins
+    # web_driver = get_data('Browser')   # To choose browser from XML
+    web_driver = os.getenv('Browser')    # To choose browser from Jenkins
     if web_driver.lower() == 'chrome':
         driver = get_chrome()
     elif web_driver.lower() == 'firefox':
