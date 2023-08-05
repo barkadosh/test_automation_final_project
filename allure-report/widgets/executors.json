@@ -1,1 +1,1 @@
-[{"name":"Jenkins","type":"jenkins","url":"http://localhost:9090/","buildOrder":16,"buildName":"Web Tests (Grafana) #16","buildUrl":"http://localhost:9090/job/Web%20Tests/16/","reportName":"AllureReport","reportUrl":"http://localhost:9090/job/Web%20Tests/16/allure"}]
+[{"name":"Jenkins","type":"jenkins","url":"http://jenkins:9090/","buildOrder":15,"buildName":"Mobile tests (ukMortgageCalc) #15","buildUrl":"http://jenkins:9090/job/Final%20Proj%20Mobile%20Tests/15/","reportName":"AllureReport","reportUrl":"http://jenkins:9090/job/Final%20Proj%20Mobile%20Tests/15/allure"}]
