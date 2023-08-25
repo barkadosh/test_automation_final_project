@@ -78,40 +78,41 @@ class MobileFlows:
             if repayment == repayment_amount:
                 Verifications.is_not_displayed(page.mobile_save.get_repayment())
 
-    # @staticmethod
-    # @allure.step('Get transactions details in calculator page')
-    # def get_transaction_details(amount, term, rate):
-    #     amount_calculator = amount
-    #     term_calculator = term
-    #     rate_calculator = rate
-    #     repayment_calculator = page.mobile_calculator.get_repayment().text
-    #     interest_calculator = page.mobile_calculator.get_interest().text
-    #     # calc_trans_lst = [amount_calculator, term_calculator, rate_calculator, repayment_calculator, interest_calculator]
-    #     # write_to_file('calc_trans', calc_trans_lst)
-    #     MobileFlows.swipe_screen(Direction.LEFT)
-    #     amount_saved = page.mobile_save.get_amount()
-    #     term_saved = page.mobile_save.get_term()
-    #     rate_saved = page.mobile_save.get_rate()
-    #     repayment_saved = page.mobile_save.get_repayment()
-    #     interest_saved = page.mobile_save.get_interest()
-    #     # saved_trans_lst = [amount_saved, term_saved, rate_saved, repayment_saved, interest_saved]
-    #     # write_to_file('saved_trans', saved_trans_lst)
-
+    @staticmethod
+    @allure.step('Get transactions details in calculator page')
+    def compare_transaction_details(amount, term, rate):
+        amount_calculator = '£' + str(float(amount))
+        term_calculator = str(float(term)) + ' yrs'
+        rate_calculator = str(float(rate)) + '%'
+        repayment_calculator = page.mobile_calculator.get_repayment().text
+        interest_calculator = page.mobile_calculator.get_interest().text
+        actual = [amount_calculator, term_calculator, rate_calculator, repayment_calculator,
+                  interest_calculator]
+        MobileFlows.swipe_screen(Direction.LEFT)
+        amount_saved = page.mobile_save.get_amount().text
+        term_saved = page.mobile_save.get_term().text
+        rate_saved = page.mobile_save.get_rate().text
+        repayment_saved = page.mobile_save.get_repayment().text
+        interest_saved = page.mobile_save.get_interest().text
+        expected = [amount_saved, term_saved, rate_saved, repayment_saved, interest_saved]
+        Verifications.verify_lists_are_equals(actual,expected)
 
     # @staticmethod
     # @allure.step('Get transactions details in saved page')
     # def verify_transaction_details_equals():
     #     actual =
 
+    # calc_trans_lst = [amount_calculator, term_calculator, rate_calculator, repayment_calculator, interest_calculator]
+    # write_to_file('calc_trans', calc_trans_lst)
 
 # Parameters for "TC04: Verify mortage details" from test_mobile.py, imported from Users_CSV File
-data1 = read_csv(get_data('Calc_Trans'))
-data2 = read_csv(get_data('Saved_Trans'))
-trans_testdata = [
-    (data1[0][0], data2[0][0]),
-    (data1[1][0], data2[1][0]),
-    (data1[2][0], data2[2][0]),
-    (data1[3][0], data2[3][0]),
-    (data1[4][0], data2[4][0]),
-    (data1[5][0], data2[5][0])
-    ]
+# data1 = read_csv(get_data('Calc_Trans'))
+# data2 = read_csv(get_data('Saved_Trans'))
+# trans_testdata = [
+#     (data1[0][0], data2[0][0]),
+#     (data1[1][0], data2[1][0]),
+#     (data1[2][0], data2[2][0]),
+#     (data1[3][0], data2[3][0]),
+#     (data1[4][0], data2[4][0]),
+#     (data1[5][0], data2[5][0])
+#     ]
