@@ -98,9 +98,9 @@ def save_screenshot():
     allure.attach.file(image, attachment_type=allure.attachment_type.PNG)
 
 
-def write_to_file(file_name,file_values):
-    file = open(f"C:\\Automation\\test_automation_final_project\\ddt\\{file_name}.csv", "w")
-    for i in len(file_values):
-        file_value = file_values[i]
-        file.write(file_value, '\n')
+# def write_to_file(file_name,file_values):
+#     file = open(f"C:\\Automation\\test_automation_final_project\\ddt\\{file_name}.csv", "w")
+#     for i in len(file_values):
+#         file_value = file_values[i]
+#         file.write(file_value, '\n')
 

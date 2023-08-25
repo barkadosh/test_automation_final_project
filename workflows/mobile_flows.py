@@ -6,9 +6,8 @@ from extensions.mobile_actions import MobileActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
 from test_cases import conftest as conf
-from utilities.common_ops import get_data, wait, write_to_file, read_csv
-from utilities.enums import For
-
+from utilities.common_ops import get_data, wait, read_csv
+from utilities.enums import For, Direction
 
 
 class MobileFlows:
@@ -79,27 +78,24 @@ class MobileFlows:
             if repayment == repayment_amount:
                 Verifications.is_not_displayed(page.mobile_save.get_repayment())
 
-    @staticmethod
-    @allure.step('Get transactions details in calculator page')
-    def get_transaction_details_calculator(amount, term, rate):
-        amount_calculator = amount
-        term_calculator = term
-        rate_calculator = rate
-        repayment_calculator = page.mobile_calculator.get_repayment().text
-        interest_calculator = page.mobile_calculator.get_interest().text
-        calc_trans_lst = [amount_calculator, term_calculator, rate_calculator, repayment_calculator, interest_calculator]
-        write_to_file('calc_trans', calc_trans_lst)
-
-    @staticmethod
-    @allure.step('Get transactions details in saved page')
-    def get_transaction_details_saved():
-        amount_saved = page.mobile_save.get_amount()
-        term_saved = page.mobile_save.get_term()
-        rate_saved = page.mobile_save.get_rate()
-        repayment_saved = page.mobile_save.get_repayment()
-        interest_saved = page.mobile_save.get_interest()
-        saved_trans_lst = [amount_saved, term_saved, rate_saved, repayment_saved, interest_saved]
-        write_to_file('saved_trans', saved_trans_lst)
+    # @staticmethod
+    # @allure.step('Get transactions details in calculator page')
+    # def get_transaction_details(amount, term, rate):
+    #     amount_calculator = amount
+    #     term_calculator = term
+    #     rate_calculator = rate
+    #     repayment_calculator = page.mobile_calculator.get_repayment().text
+    #     interest_calculator = page.mobile_calculator.get_interest().text
+    #     # calc_trans_lst = [amount_calculator, term_calculator, rate_calculator, repayment_calculator, interest_calculator]
+    #     # write_to_file('calc_trans', calc_trans_lst)
+    #     MobileFlows.swipe_screen(Direction.LEFT)
+    #     amount_saved = page.mobile_save.get_amount()
+    #     term_saved = page.mobile_save.get_term()
+    #     rate_saved = page.mobile_save.get_rate()
+    #     repayment_saved = page.mobile_save.get_repayment()
+    #     interest_saved = page.mobile_save.get_interest()
+    #     # saved_trans_lst = [amount_saved, term_saved, rate_saved, repayment_saved, interest_saved]
+    #     # write_to_file('saved_trans', saved_trans_lst)
 
 
     # @staticmethod

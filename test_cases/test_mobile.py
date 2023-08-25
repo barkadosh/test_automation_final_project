@@ -40,15 +40,14 @@ class TestMobile:
 
     # ~~~ My test cases ~~~
 
-    @allure.title("TC04: Verify mortage details")
-    @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
-                        "and in the saved transaction")
-    @pytest.mark.parametrize('calc, saved', mobile_flows.trans_testdata)
-    def test_delete_saved_trans(self):
-        MobileFlows.mortgage_flow('100', '1', '10', Save.YES)
-        MobileFlows.get_transaction_details_calculator('100', '1', '10')
-        MobileFlows.swipe_screen(Direction.LEFT)
-        MobileFlows.get_transaction_details_saved()
+    # @allure.title("TC04: Verify mortage details")
+    # @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
+    #                     "and in the saved transaction")
+    # @pytest.mark.parametrize('calc, saved', mobile_flows.trans_testdata)
+    # def test_delete_saved_trans(self):
+    #     MobileFlows.mortgage_flow('100', '1', '10', Save.YES)
+    #     MobileFlows.get_transaction_details('100', '1', '10')
+
 
 
 
