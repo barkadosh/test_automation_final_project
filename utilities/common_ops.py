@@ -1,8 +1,10 @@
 import csv
 import time
 import socket
+from datetime import datetime
 
 import allure
+import pytz
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import test_cases.conftest as conf
@@ -89,6 +91,24 @@ def get_time_stamp():
 
 
 ###########################################
+# Function Name: get_current_date
+# Function Description: This function get the current date for test_verify_time in test_mobile
+# Function Return: string - date
+###########################################
+def get_current_date():
+    return datetime.now().strftime("%d-%m-%Y")
+
+
+###########################################
+# Function Name: get_current_hour
+# Function Description: This function get the current hour (hour:minutes) for test_verify_time in test_mobile
+# Function Return: string - hour
+###########################################
+def get_current_hour():
+    return datetime.now().strftime("%H:%M")
+
+
+###########################################
 # Function Name: save_screenshot()
 # Function Description: This function save screenshots to allure report at the end of some of the test cases
 ###########################################
@@ -97,10 +117,8 @@ def save_screenshot():
     conf.driver.get_screenshot_as_file(image)
     allure.attach.file(image, attachment_type=allure.attachment_type.PNG)
 
-
 # def write_to_file(file_name,file_values):
 #     file = open(f"C:\\Automation\\test_automation_final_project\\ddt\\{file_name}.csv", "w")
 #     for i in len(file_values):
 #         file_value = file_values[i]
 #         file.write(file_value, '\n')
-

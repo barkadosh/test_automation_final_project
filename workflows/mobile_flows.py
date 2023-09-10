@@ -1,16 +1,23 @@
 import allure
-import pytest
 
 import page_objects.mobile_objects.calculator_page
 from extensions.mobile_actions import MobileActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
 from test_cases import conftest as conf
-from utilities.common_ops import get_data, wait, read_csv
+from utilities.common_ops import get_data, wait, get_current_date, get_current_hour
 from utilities.enums import For, Direction
 
 
+
 class MobileFlows:
+
+    # @staticmethod
+    # @allure.step('Approve start app screens')
+    # def approve_start_app_messages():
+    #     MobileActions.click(page.mobile_calculator.approve_notif())
+    #     MobileActions.click(page.mobile_calculator.alrt_msg_ok())
+
     @staticmethod
     @allure.step('Fill in mortgage details flow')
     def mortgage_flow(amount, term, rate, save):
@@ -97,22 +104,24 @@ class MobileFlows:
         expected = [amount_saved, term_saved, rate_saved, repayment_saved, interest_saved]
         Verifications.verify_lists_are_equals(actual,expected)
 
-    # @staticmethod
-    # @allure.step('Get transactions details in saved page')
-    # def verify_transaction_details_equals():
-    #     actual =
+    @staticmethod
+    @allure.step('Check current time')
+    def check_current_time():
+        date_now = get_current_date()
+        print(date_now)
+        hour_now = get_current_hour()
+        print(hour_now)
 
-    # calc_trans_lst = [amount_calculator, term_calculator, rate_calculator, repayment_calculator, interest_calculator]
-    # write_to_file('calc_trans', calc_trans_lst)
+    @staticmethod
+    @allure.step('Check transaction time')
+    def check_current_time():
+        trans_date = page.mobile_save.get_amount().text
+        hour_now = get_current_hour()
+        print(hour_now)
 
-# Parameters for "TC04: Verify mortage details" from test_mobile.py, imported from Users_CSV File
-# data1 = read_csv(get_data('Calc_Trans'))
-# data2 = read_csv(get_data('Saved_Trans'))
-# trans_testdata = [
-#     (data1[0][0], data2[0][0]),
-#     (data1[1][0], data2[1][0]),
-#     (data1[2][0], data2[2][0]),
-#     (data1[3][0], data2[3][0]),
-#     (data1[4][0], data2[4][0]),
-#     (data1[5][0], data2[5][0])
-#     ]
+
+
+
+
+
+

@@ -12,7 +12,7 @@ class Verifications:
         assert actual == expected, f'Verify Equals Failed, Actual: {str(actual)} is not equal to Expected: {str(expected)}'
 
     @staticmethod
-    @allure.step("Verify element is equal to expected")
+    @allure.step("Verify list of elements is equal to list of expected elements")
     def verify_lists_are_equals(actual, expected):
         for i in range(len(actual)):
             assert actual[i] == expected[i], f'Verify Equals Failed, Actual: {str(actual)} is not equal to Expected: {str(expected)}'

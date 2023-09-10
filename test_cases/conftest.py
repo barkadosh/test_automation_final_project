@@ -242,6 +242,7 @@ def get_edge():
 # Function Description: This function get the Android driver and return it to the get_mobile_driver function
 ###########################################
 def get_android(udid):
+    #dc['automationName'] = get_data('automationName')
     dc['udid'] = udid
     dc['appPackage'] = get_data('App_Package')
     dc['appActivity'] = get_data('App_Activity')
