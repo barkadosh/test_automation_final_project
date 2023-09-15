@@ -47,26 +47,31 @@ class TestMobile:
         MobileFlows.compare_transaction_details('1000', '10', '10')
         MobileFlows.delete_saved_trans()
 
+    # requirements for this test: install pytz
     @allure.title("TC05: Verify transaction date and hour")
     @allure.description("this test Verify that transaction saved on the current date and hour")
     @pytest.mark.run_this
     def test_verify_time(self):
-        #MobileFlows.swipe_screen(Direction.LEFT)
+        #MobileFlows.swipe_screen(Direction.RIGHT)
         MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
         MobileFlows.check_current_time()
-        MobileFlows.swipe_screen(Direction.RIGHT)
-        # 10-09-2023
-        # 20:04:28
-
-    @allure.title("TC04: Verify mortgage details")
-    @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
-                        "and in the saved transaction")
-    @pytest.mark.run_this
-    def test_mortgage_details(self):
-        MobileFlows.swipe_screen(Direction.RIGHT)
-        MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
-
+        time.sleep(2)
         MobileFlows.swipe_screen(Direction.LEFT)
+        # 15-09-2023
+        # 13:54
+        time.sleep(5)
+        MobileFlows.check_trans_time()
+        # Saved on 15-09-2023
+
+    # @allure.title("TC04: Verify mortgage details")
+    # @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
+    #                     "and in the saved transaction")
+    # @pytest.mark.run_this
+    # def test_mortgage_details(self):
+    #     MobileFlows.swipe_screen(Direction.RIGHT)
+    #     MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
+    #
+    #     MobileFlows.swipe_screen(Direction.LEFT)
 
 
 

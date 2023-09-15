@@ -10,7 +10,6 @@ save = (By.ID, "btnSave")
 repayment = (By.ID, "tvRepayment")
 interest = (By.ID, "tvInterestOnly")
 
-
 class CalculatorPage:
     def __init__(self, driver):
         self.driver = driver
@@ -41,3 +40,4 @@ class CalculatorPage:
 
     def get_interest(self):
         return self.driver.find_element(interest[0], interest[1])
+

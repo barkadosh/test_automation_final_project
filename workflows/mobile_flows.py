@@ -1,3 +1,5 @@
+from time import strftime
+
 import allure
 
 import page_objects.mobile_objects.calculator_page
@@ -111,13 +113,16 @@ class MobileFlows:
         print(date_now)
         hour_now = get_current_hour()
         print(hour_now)
+        fulldate = strftime("%a %b %d %H:%M:%S %Z%z %Y")
+        print(fulldate)
 
     @staticmethod
     @allure.step('Check transaction time')
-    def check_current_time():
-        trans_date = page.mobile_save.get_amount().text
-        hour_now = get_current_hour()
-        print(hour_now)
+    def check_trans_time():
+        trans_date = page.mobile_save.get_timestamp().text
+        print(trans_date)
+        trans_strftime = page.mobile_save.get_timestamp().text
+        print(strftime)
 
 
 
