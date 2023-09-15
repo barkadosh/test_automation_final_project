@@ -1,7 +1,5 @@
 import time
-
 import allure
-
 import pytest
 from utilities.enums import Save, Direction
 from workflows.mobile_flows import MobileFlows
@@ -29,8 +27,8 @@ class TestMobile:
         MobileFlows.swipe_screen(Direction.LEFT)
         MobileFlows.verify_rate('3.0')
 
-    @allure.title("TC03: Delete saved transaction")
-    @allure.description("this test verify transaction is deleted from tear down method")
+    @allure.title("TC03: Negative test - Verify transaction is deleted")
+    @allure.description("this test verify transaction deleted transaction doesn't appears in the app")
     @pytest.mark.sanity
     def test_delete_saved_trans(self):
         #MobileFlows.swipe_screen(Direction.LEFT)
@@ -59,6 +57,18 @@ class TestMobile:
         MobileFlows.swipe_screen(Direction.RIGHT)
         # 10-09-2023
         # 20:04:28
+
+    @allure.title("TC04: Verify mortgage details")
+    @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
+                        "and in the saved transaction")
+    @pytest.mark.run_this
+    def test_mortgage_details(self):
+        MobileFlows.swipe_screen(Direction.RIGHT)
+        MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
+
+        MobileFlows.swipe_screen(Direction.LEFT)
+
+
 
     def teardown_method(self):
         time.sleep(1)

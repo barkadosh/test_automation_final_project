@@ -7,7 +7,7 @@ from selenium.webdriver.remote.webelement import WebElement
 
 class Verifications:
     @staticmethod
-    @allure.step("Verify element is equal to expected")
+    @allure.step("Verify list of actual elements is equal to expected elements")
     def verify_equals(actual, expected):
         assert actual == expected, f'Verify Equals Failed, Actual: {str(actual)} is not equal to Expected: {str(expected)}'
 
