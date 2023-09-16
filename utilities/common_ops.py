@@ -4,7 +4,6 @@ import socket
 from datetime import datetime
 
 import allure
-import pytz
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import test_cases.conftest as conf
