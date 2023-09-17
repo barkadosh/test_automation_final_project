@@ -1,0 +1,1 @@
+{"uuid": "aeab0b9d-68f2-49bb-989d-427ad114acf6", "children": ["9c486666-40c4-450c-9720-b638d4a2431d"], "befores": [{"name": "init_mobile_driver", "status": "passed", "start": 1694986172234, "stop": 1694986184048}], "afters": [{"name": "init_mobile_driver::0", "status": "passed", "start": 1694986198823, "stop": 1694986201660}], "start": 1694986172234, "stop": 1694986201660}

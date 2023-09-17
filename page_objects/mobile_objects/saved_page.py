@@ -9,6 +9,7 @@ cancel_confirm_delete = (By.XPATH, "//*[@text='Cancel']")
 repayment = (By.ID, "tvRepayment")
 interest = (By.ID, "tvInterestOnly")
 timestamp = (By.ID, "tvTimestamp")
+strftime = (By.ID, "tvRef")
 
 
 class SavedPage:
@@ -45,3 +46,5 @@ class SavedPage:
     def get_timestamp(self):
         return self.driver.find_element(timestamp[0], timestamp[1])
 
+    def get_strftime(self):
+        return self.driver.find_element(strftime[0], strftime[1])

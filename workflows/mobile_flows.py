@@ -11,7 +11,6 @@ from utilities.common_ops import get_data, wait, get_current_date, get_current_h
 from utilities.enums import For, Direction
 
 
-
 class MobileFlows:
 
     # @staticmethod
@@ -87,6 +86,7 @@ class MobileFlows:
             if repayment == repayment_amount:
                 Verifications.is_not_displayed(page.mobile_save.get_repayment())
 
+    # Fix structure like current and trans time flows!!!!!!!!
     @staticmethod
     @allure.step('Get transactions details in calculator page')
     def compare_transaction_details(amount, term, rate):
@@ -104,29 +104,30 @@ class MobileFlows:
         repayment_saved = page.mobile_save.get_repayment().text
         interest_saved = page.mobile_save.get_interest().text
         expected = [amount_saved, term_saved, rate_saved, repayment_saved, interest_saved]
-        Verifications.verify_lists_are_equals(actual,expected)
+        Verifications.verify_lists_are_equals(actual, expected)
 
     @staticmethod
     @allure.step('Check current time')
     def check_current_time():
-        date_now = get_current_date()
-        print(date_now)
-        hour_now = get_current_hour()
-        print(hour_now)
-        fulldate = strftime("%a %b %d %H:%M:%S %Z%z %Y")
-        print(fulldate)
+        current_date = get_current_date()
+        print(current_date)
+        current_time = strftime("%a %b %d %H:%M")
+        current_year = strftime("%Y")
+        current_strftime = current_time + ' ' + current_year
+        print(current_strftime)
+        return current_date, current_strftime
 
     @staticmethod
     @allure.step('Check transaction time')
     def check_trans_time():
         trans_date = page.mobile_save.get_timestamp().text
+        current_hour = int(strftime("%H"))
+        # Fix for a 1-day diversion between 00:00-02:00
+        if 0 <= current_hour <= 2:
+            trans_day = int(trans_date[10:11]) + 1
+            trans_date = trans_date[0:10] + str(trans_day) + trans_date[11:19]
         print(trans_date)
-        trans_strftime = page.mobile_save.get_timestamp().text
-        print(strftime)
-
-
-
-
-
-
-
+        trans_strftime = page.mobile_save.get_strftime().text
+        trans_strftime = trans_strftime[0:16] + trans_strftime[-5:]
+        print(trans_strftime)
+        return trans_date, trans_strftime

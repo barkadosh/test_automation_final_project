@@ -3,6 +3,7 @@ import allure
 import pytest
 from utilities.enums import Save, Direction
 from workflows.mobile_flows import MobileFlows
+from extensions.verifications import Verifications
 
 #python -m pytest test_mobile.py -s -v -m run_this --alluredir=../allure-results
 
@@ -31,10 +32,10 @@ class TestMobile:
     @allure.description("this test verify transaction deleted transaction doesn't appears in the app")
     @pytest.mark.sanity
     def test_delete_saved_trans(self):
-        #MobileFlows.swipe_screen(Direction.LEFT)
         MobileFlows.delete_saved_trans()
+        MobileFlows.swipe_screen(Direction.RIGHT)
         MobileFlows.verify_trans_is_deleted('59.36')
-        MobileFlows.delete_saved_trans()
+        MobileFlows.swipe_screen(Direction.LEFT)
 
     # ~~~ My test cases ~~~
 
@@ -45,23 +46,23 @@ class TestMobile:
         MobileFlows.swipe_screen(Direction.RIGHT)
         MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
         MobileFlows.compare_transaction_details('1000', '10', '10')
-        MobileFlows.delete_saved_trans()
 
     # requirements for this test: install pytz
     @allure.title("TC05: Verify transaction date and hour")
-    @allure.description("this test Verify that transaction saved on the current date and hour")
+    @allure.description("this test Verify that transaction saved on the current date and hour (not including seconds)")
     @pytest.mark.run_this
     def test_verify_time(self):
-        #MobileFlows.swipe_screen(Direction.RIGHT)
+        MobileFlows.swipe_screen(Direction.RIGHT)
         MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
         MobileFlows.check_current_time()
-        time.sleep(2)
         MobileFlows.swipe_screen(Direction.LEFT)
-        # 15-09-2023
-        # 13:54
-        time.sleep(5)
         MobileFlows.check_trans_time()
-        # Saved on 15-09-2023
+        # Verify saved on message shows the correct date
+        Verifications.verify_equals('Saved on ' + MobileFlows.check_current_time()[0], MobileFlows.check_trans_time()[0])
+        # Verify the header full date is correct
+        Verifications.verify_equals(MobileFlows.check_trans_time()[1], MobileFlows.check_current_time()[1])
+
+
 
     # @allure.title("TC04: Verify mortgage details")
     # @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
@@ -74,8 +75,8 @@ class TestMobile:
     #     MobileFlows.swipe_screen(Direction.LEFT)
 
 
-
     def teardown_method(self):
+        MobileFlows.delete_saved_trans()
         time.sleep(1)
 
 # Test 1: Verify amount, yrs, percentage, repayment, interest are the same in the calculator and in the saved transaction
