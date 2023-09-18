@@ -30,7 +30,7 @@ class TestMobile:
         MobileFlows.verify_rate('3.0')
         MobileFlows.delete_saved_trans()
 
-    @allure.title("TC03: Negative test - Verify transaction is deleted")
+    @allure.title("TC03: Verify transaction is deleted")
     @allure.description("this test verify transaction deleted transaction doesn't appears in the app")
     @pytest.mark.sanity
     def test_delete_saved_trans(self):
