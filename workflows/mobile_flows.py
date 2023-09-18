@@ -88,23 +88,41 @@ class MobileFlows:
 
     # Fix structure like current and trans time flows!!!!!!!!
     @staticmethod
-    @allure.step('Get transactions details in calculator page')
-    def compare_transaction_details(amount, term, rate):
+    @allure.step('Set the transaction variables in calculator page')
+    def set_transaction_details(amount, term, rate):
+        global amount_calculator
+        global term_calculator
+        global rate_calculator
+        global repayment_calculator
+        global interest_calculator
         amount_calculator = '£' + str(float(amount))
         term_calculator = str(float(term)) + ' yrs'
         rate_calculator = str(float(rate)) + '%'
         repayment_calculator = page.mobile_calculator.get_repayment().text
         interest_calculator = page.mobile_calculator.get_interest().text
-        actual = [amount_calculator, term_calculator, rate_calculator, repayment_calculator,
-                  interest_calculator]
-        MobileFlows.swipe_screen(Direction.LEFT)
+
+    @staticmethod
+    @allure.step('Return transactions details in calculator page')
+    def get_transaction_details():
+        return amount_calculator, term_calculator, rate_calculator, repayment_calculator, interest_calculator
+    @staticmethod
+    @allure.step('Set the transaction variables in the saved transactions page')
+    def set_saved_transaction_details():
+        global amount_saved
+        global term_saved
+        global rate_saved
+        global repayment_saved
+        global interest_saved
         amount_saved = page.mobile_save.get_amount().text
         term_saved = page.mobile_save.get_term().text
         rate_saved = page.mobile_save.get_rate().text
         repayment_saved = page.mobile_save.get_repayment().text
         interest_saved = page.mobile_save.get_interest().text
-        expected = [amount_saved, term_saved, rate_saved, repayment_saved, interest_saved]
-        Verifications.verify_lists_are_equals(actual, expected)
+
+    @staticmethod
+    @allure.step('Return transactions details in the saved transactions page')
+    def get_saved_transaction_details():
+        return amount_saved, term_saved, rate_saved, repayment_saved, interest_saved
 
     @staticmethod
     @allure.step('Check current time')
