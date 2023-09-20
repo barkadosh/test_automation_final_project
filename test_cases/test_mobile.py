@@ -4,9 +4,10 @@ import pytest
 from utilities.enums import Save, Direction
 from workflows.mobile_flows import MobileFlows
 from extensions.verifications import Verifications
+import utilities.manage_pages as page
 
 
-# python -m pytest test_mobile.py -s -v -m run_this --alluredir=../allure-results
+# python -m pytest test_mobile.py -s -v --alluredir=../allure-results
 
 @pytest.mark.usefixtures('init_mobile_driver')
 class TestMobile:
@@ -23,7 +24,6 @@ class TestMobile:
     @allure.description("This test verify saved transaction")
     @pytest.mark.sanity
     def test_verify_saved_details(self):
-        # MobileFlows.approve_start_app_messages()
         MobileFlows.mortgage_flow('5000', '8', '3', Save.YES)
         MobileFlows.mortgage_flow('1000', '5', '2.5', Save.YES)
         MobileFlows.swipe_screen(Direction.LEFT)
@@ -42,7 +42,6 @@ class TestMobile:
     @allure.title("TC04: Verify mortgage details")
     @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
                         "and in the saved transaction")
-    @pytest.mark.run_this
     def test_mortgage_details(self):
         MobileFlows.swipe_screen(Direction.RIGHT)
         MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
@@ -73,17 +72,19 @@ class TestMobile:
         # Verify the header full date is correct
         Verifications.verify_equals(MobileFlows.check_trans_time()[1], MobileFlows.check_current_time()[1])
 
-    # @allure.title("TC06: Verify mortgage calculation")
-    # @allure.description("this test Verify amount, yrs, percentage, repayment, interest are the same in the calculator "
-    #                     "and in the saved transaction")
-    # @pytest.mark.run_this
-    # def test_mortgage_details(self):
-    #     MobileFlows.swipe_screen(Direction.RIGHT)
-    #     MobileFlows.mortgage_flow('1000', '10', '10', Save.YES)
-    #
-    #     MobileFlows.swipe_screen(Direction.LEFT)
+    @allure.title("TC06: Verify mortgage calculation")
+    @allure.description("this test Verify the mortgage calculation is correct: amount*(1+precetage)/yrs")
+    @pytest.mark.run_this
+    def test_mortgage_details(self):
+        self.skip_teardown = True
+        MobileFlows.swipe_screen(Direction.RIGHT)
+        MobileFlows.mortgage_flow('1000', '1', '10', Save.NO)
+        Verifications.verify_equals(page.mobile_calculator.get_repayment().text, '£91.67')
 
     def teardown_method(self):
+        if hasattr(self, 'skip_teardown') and self.skip_teardown:
+            print("Skipping teardown")
+            return
         MobileFlows.delete_saved_trans()
         time.sleep(1)
 

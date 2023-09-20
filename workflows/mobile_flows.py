@@ -13,12 +13,6 @@ from utilities.enums import For, Direction
 
 class MobileFlows:
 
-    # @staticmethod
-    # @allure.step('Approve start app screens')
-    # def approve_start_app_messages():
-    #     MobileActions.click(page.mobile_calculator.approve_notif())
-    #     MobileActions.click(page.mobile_calculator.alrt_msg_ok())
-
     @staticmethod
     @allure.step('Fill in mortgage details flow')
     def mortgage_flow(amount, term, rate, save):
