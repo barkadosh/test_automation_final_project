@@ -57,7 +57,6 @@ class TestElectron:
         ElectronFlows.click_task_checkbox(1)
         ElectronFlows.filter_to_tasks_completed()
 
-
     @allure.title("TC0: Delete tasks")
     @allure.description("Delete all tasks in the list of a specific date")
     def test_delete_tasks(self):
@@ -70,10 +69,8 @@ class TestElectron:
 # ~~~ My test cases ~~~
 # Mark task as done
 # Toggle all completed
-# View only done tasks
-# View only to do tasks
+
 # Create task with color icon
-# Toggle all completed
 # Change task position
 # Change and validate date
 

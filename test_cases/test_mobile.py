@@ -82,9 +82,9 @@ class TestMobile:
         Verifications.verify_equals(page.mobile_calculator.get_repayment().text, '£91.67')
 
     def teardown_method(self):
-        if hasattr(self, 'skip_teardown') and self.skip_teardown:
-            print("Skipping teardown")
-            return
+        # if hasattr(self, 'skip_teardown') and self.skip_teardown:
+        #     print("Skipping teardown")
+        #     return
         MobileFlows.delete_saved_trans()
         time.sleep(1)
 

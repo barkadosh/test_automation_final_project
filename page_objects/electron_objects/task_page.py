@@ -8,7 +8,8 @@ task_not_done = (By.XPATH, "//*[@class='label_5i8SP']")
 delete_buttons = (By.XPATH, "//*[@class='destroy_19w1q']")
 toggle_all_completed = (By.XPATH, "//*[@class='allCompletedIconWrapper_2rCqr']")
 visibility_panel = (By.XPATH, "//*[@class='toggleVisibilityPanel_hNPyc']")
-completed_filter = (By.XPATH, "//div[@class='statusWrapper_fkjww']/*[last()]")
+# filter_wrapper = (By.XPATH, "//*[@class='wrapper_1rLCD isVisible_1VByM']")
+completed_filter = (By.XPATH, "//button[text()='Completed]'")
 
 
 class TaskPage:
@@ -38,6 +39,8 @@ class TaskPage:
         return self.driver.find_element(visibility_panel[0], visibility_panel[1])
 
     def get_completed_filter(self):
+        # wrapper = self.driver.find_element(filter_wrapper[0], filter_wrapper[1])
+        # self.driver.switch_to.frame(wrapper)
         return self.driver.find_element(completed_filter[0], completed_filter[1])
 
     def get_delete_buttons(self):

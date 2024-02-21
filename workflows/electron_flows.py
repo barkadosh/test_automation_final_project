@@ -36,7 +36,7 @@ class ElectronFlows:
     @allure.step("Filter the list to show only completed tasks")
     def filter_to_tasks_completed():
         UiActions.click(page.electron_task.get_visibility_panel())
-        wait("element_to_be_clickable", page.electron_task.get_completed_filter())
+        #wait("element_to_be_clickable", page.electron_task.get_completed_filter())
         UiActions.click(page.electron_task.get_completed_filter())
 
     @staticmethod
