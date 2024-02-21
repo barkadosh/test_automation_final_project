@@ -12,6 +12,7 @@ from workflows.web_flows import WebFlows
 
 # Run command: python -m pytest test_web.py::TestWebUsers  -s -v -m run_this --alluredir=../allure-results
 
+# This test cases test the functionality of Grafana Dashboards and users management
 @pytest.mark.usefixtures('init_web_driver')
 class TestWebUsers:
     @allure.title("TC01: Login to Grafana")

@@ -7,7 +7,7 @@ from workflows.desktop_flows import DesktopFlows
 # To run winappdriver:  WIN-key+R: C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe
 # python -m pytest test_desktop.py -s -v --alluredir=../allure-results
 
-
+# This test cases test the functionality of a uk Mortgage Calculator app
 @pytest.mark.usefixtures('init_desktop_driver')
 class TestDesktopApp:
     @allure.title("TC01: Adding 2 numbers")
@@ -16,11 +16,14 @@ class TestDesktopApp:
         DesktopFlows.calculate_flow("1+7")
         Verifications.verify_equals(DesktopFlows.get_result_flow(), '8')
 
-    @allure.title("TC0: Arithmetic Actions")
+    @allure.title("TC02: Arithmetic Actions")
     @allure.description("This test does arithmetic actions and verify")
     def test_arithmetic_actions(self):
         DesktopFlows.calculate_flow('2*5+50/2-25')
         Verifications.verify_equals(DesktopFlows.get_result_flow(), '5')
+
+    @allure.title("TC03: Arithmetic Actions")
+    @allure.description("This test verify the data saved correctly to history")
 
     def teardown_methode(self):
         DesktopFlows.clear_flow()

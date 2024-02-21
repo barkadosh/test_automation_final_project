@@ -9,6 +9,8 @@ import utilities.manage_pages as page
 
 # python -m pytest test_mobile.py -s -v --alluredir=../allure-results
 
+
+# This test cases test the functionality of
 @pytest.mark.usefixtures('init_mobile_driver')
 class TestMobile:
     @allure.title("TC01: Verify mortgage repayment")
