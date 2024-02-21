@@ -5,7 +5,7 @@ import allure
 import pytest
 from selenium.webdriver.common.keys import Keys
 
-from extensions.ui_actiuons import UiActions
+from extensions.ui_actions import UiActions
 import utilities.manage_pages as page
 from utilities.common_ops import wait
 

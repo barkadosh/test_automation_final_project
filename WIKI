@@ -42,7 +42,7 @@ download driver: https://atidcollege.co.il/downloads/electron/electrondriver-v3.
 10.Desktop apps:
 download : https://github.com/Microsoft/WinAppDriver/releases (latest not pre release)
 *documentation- https://github.com/microsoft/WinAppDriver
-!!! Enable developer mode !!! --> https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+*Enable developer mode* --> https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
 Download windows sdk: https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
 Find AUMID of a desktop app (that allow it)
     * Run Windows PowerShell

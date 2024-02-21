@@ -6,7 +6,7 @@ import page_objects.web_objects.server_admin_page
 import page_objects.web_objects.dashboards_popups_menus
 import page_objects.web_objects.dashboards_new_dashboard_page
 import page_objects.web_objects.dashboards_browse_page
-from extensions.ui_actiuons import UiActions
+from extensions.ui_actions import UiActions
 import utilities.manage_pages as page
 from extensions.verifications import Verifications
 from utilities.common_ops import wait, wait_for_element_text, get_data, read_csv

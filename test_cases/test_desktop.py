@@ -4,8 +4,9 @@ import pytest
 from extensions.verifications import Verifications
 from workflows.desktop_flows import DesktopFlows
 
-
+# To run winappdriver:  WIN-key+R: C:\Program Files (x86)\Windows Application Driver\WinAppDriver.exe
 # python -m pytest test_desktop.py -s -v --alluredir=../allure-results
+
 
 @pytest.mark.usefixtures('init_desktop_driver')
 class TestDesktopApp:
@@ -25,3 +26,6 @@ class TestDesktopApp:
         DesktopFlows.clear_flow()
 
 # ~~~ My test cases ~~~
+# Validate result in history
+# Display result from history
+#

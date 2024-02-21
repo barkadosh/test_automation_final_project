@@ -71,7 +71,6 @@ class TestWebUsers:
         time.sleep(2)
 
 
-# add performance tests
 # Run command: python -m pytest test_web.py::TestWebDashboard -s -v -m run_this --alluredir=../allure-results
 @pytest.mark.usefixtures('init_web_driver')
 class TestWebDashboard:

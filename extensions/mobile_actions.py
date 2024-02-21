@@ -1,6 +1,6 @@
 import allure
 
-from extensions.ui_actiuons import UiActions
+from extensions.ui_actions import UiActions
 from test_cases import conftest as conf
 
 
