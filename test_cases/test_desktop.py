@@ -28,4 +28,4 @@ class TestDesktopApp:
 # ~~~ My test cases ~~~
 # Validate result in history
 # Display result from history
-#
+# Delete history

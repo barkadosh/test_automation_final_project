@@ -57,3 +57,5 @@ class DesktopFlows:
     @allure.step("Clear calculator result")
     def clear_flow():
         UiActions.click(page.standard_calc.get_clear())
+
+
