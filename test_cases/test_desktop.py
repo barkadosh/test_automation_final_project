@@ -43,6 +43,7 @@ class TestDesktopApp:
         DesktopFlows.calculate_flow(equation)
         DesktopFlows.clear_flow()
 
+
     @allure.title("TC05: Clear history list")
     @allure.description("Verify history list is empty after clicking on clear")
     def test_clear_history_validation(self):
