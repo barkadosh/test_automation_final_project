@@ -17,8 +17,9 @@ divide = (By.NAME, "Divide by")
 equals = (By.NAME, "Equals")
 result = (By.XPATH, "//*[@AutomationId='CalculatorResults']")
 clear = (By.NAME, "Clear")
-history_equation = (By.XPATH, "//*[@AutomationId='HistoryItemExpression']")
-history_result = (By.XPATH, "//*[@AutomationId='HistoryItemValue']")
+history_values = (By.XPATH, "//*[@AutomationId='HistoryListView']/*")
+clear_history = (By.XPATH, "//*[@AutomationId='ClearHistory']")
+cleared_history_list = (By.XPATH, "//*[@AutomationId='HistoryEmpty']")
 
 class StandardPage:
 
@@ -76,8 +77,13 @@ class StandardPage:
     def get_clear(self):
         return self.driver.find_element(clear[0], clear[1])
 
-    def get_history_equation(self):
-        return self.driver.find_element(history_equation[0], history_equation[1])
+    def get_history_values(self, i):
+        return self.driver.find_elements(history_values[0], history_values[1])[i]
 
-    def get_history_result(self):
-        return self.driver.find_element(history_result[0], history_result[1])
+    def get_clear_history(self):
+        return self.driver.find_element(clear_history[0], clear_history[1])
+
+    def get_cleared_history_list(self):
+        return self.driver.find_element(cleared_history_list[0], cleared_history_list[1])
+
+

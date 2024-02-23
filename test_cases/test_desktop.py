@@ -1,3 +1,5 @@
+import time
+
 import allure
 
 import pytest
@@ -22,13 +24,41 @@ class TestDesktopApp:
         DesktopFlows.calculate_flow('2*5+50/2-25')
         Verifications.verify_equals(DesktopFlows.get_result_flow(), '5')
 
-    @allure.title("TC03: Arithmetic Actions")
-    @allure.description("This test verify the data saved correctly to history")
+    @allure.title("TC03: Validate history list equations")
+    @allure.description("Validate equations appears in history list and the last equation appears on top of the list")
+    def test_history_validation(self):
+        equation = '1+7'
+        DesktopFlows.calculate_flow(equation)
+        DesktopFlows.clear_flow()
+        Verifications.verify_equals(DesktopFlows.get_history_value().text,'1 + 7= 8')
+        equation = '3+9'
+        DesktopFlows.calculate_flow(equation)
+        DesktopFlows.clear_flow()
+        Verifications.verify_equals(DesktopFlows.get_history_value().text, '3 + 9= 12')
+
+    @allure.title("TC04: Retrieve equation from history list")
+    @allure.description("Validate equations appears in history list and the last equation appears on top of the list")
+    def test_history_validation(self):
+        equation = '1+7'
+        DesktopFlows.calculate_flow(equation)
+        DesktopFlows.clear_flow()
+
+    @allure.title("TC05: Clear history list")
+    @allure.description("Verify history list is empty after clicking on clear")
+    def test_clear_history_validation(self):
+        equation = '1+7'
+        DesktopFlows.calculate_flow(equation)
+        DesktopFlows.clear_flow()
+        Verifications.is_exist(DesktopFlows.clear_history())
+
+
 
     def teardown_methode(self):
         DesktopFlows.clear_flow()
 
+
+
 # ~~~ My test cases ~~~
-# Validate result in history
+# Validate equation saved in history
 # Display result from history
 # Delete history

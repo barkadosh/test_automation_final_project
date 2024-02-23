@@ -65,6 +65,11 @@ class Verifications:
     def verify_number_of_elements(elems, size):
         assert len(elems) == size, f'Number of elements in list: {str(len(elems))} does not match Expected: {str(size)}'
 
+    @staticmethod
+    @allure.step("Verify web element is exist")
+    def is_exist(elem: WebElement):
+        assert elem, f'Verify web element is exist failed, Element: {elem.text} is not exist'
+
 
 
 

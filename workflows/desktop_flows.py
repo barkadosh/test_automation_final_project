@@ -59,11 +59,21 @@ class DesktopFlows:
         UiActions.click(page.standard_calc.get_clear())
 
     @staticmethod
-    @allure.step("Get history values")
-    def get_history_flow():
-        history_equation = page.standard_calc.get_history_equation().text
-        history_result = page.standard_calc.get_history_result().text
-        return history_equation, history_result
+    @allure.step("clear and get history list web element")
+    def clear_history():
+        UiActions.click(page.standard_calc.get_clear_history())
+        history_list = page.standard_calc.get_cleared_history_list()
+        return history_list
+
+
+    @staticmethod
+    @allure.step("Get history list web element")
+    def get_history_value():
+        history_value = page.standard_calc.get_history_values(0)
+        return history_value
+
+
+
 
 
 
