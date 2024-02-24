@@ -67,7 +67,6 @@ def wait(for_element, elem):
         WebDriverWait(conf.driver, int(get_data('WaitTime'))).until(
             EC.element_to_be_clickable((elem[0], elem[1])))
 
-
 ###########################################
 # Function Name: wait_for_element_text
 # Function Description: Explicitly Wait for a web element text - this function get the wait time from the config file,
