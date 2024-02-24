@@ -20,6 +20,7 @@ clear = (By.NAME, "Clear")
 history_values = (By.XPATH, "//*[@AutomationId='HistoryListView']/*")
 clear_history = (By.XPATH, "//*[@AutomationId='ClearHistory']")
 cleared_history_list = (By.XPATH, "//*[@AutomationId='HistoryEmpty']")
+equation = (By.XPATH, "//*[@AutomationId='CalculatorExpression']")
 
 class StandardPage:
 
@@ -85,5 +86,9 @@ class StandardPage:
 
     def get_cleared_history_list(self):
         return self.driver.find_element(cleared_history_list[0], cleared_history_list[1])
+
+    def get_equation(self):
+        return self.driver.find_element(equation[0], equation[1])
+
 
 

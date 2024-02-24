@@ -36,13 +36,18 @@ class TestDesktopApp:
         DesktopFlows.clear_flow()
         Verifications.verify_equals(DesktopFlows.get_history_value().text, '3 + 9= 12')
 
-    @allure.title("TC04: Retrieve equation from history list")
-    @allure.description("Validate equations appears in history list and the last equation appears on top of the list")
-    def test_history_validation(self):
+    @allure.title("TC04: Retrieve result from history list")
+    @allure.description("retrieve a result from history to calculator result section and make a calculation with it")
+    def test_retriev_history(self):
         equation = '1+7'
         DesktopFlows.calculate_flow(equation)
         DesktopFlows.clear_flow()
-
+        DesktopFlows.retrieve_history()
+        Verifications.verify_equals(DesktopFlows.get_equation_flow(), '1 + 7=')
+        Verifications.verify_equals(DesktopFlows.get_result_flow(), '8')
+        equation = '+5'
+        DesktopFlows.calculate_flow(equation)
+        Verifications.verify_equals(DesktopFlows.get_result_flow(), '13')
 
     @allure.title("TC05: Clear history list")
     @allure.description("Verify history list is empty after clicking on clear")
@@ -51,8 +56,6 @@ class TestDesktopApp:
         DesktopFlows.calculate_flow(equation)
         DesktopFlows.clear_flow()
         Verifications.is_exist(DesktopFlows.clear_history())
-
-
 
     def teardown_methode(self):
         DesktopFlows.clear_flow()
