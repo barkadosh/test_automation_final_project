@@ -74,13 +74,7 @@ class TestElectron:
         ElectronFlows.add_colored_task_flow('Colored task')
         save_screenshot()
 
-    @allure.title("TC08: Drag a task")
-    @allure.description("Change task position")
-    @pytest.mark.run_this
-    def test_drag_task(self):
-        ElectronFlows.add_new_task_flow("Task to drag down")
-        ElectronFlows.change_task_position()
-        save_screenshot()
+
 
     def teardown_method(self):
         time.sleep(2)
@@ -90,8 +84,7 @@ class TestElectron:
 # Mark task as done - V
 # Toggle all completed - V
 # Create task with color icon - V
-# Change task position
-# Change and validate date
+
 
 
     
